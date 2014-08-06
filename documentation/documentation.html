@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+<!-- meta -->
+    <meta charset="utf-8">
+    <meta name="description" content="Flat, Clean, Responsive, admin template built with bootstrap 3">
+    <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1, maximum-scale=1">
+
+     <title>Cameo | Responsive Admin Dashboard</title>
+
+    <link rel="stylesheet" href="assets/main.min.css">
+
+    <style>
+    .mg-t-xlg {
+        margin-top: 80px;
+    }
+    .js .plugins {
+        display: none
+    }
+    .plugins.active {
+        display: block;
+    }
+    .swatches .panel {
+        overflow: hidden;
+        border-radius: 4px;
+    }
+    .sidebar,
+    .brand {
+        width: 180px!important
+    }
+    .docs-hero {
+        padding: 15px;
+        position: relative;
+        margin-bottom: 400px;
+        clear: both;
+    }
+    .docs-hero h1 {
+        margin-bottom: 10px
+    }
+    .main-navigation ul li a {
+        text-transform: none;
+        padding: 5px 15px!important;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+    }
+    pre {
+        border: 1px solid #e8ecf3!important;
+        padding: 0 20px!important;
+    }
+    </style>
+    <script src="assets/modernizr.js"></script>
+    <script src="assets/prettify.js"></script>
+</head>
+
+<body>
+    <!-- App container area -->
+    <div class="app">
+
+        <div class="layout">
+            <!-- Sidebar menu container -->
+            <aside class="sidebar canvas-left bg-dark">
+                <nav class="main-navigation">
+                    <ul>
+                        <li class="pd-md box-shadow"><b>Documentation v1.2</b></li>
+                        <li>
+                            <a href="#overview">Overview</a>
+                        </li>
+                        <li>
+                            <a href="#structure">Structure</a>
+                        </li>
+                        <li>
+                            <a href="#html-code">HTML Structure</a>
+                        </li>
+                        <li>
+                            <a href="#layouts">Layout Options</a>
+                        </li>
+                        <li>
+                            <a href="#header">Header Options</a>
+                        </li>
+                        <li>
+                            <a href="#sidebar">Sidebar options</a>
+                        </li>
+                        <li>
+                            <a href="#off-canvas">Off-Canvas</a>
+                        </li>
+                        <li>
+                            <a href="#scheme">Color Scheme</a>
+                        </li>
+                        <li>
+                            <a href="#components">Components</a>
+                        </li>
+                        <li>
+                            <a href="#utilities">Utilities</a>
+                        </li>
+                        <li>
+                            <a href="#plugins">Plugins and Resources</a>
+                        </li>
+                        <li>
+                            <a href="#credits">Credits</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <!-- / Sidebar menu container -->
+
+            <!-- main content -->
+            <section class="main-content bg-white">
+
+                <div class="content-wrap">
+
+                    <div class="no-padding">
+                        <div class="row">
+                            <section class="col-lg-9">
+
+                                <div class="docs-hero">
+                                    <h4>Cameo</h4>
+                                    <p>Flat, Clean, Responsive, admin template built with bootstrap 3</p>
+                                    <p>Documentation v1.2
+                                        <hr>
+                                        <ul>
+                                            <li>By:
+                                                <a href="http://nyasha.me" target="_blank">Nyasha</a>
+                                            </li>
+                                            <li>Contact:
+                                                <a href="mailto:hello@nyasha.me">hello@nyasha.me</a>
+                                            </li>
+                                            <li>Online Demo:
+                                                <a href="http://preview.nyasha.me/?theme=cameo" target="_blank">http://preview.nyasha.me/?theme=cameo</a>
+                                            </li>
+                                        </ul>
+                                        <p>Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to contact me.</p>
+                                        <div class="alert alert-info">
+                                            Support requests can go through the form
+                                            <a href="http://themeforest.net/user/iamnyasha/?ref=iamnyasha" target="_blank">on my ThemeForest profile page</a> or via email <a href="mailto:hello@nyasha.me">hello@nyasha.me</a>
+                                        </div>
+                                </div>
+
+
+                                        <div class="alert bg-default">
+                                            <h5 id="overview">Overview</h5>
+                                            <p>Cameo is a flat themed responsive admin template powered by the awesome Twitter bootstrap 3 front-end framework. It comes packed with a plethora of ready to use components and plugins and can be used in the creation of admin dashboards, app backends, Admin panels, CRM or CMS panels. It is clean, fully responsive, well documented and is easy to modify, or style to meet your needs.
+                                            </p>
+                                            <p>You can visit the
+                                                <a href="http://www.getbootstrap.com">Bootstrap</a> page to find out all the various components that you can implement with Cameo. The docs are comprehensive and they include everything to help you get started with using all the various components.
+                                            </p>
+                                        </div>
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="structure">Folder structure</h4>
+
+                                        <pre class="prettyprint">
+<code>
+admin/
+├── ajax/
+├── bootstrap/
+│   ├── css/
+│   ├── js/
+│   └── fonts/
+├── css/
+├── data/
+├── fonts/
+├── img/
+│   ├── gallery/
+│   ├── icons/
+│   └── logos/
+├── js/
+├── less/
+├── vendor/
+</code>
+                                        </pre>
+                                        <p>Cameo download includes precompiled CSS, JavaScript, font assets, and img assets, along with source Less files. Vendor folder contains third party plugin resources.</p>
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="html-code">HTML Code structure</h4>
+
+                                        All layout variations follow this basic layout skeleton...
+
+                                        <h6 class="mg-t pd-b-xs bd-b">HTML5 doctype</h6>
+                                        <pre class="prettyprint">
+<code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html class=&quot;no-js&quot;&gt;
+</code>
+                                        </pre>
+
+                                        <h6 class="mg-t pd-b-xs bd-b">Head</h6>
+                                        <pre class="prettyprint">
+<code class="html">
+&lt;head&gt;
+    &lt;!-- meta --&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Flat, Clean, Responsive, admin template built with bootstrap 3&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=1, initial-scale=1, maximum-scale=1&quot;&gt;
+
+    &lt;title&gt;Cameo | Responsive Admin Dashboard&lt;/title&gt;
+
+    &lt;!-- bootstrap --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;bootstrap/css/bootstrap.css&quot;&gt;
+    &lt;!-- /bootstrap --&gt;
+
+    &lt;!-- core styles --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/main.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/animate.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/offline/theme.css&quot;&gt;
+    &lt;!-- /core styles --&gt;
+
+    &lt;!-- page styles --&gt;
+    &lt;!-- /page styles --&gt;
+
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!--[if lt IE 9]&gt;
+        &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&quot;&lt;/script>
+        &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"&quot;&lt;/script>
+    &lt;![endif]--&gt;
+
+    &lt;!-- load modernizer --&gt;
+    &lt;script src=&quot;vendor/modernizr.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code>
+                                        </pre>
+
+                                        <h6 class="mg-t pd-b-xs bd-b">body</h6>
+                                        <pre class="prettyprint">
+<code>
+&lt;!-- body --&gt;
+&lt;body&gt;
+    &lt;div class=&quot;app&quot;&gt;
+        &lt;!-- top header --&gt;
+        &lt;header class=&quot;header header-fixed navbar bg-white&quot;&gt;
+        &lt;/header&gt;
+        &lt;!-- /top header --&gt;
+
+        &lt;section class=&quot;layout&quot;&gt;
+
+            &lt;!-- sidebar menu --&gt;
+            &lt;aside class=&quot;sidebar canvas-left&quot;&gt;
+            &lt;/aside&gt;
+            &lt;!-- /sidebar menu --&gt;
+
+            &lt;!-- main content --&gt;
+            &lt;section class=&quot;main-content&quot;&gt;
+
+                &lt;!-- content container --&gt;
+                &lt;div class=&quot;content-wrap&quot;&gt;
+                &lt;/div&gt;
+                &lt;!-- /content container --&gt;
+
+            &lt;/section&gt;
+            &lt;!-- /main content --&gt;
+
+        &lt;/section&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- core scripts --&gt;
+    &lt;script src=&quot;vendor/jquery-1.11.0.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;bootstrap/js/bootstrap.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- /core scripts --&gt;
+
+    &lt;!-- page scripts --&gt;
+    &lt;!-- /page scripts --&gt;
+
+    &lt;!-- theme scripts --&gt;
+    &lt;script src=&quot;js/off-canvas.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;vendor/offline/offline.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- /theme scripts --&gt;
+
+&lt;/body&gt;
+&lt;!-- /body --&gt;
+</code>
+                                        </pre>
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="layouts">Layout Options</h4>
+                                        
+                                        <ul class="bullet">
+                                            <li class="mg-b-sm">
+                                                <code>&lt;body class=&quot;app small-sidebar&quot;&gt;</code>activates small sidebar sidebar menu</li>
+                                            <li class="mg-b-sm">
+                                                <code>&lt;body class=&quot;app small-sidebar&quot; data-sidebar=&quot;locked&quot;&gt;</code>adding data-sidebar="locked" prevents sidebar menu from automatically toggling between small and large sidebar on page load.</li>
+                                            <li class="mg-b-sm">For boxed layouts, wrap app contents inside
+                                                <code>&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;</code> . Refer to boxed.html or horizontal_boxed.html for sample.</li>
+                                        </ul>
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="header">Top header options</h4>
+                                        <ul class="bullet">
+                                            <li class="mg-b-sm">add .header-fixed
+                                                <code>&lt;header class=&quot;header header-fixed navbar&quot;&gt;</code>to affix header bar to the top on smaller resolutions</li>
+                                            <li class="mg-b-sm">
+                                                <code>.off-left</code>and
+                                                <code>.off-right</code> classes position left and right header action buttons on lower resolutions. eg
+                                                <br>
+                                                <code>&lt;a href=&quot;#&quot; class=&quot;fa fa-bars off-left visible-xs&quot; data-toggle=&quot;off-canvas&quot;&gt;&lt;/a&gt;</code>
+                                            </li>
+                                        </ul>
+
+                                            <h4 class="mg-t-xlg pd-b-xs bd-b" id="sidebar">Sidebar options</h4>
+                                            Collapsible sidebar menu HTML structure. <br> Include slim-scroll plugin to enable scrolling of overflowing content, refer to collapsible.html
+                                            <pre class="prettyprint">
+<code>
+&lt;aside class=&quot;sidebar collapsible canvas-left&quot;&gt;
+    &lt;div class=&quot;scroll-menu&quot;&gt;
+
+        &lt;!-- begin sidebar main navigation --&gt;
+        &lt;nav class=&quot;main-navigation slimscroll&quot; data-height=&quot;auto&quot; data-size=&quot;4px&quot; data-color=&quot;#ddd&quot; data-distance=&quot;0&quot;&gt;&lt;/nav&gt;
+    &lt;/div&gt;
+
+    &lt;!-- begin sidebar footer --&gt;
+    &lt;footer&gt;&lt;/footer&gt;
+    &lt;!-- end sidebar footer --&gt;
+&lt;/aside&gt;
+</code>
+                                        </pre>
+
+                                        <ul class="bullet">
+                                            <li class="mg-b-sm">
+                                            To open dropdown menus on hover add
+                                                <code>.show-on-hover</code> to dropdown container</li>
+
+                                            <li>
+                                                <code>.toggle-sidebar</code> class toggles small sidebar</li>
+                                        </ul>
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="off-canvas">Off-canvas Navigation</h4>
+                                        <p>You can setup Off-canvas menus positioned outside of the viewport and slide in when activated.</p>
+
+                                        <h6 class="mg-t pd-b-xs bd-b">The markup</h6>
+                                        <p>Wrap your off canvas element in either
+                                            <code>.canvas-left</code>for a left positioned off-canvas element or
+                                            <code>.canvas-right</code>for a right positioned.</p>
+
+                                        Add your triggers somewhere in your layout.
+                                        <pre class="prettyprint">
+<code>
+&lt;a href=&quot;#&quot; class=&quot;fa fa-bars off-left visible-xs&quot; data-toggle=&quot;off-canvas&quot; data-move=&quot;ltr&quot;&gt;&gt;&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;fa fa-comments-o off-right visible-xs&quot; data-toggle=&quot;off-canvas&quot; data-move=&quot;rtl&quot;&gt;&lt;/a&gt;
+</code>
+                                        </pre>
+                                        <p>data-move="rtl" reveals <code>.canvas-right</code>.
+                                        data-move="lrt" reveals <code>.canvas-left</code>.</p>
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="scheme">Contextual color classes</h4>
+
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <td></td>
+          <th>info</th>
+          <th>default</th>
+          <th>primary</th>
+          <th>success</th>
+          <th>warning</th>
+          <th>danger</th>
+          <th>color</th>
+          <th>white</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>bg-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+        </tr>
+        <tr>
+          <th>panel-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+        </tr>
+        <tr>
+          <th>text-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+        </tr>
+        <tr>
+          <th>label-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+        </tr>
+        <tr>
+          <th>btn-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+        </tr>
+        <tr>
+          <th>progress-bar-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+        </tr>
+        <tr>
+          <th>slider-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+        </tr>
+        <tr>
+          <th>toast-</th>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> (error) <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+
+        </tr>
+        <tr>
+          <th>ribbon-</th>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Available</span></td>
+          <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Not Available</span></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+                                        <ul class="bullet mg-t-md">
+                                            <li class="mg-b-sm">
+                                                <code>bg-</code>background color</li>
+                                            <li class="mg-b-sm">
+                                                <code>panel-</code>panel color</li>
+                                            <li class="mg-b-sm">
+                                                <code>text-</code>text color</li>
+                                            <li class="mg-b-sm">
+                                                <code>label-</code>label color</li>
+                                            <li class="mg-b-sm">
+                                                <code>btn-</code>button colors</li>
+                                            <li class="mg-b-sm">
+                                                <code>progress-bar-</code>progress bar colors<a href="#plugins"><i>(see plugins section)</i></a></li>
+                                            <li class="mg-b-sm">
+                                                <code>slider-</code>bootstrap slider colors <a href="#plugins"><i>(see plugins section)</i></a></li>
+                                            <li class="mg-b-sm">
+                                                <code>toast-</code>toastr notification plugin background colors<a href="#plugins"><i>(see plugins section)</i></a></li>
+                                            <li class="mg-b-sm">
+                                                <code>ribbon-</code>css ribbon color</li>
+
+                                            <li class="mg-b-sm">
+                                                <code>*-color</code>Is skin specific</li>
+
+
+                                        </ul>
+
+                                        <div class="row swatches">
+                                            <section class="col-md-2 col-sm-6 col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h1></h1>
+                                                    </div>
+                                                    <div class="panel-body no-padding">
+                                                        <p class="no-margin pd-sm">default</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section class="col-md-2 col-sm-6 col-xs-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                        <h1></h1>
+                                                    </div>
+                                                    <div class="panel-body no-padding">
+                                                        <p class="no-margin pd-sm">primary</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section class="col-md-2 col-sm-6 col-xs-12">
+                                                <div class="panel panel-warning">
+                                                    <div class="panel-heading">
+                                                        <h1></h1>
+                                                    </div>
+                                                    <div class="panel-body no-padding">
+                                                        <p class="no-margin pd-sm">warning</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section class="col-md-2 col-sm-6 col-xs-12">
+                                                <div class="panel panel-success">
+                                                    <div class="panel-heading">
+                                                        <h1></h1>
+                                                    </div>
+                                                    <div class="panel-body no-padding">
+                                                        <p class="no-margin pd-sm">success</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section class="col-md-2 col-sm-6 col-xs-12">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h1></h1>
+                                                    </div>
+                                                    <div class="panel-body no-padding">
+                                                        <p class="no-margin pd-sm">info</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section class="col-md-2 col-sm-6 col-xs-12">
+                                                <div class="panel bordered">
+                                                    <div class="panel-heading">
+                                                        <h1></h1>
+                                                    </div>
+                                                    <div class="panel-body no-padding">
+                                                        <p class="no-margin pd-sm">white</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section class="col-md-2 col-sm-6 col-xs-12">
+                                                <div class="panel panel-danger">
+                                                    <div class="panel-heading">
+                                                        <h1></h1>
+                                                    </div>
+                                                    <div class="panel-body no-padding">
+                                                        <p class="no-margin pd-sm">danger</p>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                        </div>
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="components">Components</h4>
+
+                                        <h6 class="mg-t pd-b-xs bd-b">Collapsible and removable panel</h6>
+
+                                        <div class="panel panel-dark">
+                                            <div class="panel-heading">
+                                                Panel Heading
+                                                <small class="pull-right text-white">
+                                                    <a class="fa panel-collapse pd-r-xs fa-chevron-down" href="#"></a>
+                                                    <a class="fa fa-refresh panel-refresh pd-r-xs" href="#"></a>
+                                                    <a class="fa fa-times panel-remove" href="#"></a>
+                                                </small>
+                                            </div>
+                                        </div>
+
+                                        <p>Markup</p>
+                                        <p><code>.panel-remove</code> removes the panel whilst <code>.panel-collapse</code> toggles panel body collapse state</p>
+<pre class="prettyprint">
+&lt;div class=&quot;panel panel-color&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot;&gt;
+        Panel Heading
+        &lt;div class=&quot;pull-right text-white&quot;&gt;
+            &lt;a class=&quot;fa panel-collapse pd-r-xs fa-chevron-down&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+            &lt;a class=&quot;fa fa-times panel-remove&quot; href=&quot;#&quot;&gt;&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;panel-body&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+
+<h6 class="mg-t pd-b-xs bd-b">CSS ribbon</h6>
+<p>Markup</p>
+<pre class="prettyprint">
+&lt;div class=&quot;ribbon ribbon-danger&quot;&gt;
+    &lt;div class=&quot;banner&quot;&gt;
+        &lt;div class=&quot;text&quot;&gt;New&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<p> See color scheme section for different color styles you can use for ribbons</p>
+
+
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="utilities">Helper Classes</h4>
+
+                                        <p>These are the available helper classes</p>
+                                        <ul>
+                                            <li>
+                                                <code>.no-border</code>
+                                                <span>removes all borders from an element</span>
+                                            </li>
+                                            <li>
+                                                <code>.bordered</code>
+                                                <span>Add a border to all 4 sides of an element</span>
+                                            </li>
+                                            <li>
+                                                <code>.bd-l</code>
+                                                <span>Add left border to an element</span>
+                                            </li>
+                                            <li>
+                                                <code>.bd-r</code>
+                                                <span>Add right border to an element</span>
+                                            </li>
+                                            <li>
+                                                <code>.bd-t</code>
+                                                <span>Add top border to an element</span>
+                                            </li>
+                                            <li>
+                                                <code>.bd-b</code>
+                                                <span>Add bottom border to an element</span>
+                                            </li>
+                                            <li>
+                                                <code>.bg-none</code>
+                                                <span>Overwites elements background color to transparent</span>
+                                            </li>
+                                            <li>
+                                                <code>.no-shadow</code>
+                                                <span>remove box shadow</span>
+                                            </li>
+                                            <li>
+                                                <code>.box-shadow</code>
+                                                <span>add box shadow</span>
+                                            </li>
+                                            <li>
+                                                <code>.overflow</code>
+                                                <span>overflow auto</span>
+                                            </li>
+                                            <li>
+                                                <code>.overflow-hidden</code>
+                                                <span>clip overflow</span>
+                                            </li>
+                                            <li>
+                                                <code>.no-radius</code>
+                                                <span>removes rounded borders</span>
+                                            </li>
+                                            <li>
+                                                <code>.no-margin</code>
+                                                <span>removes all margin space from an element</span>
+                                            </li>
+                                            <li>
+                                                <code>.no-padding</code>
+                                                <span>removes all padding space from an element</span>
+                                            </li>
+                                        </ul>
+                                        <p>pd,mg,bd = padding,margin,border<br>
+                                        Directions<br>
+                                        t,b,r,l,n = top,bottom,right,left, negative<br>
+                                        Sizing<br>
+                                        xs,sm,md,df,lg = extra-small(5px),small(10px),medium(@15px),default(20px),large(25px)</p>
+
+                                        <h6 class="mg-t pd-b-xs">Margins</h6>
+
+                                        <div class="row mg-t-lg">
+
+                                            <div class="col-md-6">
+                                                <div class="panel">
+                                                    <div class="panel-body no-padding">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Class</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-n</b>
+                                                                    </td>
+                                                                    <td>-15px margin left and right</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-r-n</b>
+                                                                    </td>
+                                                                    <td>-15px margin right</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-l-n</b>
+                                                                    </td>
+                                                                    <td>-15px margin left</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-mg-l</b>
+                                                                    </td>
+                                                                    <td>remove left margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-mg-r</b>
+                                                                    </td>
+                                                                    <td>remove right margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-mg-t</b>
+                                                                    </td>
+                                                                    <td>remove top margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-mg-b</b>
+                                                                    </td>
+                                                                    <td>remove bottom margin</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="panel">
+                                                    <div class="panel-body no-padding">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Class</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px margin to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-r-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px right margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-b-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px bottom margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-l-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px left margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-t-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px top margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg</b>
+                                                                    </td>
+                                                                    <td>Adds 20px margin to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-r</b>
+                                                                    </td>
+                                                                    <td>Adds 20px right margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-b</b>
+                                                                    </td>
+                                                                    <td>Adds 20px bottom margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-l</b>
+                                                                    </td>
+                                                                    <td>Adds 20px left margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-t</b>
+                                                                    </td>
+                                                                    <td>Adds 20px top margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px margin to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-r-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px right margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-b-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px bottom margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-l-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px left margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-t-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px top margin</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px margin to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-r-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px right margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-b-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px bottom margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-l-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px left margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-t-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px top margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px margin to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-r-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px right margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-b-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px bottom margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-l-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px left margin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.mg-t-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px top margin</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h6 class="mg-t">Paddings</h6>
+
+                                        <div class="row mg-t-lg">
+                                            <div class="col-md-6">
+                                                <div class="panel">
+                                                    <div class="panel-body no-padding">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Class</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-pg-l</b>
+                                                                    </td>
+                                                                    <td>remove left padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-pd-r</b>
+                                                                    </td>
+                                                                    <td>remove right padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-pd-t</b>
+                                                                    </td>
+                                                                    <td>remove top padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.no-pd-b</b>
+                                                                    </td>
+                                                                    <td>remove bottom padding</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="panel">
+                                                    <div class="panel-body no-padding">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Class</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px padding to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-r-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px right padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-b-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px bottom padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-l-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px left padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-t-lg</b>
+                                                                    </td>
+                                                                    <td>Adds 25px top padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd</b>
+                                                                    </td>
+                                                                    <td>Adds 20px padding to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-r</b>
+                                                                    </td>
+                                                                    <td>Adds 20px right padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-b</b>
+                                                                    </td>
+                                                                    <td>Adds 20px bottom padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-l</b>
+                                                                    </td>
+                                                                    <td>Adds 20px left padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-t</b>
+                                                                    </td>
+                                                                    <td>Adds 20px top padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px padding to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-r-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px right padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-b-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px bottom padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-l-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px left padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-t-md</b>
+                                                                    </td>
+                                                                    <td>Adds 15px top padding</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px padding to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-r-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px right padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-b-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px bottom padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-l-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px left padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-t-sm</b>
+                                                                    </td>
+                                                                    <td>Adds 10px top padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px padding to an element</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-r-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px right padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-b-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px bottom padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-l-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px left padding</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>.pd-t-xs</b>
+                                                                    </td>
+                                                                    <td>Adds 5px top padding</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="plugins">Plugins & Resources<small><i>(click button to see information on plugin)</i></small></h4>
+
+                                        <div class="demo-button mg-b-lg plugins-list">
+                                            <a href="#" class="btn btn-default btn-xs active" data-pug="animate">Animate.css</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="datepickerr">Datepicker</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="select">BS Select</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="datatables">Datatables</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="dropzone">Dropzone</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="easypie">Easy Pie Charts</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="flot">Flot Charts</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="chartjs">Chartjs</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="fuel">FuelUX</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="fullcalendar">Full Calendar</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="video">Videojs</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="isotope">Isotope</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="images">Imagesloaded</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="vector">JVector Maps</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="medium">Medium Editor</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="morriss">Morris Charts</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="offline">Offline</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="slider">Bootstrap Slider</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="toastr">Toastr</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="table-sortable">Table Sortable</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="wysiwyg">WYSIWYG</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="audio">Audio Player</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="maps">Gmaps</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="nivo">Nivo Lightbox</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="masked">Masked Input</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="nestable">Nestable</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="slimscrolll">Slimscroll</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="sortable">Sortable</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="sparkline">Sparkline</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="moment">Moment</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="parsley">Parsley</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="switcheryy">Switchery</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="responsive">Responsive Tables</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="skycons">Skycons</a>
+                                            <a href="#" class="btn btn-default btn-xs" data-pug="FontAwesome">FontAwesome</a>
+                                            <a href="#" class="btn btn-danger btn-xs" data-pug="pace">Pace</a>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark animate active">
+                                            <div class="panel-heading">
+                                                animate.css, just-add-water CSS animations
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>animate.css is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness.</p>
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/animate.min.css&quot;&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://daneden.github.io/animate.css/" target="_blank">http://daneden.github.io/animate.css/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark datepickerr">
+                                            <div class="panel-heading">
+                                                Bootstrap Datepicker
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>Bootstrap-datepicker provides a flexible datepicker widget in the Twitter bootstrap style.
+                                                </p>
+
+                                                <div class="input-group mg-b-md input-append date datepicker" data-date="12-02-2013" data-date-format="dd-mm-yyyy">
+                                                    <input type="text" class="form-control" value="12-02-2013">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-white add-on" type="button">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/bootstrap-datepicker/datepicker.css&quot;&gt;
+
+&lt;script href=&quot;vendor/bootstrap-datepicker/bootstrap-datepicker.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://bootstrap-datepicker.readthedocs.org/" target="_blank">http://bootstrap-datepicker.readthedocs.org/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark select">
+                                            <div class="panel-heading">
+                                                Bootstrap Select
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>A custom select for twitter bootstrap using button dropdown.</p>
+                                                <select multiple="" class="form-control">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/bootstrap-select/bootstrap-select.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/bootstrap-select/bootstrap-select.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://silviomoreto.github.io/bootstrap-select/" target="_blank">http://silviomoreto.github.io/bootstrap-select/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark datatables">
+                                            <div class="panel-heading">
+                                                Datatables
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/datatables/jquery.dataTables.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/datatables/jquery.dataTables.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="https://datatables.net/" target="_blank">https://datatables.net/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark dropzone">
+
+                                            <div class="panel-heading">
+                                                Dropzone file upload
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/dropzone/dropzone.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/dropzone/dropzone.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://www.dropzonejs.com/" target="_blank">http://www.dropzonejs.com/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark easypie">
+                                            <div class="panel-heading">
+                                                Easy Pie Charts
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Lightweight jQuery plugin to render and animate nice pie charts with the HTML5 canvas element.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/jquery.easing.min.js&quot;&gt;&lt;/script&gt;
+&lt;script href=&quot;vendor/easy-pie-chart/jquery.easypiechart.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://rendro.github.io/easy-pie-chart/" target="_blank">http://rendro.github.io/easy-pie-chart/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark flot">
+                                            <div class="panel-heading">
+                                                Flot Charts
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+├── vendor/
+│   ├── flot/
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://www.flotcharts.org/" target="_blank">http://www.flotcharts.org/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark fuel">
+                                            <div class="panel-heading">
+                                                Fuel UX
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Fuel UX extends Bootstrap with additional lightweight JavaScript controls. Other benefits include easy installation into web projects, integrated scripts for customizing Bootstrap and Fuel UX, simple updates, and solid optimization for deployment. All functionality is covered by live documentation and unit tests.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+├── vendor/
+│   ├── fuelux/
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://exacttarget.github.io/fuelux/" target="_blank">http://exacttarget.github.io/fuelux/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark fullcalendar">
+                                            <div class="panel-heading">
+                                                Full Calendar
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>FullCalendar is a jQuery plugin that provides a full-sized, drag & drop calendar like the one below. It uses AJAX to fetch events on-the-fly for each month and is easily configured to use your own feed format (an extension is provided for Google Calendar). It is visually customizable and exposes hooks for user-triggered events (like clicking or dragging an event). It is open source licensed under an MIT license.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/fullcalendar/fullcalendar.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/jquery-ui.custom.min.js&quot;&gt;&lt;/script&gt;
+&lt;script href=&quot;vendor/fullcalendar/fullcalendar.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://arshaw.com/fullcalendar/" target="_blank">http://arshaw.com/fullcalendar/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark isotope">
+                                            <div class="panel-heading">
+                                                Isotope
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Isotope is a JavaScript grid layout library. It works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall.</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/isotope/isotope.pkgd.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://isotope.metafizzy.co/" target="_blank">http://isotope.metafizzy.co/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark vector">
+                                            <div class="panel-heading">
+                                                JVector Map
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>VectorMap uses only native browser technologies like JavaScript, CSS, HTML, SVG or VML. No Flash or any other proprietary browser plug-in is required. This allows jVectorMap to work in all modern mobile browsers.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+├── vendor/
+│    ├── jvectormap/
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://jvectormap.com/" target="_blank">http://jvectormap.com/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark medium">
+                                            <div class="panel-heading">
+                                                Medium Editor
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>This is a clone of medium.com inline editor toolbar.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/medium/medium-editor.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/medium/theme.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/medium/medium-editor.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="https://github.com/daviferreira/medium-editor" target="_blank">https://github.com/daviferreira/medium-editor</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark morriss">
+                                            <div class="panel-heading">
+                                                Morris Charts
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Charting library</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/raphael-min.js&quot;&gt;&lt;/script&gt;
+&lt;script href=&quot;vendor/morris/morris.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://www.oesmith.co.uk/morris.js/" target="_blank">http://www.oesmith.co.uk/morris.js/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark offline">
+                                            <div class="panel-heading">
+                                                Offline
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>Offline.js is a library to automatically alert your users when they've lost internet connectivity, like Gmail. It captures AJAX requests which were made while the connection was down, and remakes them when it's back up, so your app reacts perfectly. It has a number of beautiful themes and requires no configuration.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/offline/theme.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/offline/offline.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://github.hubspot.com/offline/docs/welcome/" target="_blank">http://github.hubspot.com/offline/docs/welcome/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark slider">
+                                            <div class="panel-heading">
+                                                Bootstrap Slider
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>Input Bootstrap Sliders. It has been configured with custom color schemes (see color scheme section).
+                                                </p>
+
+                                                <div class="sliders row">
+                                                    <div class="slider-warning col-xs-4">
+                                                        <input type="text" data-slider-value="3" value="3">
+                                                    </div>
+                                                    <div class="col-xs-8"></div>
+                                                </div>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/slider/slider.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt; &lt;script href=&quot;vendor/slider/bootstrap-slider.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://www.eyecon.ro/bootstrap-slider/" target="_blank">http://www.eyecon.ro/bootstrap-slider/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark toastr">
+                                            <div class="panel-heading">
+                                                Toastr Notifications
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>toastr is a Javascript library for non-blocking notifications. jQuery is required. The goal is to create a simple core library that can be customized and extended.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/toastr/toastr.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/toastr/toastr.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="https://github.com/CodeSeven/toastr" target="_blank">https://github.com/CodeSeven/toastr</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark wysiwyg">
+                                            <div class="panel-heading">
+                                                Bootstrap WYSIWYG
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>tiny wysiwyg rich text editor for Bootstrap
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/wysiwyg/bootstrap-wysiwyg.js&quot;&gt;&lt;/script&gt;
+&lt;script href=&quot;vendor/wysiwyg/external/jquery.hotkeys.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://mindmup.github.io/bootstrap-wysiwyg/" target="_blank">http://mindmup.github.io/bootstrap-wysiwyg/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark audio">
+                                            <div class="panel-heading">
+                                                Audio Player
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Responsive and Touch-Friendly audio widget
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/audioplayer/audioplayer.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/audioplayer/audioplayer.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://osvaldas.info/audio-player-responsive-and-touch-friendly" target="_blank">http://osvaldas.info/audio-player-responsive-and-touch-friendly</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark maps">
+                                            <div class="panel-heading">
+                                                Gmaps
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Google maps</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;http://maps.google.com/maps/api/js?sensor=true&quot;&gt;&lt;/script&gt;
+&lt;script href=&quot;vendor/gmaps.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="https://github.com/HPNeo/gmaps" target="_blank">https://github.com/HPNeo/gmaps</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark nivo">
+                                            <div class="panel-heading">
+                                                Nivo Lightbox
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Responsive image lightbox
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/nivo-lightbox/nivo-lightbox.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/nivo-lightbox/nivo-lightbox.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://dev7studios.com/plugins/nivo-lightbox/" target="_blank">http://dev7studios.com/plugins/nivo-lightbox/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark masked">
+                                            <div class="panel-heading">
+                                                Masked Input
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>This is a masked input plugin for the jQuery javascript library. It allows a user to more easily enter fixed width input where you would like them to enter the data in a certain format (dates,phone numbers, etc). It has been tested on Internet Explorer, Firefox, Safari, Opera, and Chrome. A mask is defined by a format made up of mask literals and mask definitions. Any character not in the definitions list below is considered a mask literal. Mask literals will be automatically entered for the user as they type and will not be able to be removed by the user.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/jquery.maskedinput.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://digitalbush.com/projects/masked-input-plugin" target="_blank">http://digitalbush.com/projects/masked-input-plugin</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark nestable">
+                                            <div class="panel-heading">
+                                                Nestable
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>Drag & drop hierarchical list with mouse and touch compatibility (jQuery plugin)
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/jquery.nestable.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://dbushell.github.io/Nestable/" target="_blank">http://dbushell.github.io/Nestable/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark slimscrolll">
+                                            <div class="panel-heading">
+                                                Slimscroll
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>slimScroll is a small (4.6KB) jQuery plugin that transforms any div into a scrollable area with a nice scrollbar - similar to the one Facebook and Google started using in their products recently. slimScroll doesn't occupy any visual space as it only appears on a user initiated mouse-over. User can drag the scrollbar or use mouse-wheel to change the scroll value.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/jquery.slimscroll.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://rocha.la/jQuery-slimScroll" target="_blank">http://rocha.la/jQuery-slimScroll</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark sortable">
+                                            <div class="panel-heading">
+                                                Sortable
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>HTML5 Sortable is a jQuery plugin to create sortable lists and grids using native HTML5 drag and drop API.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/jquery.sortable.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://farhadi.ir/projects/html5sortable/" target="_blank">http://farhadi.ir/projects/html5sortable/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark sparkline">
+                                            <div class="panel-heading">
+                                                Sparklines
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Sparklines.js generates sparklines (small inline charts) directly in the browser using data supplied either inline in the HTML, or via javascript.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/jquery.sparkline.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://omnipotent.net/jquery.sparkline/" target="_blank">http://omnipotent.net/jquery.sparkline/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark moment">
+                                            <div class="panel-heading">
+                                                Moment
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>A javascript date library for parsing, validating, manipulating, and formatting dates.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/moment.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://momentjs.com/" target="_blank">http://momentjs.com/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark parsley">
+                                            <div class="panel-heading">
+                                                Parsley.js Form Validation
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Parsley.js allows you to verify your form inputs frontend side, without writing a line of javascript.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/parsley.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://parsleyjs.org/" target="_blank">http://parsleyjs.org/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark responsive">
+                                            <div class="panel-heading">
+                                                Responsive Tables
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Responsive table plugin
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/responsive-tables/theme.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/responsive-tables/responsive-tables.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="https://github.com/zurb/responsive-tables" target="_blank">https://github.com/zurb/responsive-tables</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark skycons">
+                                            <div class="panel-heading">
+                                                Skycons
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Skycons is a set of ten animated weather glyphs, procedurally generated by JavaScript using the HTML5 canvas tag
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/skycons.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://darkskyapp.github.io/skycons/" target="_blank">http://darkskyapp.github.io/skycons/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark FontAwesome">
+                                            <div class="panel-heading">
+                                                FontAwesome
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Fontawesome icon package grants access to 369 icons in a single collection.Visit
+                                                    <a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a>to find out how you can use them.
+                                                </p>
+
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">http://fortawesome.github.io/Font-Awesome/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark switcheryy">
+                                            <div class="panel-heading">
+                                                Switchery
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Switchery is a simple component that helps you turn your default HTML checkbox inputs into beautiful iOS 7 style switches in just few simple steps. You can easily customize switches, so that they match your design perfectly.</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/switchery/switchery.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://abpetkov.github.io/switchery/" target="_blank">http://abpetkov.github.io/switchery/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark table-sortable">
+                                            <div class="panel-heading">
+                                                Table Sortable
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Sortable is an open-source javascript and CSS library which adds sorting functionality to tables. It is tiny (<2kb) and has no dependencies.</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/table-sortable/theme.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/table-sortable/sortable.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://github.hubspot.com/sortable/docs/welcome/" target="_blank">http://github.hubspot.com/sortable/docs/welcome/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark chartjs">
+                                            <div class="panel-heading">
+                                                Chartjs
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Jquery charting library</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/chartjs/Chart.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://www.chartjs.org/" target="_blank">http://www.chartjs.org/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark images">
+                                            <div class="panel-heading">
+                                                Imagesloaded
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Detect when images have been loaded.</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/imagesloaded/imagesloaded.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://imagesloaded.desandro.com/" target="_blank">http://imagesloaded.desandro.com/</a>
+                                            </div>
+                                        </div>
+
+                                          <div class="plugins panel panel-dark video">
+                                            <div class="panel-heading">
+                                                Videojs
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>a JavaScript and CSS library that makes it easier to work with and build on HTML5 video. This is also known as an HTML5 Video Player.</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- CSS stylesheets --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;vendor/video-js/video-js.css&quot;&gt;
+
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/video-js/video.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://www.videojs.com/" target="_blank">http://www.videojs.com/</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="plugins panel panel-dark pace">
+                                            <div class="panel-heading">
+                                                Pace
+                                            </div>
+                                            <div class="panel-body">
+
+                                                <p>Include pace.js and a CSS theme of your choice, and you get a beautiful progress indicator for your page load and ajax navigation.
+
+No need to hook into any of your code, progress is detected automatically.</p>
+
+                                                <h6 class="mg-t-lg">Dependencies</h6>
+<pre class="prettyprint">
+&lt;!-- Javascripts --&gt;
+&lt;script href=&quot;vendor/pace/pace.pkgd.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                                <h6 class="mg-t-lg">Official Documentation</h6>
+                                                <a href="http://github.hubspot.com/pace/docs/welcome/" target="_blank">http://github.hubspot.com/pace/docs/welcome//</a>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <h4 class="mg-t-xlg pd-b-xs bd-b" id="credits">Credits</h4>
+
+                                        <ul class="bullet mg-t-md">
+                                            <li>
+                                                <a href="http://getbootstrap.com/">Bootstrap 3</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://unsplash.com/">Unsplash</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.elegantthemes.com/blog/freebie-of-the-week/beautiful-flat-icons-for-free">Flat icons used in email template</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://daneden.github.io/animate.css/">Animate.css</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://bootstrap-datepicker.readthedocs.org/">Datepicker</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://silviomoreto.github.io/bootstrap-select/">Bootstrap Select</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://datatables.net/">Datatables</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.dropzonejs.com/">Dropzonejs</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://rendro.github.io/easy-pie-chart/">Easy Pie Chart</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.flotcharts.org/">Flot Charts</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.chartjs.org/">Chartjs</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://exacttarget.github.io/fuelux/">FuelUX</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://arshaw.com/fullcalendar/">Fullcalendar</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.videojs.com/">Videojs</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://masonry.desandro.com/">Masonry</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://imagesloaded.desandro.com/">Imagesloaded</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://jvectormap.com/">Jvectormap</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/daviferreira/medium-editor">Medium Editor</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.oesmith.co.uk/morris.js/">Morris</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://github.hubspot.com/offline/docs/welcome/">Offline</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.eyecon.ro/bootstrap-slider/">Bootstrap Slider</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/CodeSeven/toastr">Toastr</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://github.hubspot.com/sortable/docs/welcome/">Table Sortable</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://mindmup.github.io/bootstrap-wysiwyg/">Bootstrap WYSIWYG</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://osvaldas.info/audio-player-responsive-and-touch-friendly">Audio Player</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/HPNeo/gmaps">Gmaps</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://dev7studios.com/plugins/nivo-lightbox/">Nivo Lightbox</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://digitalbush.com/projects/masked-input-plugin">Masked input</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://dbushell.github.io/Nestable/">Nestable</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://rocha.la/jQuery-slimScroll">SlimScroll</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://farhadi.ir/projects/html5sortable/"> HTML5 Sortable</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://omnipotent.net/jquery.sparkline/">Jquery Sparkline</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://momentjs.com/">Momentjs</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://parsleyjs.org/">Parsley</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://abpetkov.github.io/switchery/">Switchery</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/zurb/responsive-tables">Responsive tables</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://darkskyapp.github.io/skycons/">Skycons</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://getbootstrap.com/">Bootstrap 3</a>
+                                            </li>
+                                        </ul>
+
+
+                                        <p class="mg-t-lg bd-t">Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- page scripts -->
+    <script src="assets/main.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/bootstrap-select.js"></script>
+    <script src="assets/bootstrap-slider.js"></script>
+    <script src="assets/bootstrap-datepicker.js"></script>
+    <!-- /page scripts -->
+
+    <script>
+
+        $('.datepicker').datepicker();
+        $('.sliders input').slider({
+            formater: function(value) {
+                return 'Current value: ' + value;
+            }
+        });
+        $('#eg input').slider();
+        $('#sl2').slider();
+
+        $(document).on("click", ".plugins-list > a", function(e) {
+            $('.plugins').removeClass('active');
+            $(".plugins-list > a").removeClass('active');
+            $(this).toggleClass("active");
+
+            var cl = "." + $(this).data("pug");
+            $(cl).addClass("active");
+        });
+    </script>
+
+</body>
+
+</html>

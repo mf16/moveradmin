@@ -1,0 +1,27 @@
+/*
+ *  Color Scheme
+ *
+ */
+
+@import "../variables";
+@import "../mixins.less";
+
+// Global skin color
+@palette-color: @brand-warning;
+
+// Header colors
+@header-bg: #fff;
+@header-color: @text-color;
+
+// Brand colors
+@brand-bg: @brand-warning;
+@brand-color: lighten(@brand-bg, 45%);
+
+// Sidebar colors
+@sidebar-bg: @brand-warning;
+@sidebar-color: lighten(@sidebar-bg, 45%);
+
+// Select background color
+@sel-color: #fff;
+
+.color-gen(@palette-color, @header-bg, @header-color, @brand-bg, @brand-color, @sidebar-bg, @sidebar-color, @sel-color);
