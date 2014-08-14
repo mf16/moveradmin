@@ -254,9 +254,9 @@
                         	<div class="col-sm-4 form-container">
                         		<div class="form-group has-error">
                            		<label for="rentOwn">Do you rent or own?</label>
-                           		<br><input id="rent" name="rentOwn" type="radio" checked>
+                           		<br><input id="rent" name="rentOwn" type="radio" value="rent" checked>
   											<label for="rent">Rent</label>
-											<input id="own" name="rentOwn" type="radio">
+											<input id="own" name="rentOwn" type="radio" value="own">
   											<label for="own">Own</label>
                         		</div>
                         	</div>
@@ -285,6 +285,18 @@
 									</div>
 								</div>
 						   </div>
+						   
+						   <div class="row">
+						   	<div class="col-sm-12 form-container">
+						   	<div class="col-sm-4 form-container"></div>
+						   	<div class="col-sm-4 form-container">
+							   	<div class="form-group">
+										<button type="submit" class="btn btn-default" id="submit">Add Equipment</button>
+							   	</div>
+						   	</div>
+						   	<div class="col-sm-4 form-container"></div>
+						   	</div>
+						   </div>
                     
                 </div>
                 <!-- /content wrapper -->
@@ -310,6 +322,29 @@
     <script src="vendor/pace/pace.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/jasny-bootstrap.min.js"></script>
+    
+    
+    <script type="text/javascript">
+    	$('#submit').click(function () {
+	 		var formData = {
+	 			'id'					:$('input[id=idNo]').val(),
+	 			'make'				:$('input[id=make]').val(),
+	 			'model'				:$('input[id=model]').val(),
+	 			'year'				:$('input[id=year]').val(),
+	 			'mileage'			:$('input[id=mileage]').val(),
+	 			'rentOwn'			:$('input[name=rentOwn]:checked').val(),
+	 			'picture'			:$('span[class=fileinput-filename').html()
+	 		}
+	 		
+	 		$.ajax({
+	 			type: 'POST',
+	 			url:	'equipmentAdd.php',
+	 			data: formData,
+	 			dataType: 'json',
+	 			encode: true
+	 		})	 		
+	 	});
+    </script>
     <!-- /theme scripts -->
 
 </body>

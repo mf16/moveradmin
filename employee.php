@@ -280,8 +280,21 @@
 						   <div class="row">
 						   	<div class="col-sm-12 form-container">
 							   	<div class="form-group">
+						   			<label for="ex1">Skill Level</label>
 						   			<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
 							   	</div>
+						   	</div>
+						   </div>
+						   
+						   <div class="row">
+						   	<div class="col-sm-12 form-container">
+						   	<div class="col-sm-4 form-container"></div>
+						   	<div class="col-sm-4 form-container">
+							   	<div class="form-group">
+										<button type="submit" class="btn btn-default" id="submit">Add Employee</button>
+							   	</div>
+						   	</div>
+						   	<div class="col-sm-4 form-container"></div>
 						   	</div>
 						   </div>
                 
@@ -319,6 +332,25 @@
     		formater: function(value) {
 				return 'Current value: ' + value;
 			}
+	 	});
+	 	
+	 	$('#submit').click(function () {
+	 		var formData = {
+	 			'first'				:$('input[id=firstname]').val(),
+	 			'last'				:$('input[id=lastname]').val(),
+	 			'phone'				:$('input[id=phone]').val(),
+	 			'start'				:$('input[id=startDate]').val(),
+	 			'skill'				:$('input[id=ex1]').data('slider').getValue(),
+	 			'picture'			:$('span[class=fileinput-filename]').html()
+	 		}
+	 		
+	 		$.ajax({
+	 			type: 'POST',
+	 			url:	'employeeAdd.php',
+	 			data: formData,
+	 			dataType: 'json',
+	 			encode: true
+	 		})	 		
 	 	});
     </script>
     

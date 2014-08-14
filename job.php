@@ -173,6 +173,17 @@
                     </div>
                     
                     <div class="row">
+                    		<div class="col-sm-12 form-container">
+                    			<div class="col-sm-12 form-container">
+                        	<div class="form-group has-error">
+                            	<label for="otherDriverNotes">Other Driver Notes</label>
+                            	<input type="text" id="otherDriverNotes" class="form-control" placeholder="Other Driver Notes">
+                        	</div>
+                        </div>
+                    		</div>
+                    </div>
+                    
+                    <div class="row">
                     <div class="col-sm-12 form-container">
 						     	<div class="col-sm-4 form-container">
                         	<div class="form-group has-error">
@@ -350,14 +361,26 @@
                         <div class="col-sm-6 form-container">
                         	<div class="form-group">
                             	<label for="insurance">Do daily insurance rates apply?</label>
-                            		<br><input id="insuranceYes" name="insurance" type="radio" checked>
+                            		<br><input id="insuranceYes" name="insurance" type="radio" value="yes" checked>
   											<label for="insuranceYes" onclick="">Yes</label>
-											<input id="insuranceNo" name="insurance" type="radio">
+											<input id="insuranceNo" name="insurance" type="radio" value="no">
   											<label for="insuranceNo" onclick="">No</label>
 	                     	</div>
                         </div>
                     </div>
                     </div>
+                    
+                    <div class="row">
+						   	<div class="col-sm-12 form-container">
+						   	<div class="col-sm-4 form-container"></div>
+						   	<div class="col-sm-4 form-container">
+							   	<div class="form-group">
+										<button type="submit" class="btn btn-default" id="submit">Add Job</button>
+							   	</div>
+						   	</div>
+						   	<div class="col-sm-4 form-container"></div>
+						   	</div>
+						   </div>
                     
                     
                 </div>
@@ -386,6 +409,41 @@
     <!-- /theme scripts -->
     <script type="text/javascript">
         $(".chosen-select").chosen();
+        
+        
+        $('#submit').click(function () {
+	 		var formData = {
+	 			'date'				:$('input[id=date]').val(),
+	 			'start'				:$('input[id=startTime]').val(),
+	 			'onsite'				:$('input[id=onsiteTime]').val(),
+	 			'moveType'			:$('#moveType').val(),		//this posts an array
+	 			'otherNotes'		:$('input[id=otherDriverNotes]').val(),
+	 			'regNo'				:$('input[id=regNumber]').val(),
+	 			'shipper'			:$('input[id=shipper]').val(),
+	 			'phone'				:$('input[id=phone]').val(),
+	 			'oAddr'				:$('input[id=originAddr]').val(),
+	 			'oSpec'				:$('input[id=originSpecial]').val(),
+	 			'dest'				:$('input[id=destination]').val(),
+	 			'destSpec'			:$('input[id=destinationSpecial]').val(),
+	 			'weight'				:$('input[id=weight]').val(),
+	 			'weightType'		:$('#weightType').val(),		//this posts an array
+	 			'vault'				:$('input[id=vault]').val(),
+	 			'drivers'			:$('#drivers').val(),		//this posts an array
+	 			'laborers'			:$('#laborers').val(),		//this posts an array
+	 			'driverNotes'		:$('input[id=driverNotes]').val(),
+	 			'equipment'			:$('#equipment').val(),
+	 			'truckNo'			:$('input[id=truckNo]').val(),
+	 			'insurance'			:$('input[name=insurance]:checked').val()
+	 		}
+	 		console.log($('input[name=insurance]:checked').val());
+	 		$.ajax({
+	 			type: 'POST',
+	 			url:	'jobAdd.php',
+	 			data: formData,
+	 			dataType: 'json',
+	 			encode: true
+	 		})		
+	 	});
     </script>
 </body>
 <!-- /body -->
