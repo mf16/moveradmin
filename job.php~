@@ -94,28 +94,31 @@
                     <div class="col-md-12">
                         <h1 class="no-mg-t">New Job</h1>
                     </div>
-                    <div class="col-sm-12 form-container">
+						  <div class="row">                    
+                    		<div class="col-sm-12 form-container">
                         <!-- EDIT :datepicker this box -->
-						     	<div class="col-sm-4 form-container">
-                        	<div class="form-group has-error">
-                            	<label for="date">Job Date</label>
-                            	<input type="text" id="date" class="form-control" placeholder="05-15-2014">
+						     		<div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           	 	<label for="date">Job Date</label>
+                           	 	<input type="text" id="date" class="form-control" placeholder="05-15-2014">
+                        		</div>
+                       		 </div>
+                        	 <div class="col-sm-4 form-container">
+                        		<div class="form-group">
+                           		<label for="startTime">Job Start time</label>
+                           		<input type="text" id="startTime" class="form-control" placeholder="h:mm PM">
+	                     	 	</div>
+                        	 </div>
+                        	<div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           		<label for="onsiteTime">On-site time</label>
+                            		<input type="text" id="onsiteTime" class="form-control" placeholder="h:mm PM">
+                        		</div>
                         	</div>
-                        </div>
-                        <div class="col-sm-4 form-container">
-                        	<div class="form-group">
-                            	<label for="startTime">Job Start time</label>
-                            	<input type="text" id="startTime" class="form-control" placeholder="h:mm PM">
-	                     	</div>
-                        </div>
-                        <div class="col-sm-4 form-container">
-                        	<div class="form-group has-error">
-                            	<label for="onsiteTime">On-site time</label>
-                            	<input type="text" id="onsiteTime" class="form-control" placeholder="h:mm PM">
-                        	</div>
-                        </div>
+                    		</div>
                     </div>
                     
+                    <div class="row">
                     <div class="col-xs-12 form-container">
                    	 <div class="form-group has-error">
                    	 	<div class="col-xs-12">
@@ -164,7 +167,9 @@
                         </div>
                       </div>
                     </div>
+                    </div>
                     
+                    <div class="row">
                     <div class="col-sm-12 form-container">
 						     	<div class="col-sm-4 form-container">
                         	<div class="form-group has-error">
@@ -184,6 +189,9 @@
                             	<input type="text" id="phone" class="form-control" placeholder="###-###-####">                        	</div>
                         </div>
                     </div>
+                    </div>
+                    
+                    <div class="row">
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group has-error">
@@ -192,6 +200,9 @@
                        		</div>
                         </div>
                     </div>
+                    </div>
+                    
+                    <div class="row">
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -200,6 +211,9 @@
                         	</div>
                         </div>
                     </div>
+                    </div>
+                    
+						  <div class="row">
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group has-error">
@@ -208,6 +222,9 @@
                        		</div>
                         </div>
                     </div>
+                    </div>
+                    
+                    <div class="row">
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -216,7 +233,9 @@
                         	</div>
                         </div>
                     </div>
+                    </div>
                     
+                    <div class="row">
 					     <div class="col-sm-12 form-container">
 						     	<div class="col-sm-6 form-container">
                         	<div class="form-group">
@@ -236,7 +255,9 @@
 	                     	</div>
                         </div>
                     </div>
+                    </div>
                     
+                    <div class="row">
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -245,11 +266,13 @@
                         	</div>
                         </div>
                     </div>
+                    </div>
                     
                     
                     <div class="col-md-12">
                         <h1 class="no-mg-t">Crew</h1>
                     </div>            
+						  <div class="row">                    
                     <div class="col-xs-12 form-container">
                    	 <div class="form-group">
                    	 	<div class="col-xs-12">
@@ -263,6 +286,9 @@
                         </div>
                       </div>
                     </div>
+                    </div>
+                    
+                    <div class="row">
                     <div class="col-xs-12 form-container">
                    	 <div class="form-group">
                    	 	<div class="col-xs-12">
@@ -276,6 +302,9 @@
                         </div>
                       </div>
                     </div>
+                    </div>
+                    
+                    <div class="row">
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -284,15 +313,16 @@
                        		</div>
                         </div>
                     </div>
+                    </div>
                     
                     
                     
                     <div class="col-md-12">
                         <h1 class="no-mg-t">Equipment</h1>
-                    </div>      
+                    </div>
+                    <div class="row">     
                     <div class="col-xs-12 form-container">
                    	 <div class="form-group">
-                   	 	<div class="col-xs-12">
 								  <label for="equipment">Equipment</label>                         
                           <select multiple id="equipment" class="chosen-select">
                             <option>Hammer</option>
@@ -300,9 +330,11 @@
                             <option>Walrus</option>
                             <option>Cheese Cutter</option>
                           </select>
-                        </div>
                       </div>
                     </div>
+                    </div>
+                    
+                    <div class="row">
                     <div class="col-sm-12 form-container">
 						     	<div class="col-sm-6 form-container">
                         	<div class="form-group">
@@ -319,6 +351,7 @@
   											<label for="insuranceNo" onclick="">No</label>
 	                     	</div>
                         </div>
+                    </div>
                     </div>
                     
                     
