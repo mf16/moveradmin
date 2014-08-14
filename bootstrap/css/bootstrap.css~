@@ -10,8 +10,6 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-@import url('http://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
-@import url('');
 body {
   margin: 0;
 }
@@ -1690,6 +1688,10 @@ output {
   line-height: 1.42857143;
   color: #555;
 }
+.col-sm-12 .form-container{
+	margin-top: 10px;
+}
+
 .form-control {
   display: block;
   width: 100%;
@@ -5785,7 +5787,3 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
-
-
-
-

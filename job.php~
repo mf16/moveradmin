@@ -38,6 +38,9 @@
 
 <!-- body -->
 <style type="text/css">
+	.col-sm-12.form-container{
+		margin-top: 5px;
+	}
     .searchResults{
         position: absolute;
         background-color: white;
@@ -69,18 +72,6 @@
         height: auto;
     }
 </style>
-
-
-<!--
-<div class="form-group">
-                            <div class="col-md-4 col-xs-12">
-                                <select multiple class="chosen-select">
-                                    <option>Test 1</option>
-                                    <option>Tsfd</option>
-                                </select>
-                            </div>
-                        </div>
--->                       
 
 
 <body>
@@ -119,11 +110,11 @@
                     </div>
                     
                     <div class="row">
-                    <div class="col-xs-12 form-container">
+                    <div class="col-sm-12 form-container">
                    	 <div class="form-group has-error">
-                   	 	<div class="col-xs-12">
+                   	 	<div class="col-sm-12 form-container">
 								  <label for="moveType">Move Type</label>                         
-                          <select multiple id="moveType" class="chosen-select">
+                          <select id="moveType" multiple >
                             <option>Pack</option>
                             <option>Crate/Freight</option>
                             <option>Export Wrap</option>
@@ -246,7 +237,7 @@
                         <div class="col-sm-6 form-container">
                         	<div class="form-group">
                             	<label for="weightType">Weight Type</label>
-                            	<select multiple id="weightType" class="chosen-select">
+                            	<select multiple id="weightType" class="form-control chosen-select">
                             		<option>Pounds</option>
                             		<option>Grams</option>
                             		<option>Ounces</option>
@@ -273,11 +264,11 @@
                         <h1 class="no-mg-t">Crew</h1>
                     </div>            
 						  <div class="row">                    
-                    <div class="col-xs-12 form-container">
+                    <div class="col-sm-12 form-container">	
                    	 <div class="form-group">
-                   	 	<div class="col-xs-12">
+                   	 	<div class="col-sm-12 form-container">
 								  <label for="drivers">Driver(s)</label>                         
-                          <select multiple id="drivers" class="chosen-select">
+                          <select multiple id="drivers" class="form-control chosen-select">
                             <option>Bill Nye</option>
                             <option>Earl of Bacon</option>
                             <option>Mr. T</option>
@@ -289,11 +280,11 @@
                     </div>
                     
                     <div class="row">
-                    <div class="col-xs-12 form-container">
+                    <div class="col-sm-12 form-container">
                    	 <div class="form-group">
-                   	 	<div class="col-xs-12">
+                   	 	<div class="col-sm-12 form-container">
 								  <label for="laborers">Laborer(s)</label>                         
-                          <select multiple id="laborers" class="chosen-select">
+                          <select multiple id="laborers" class="form-control chosen-select">
                             <option>Paco</option>
                             <option>Steve</option>
                             <option>Yolando</option>
@@ -321,15 +312,17 @@
                         <h1 class="no-mg-t">Equipment</h1>
                     </div>
                     <div class="row">     
-                    <div class="col-xs-12 form-container">
+                    <div class="col-sm-12 form-container">
                    	 <div class="form-group">
-								  <label for="equipment">Equipment</label>                         
-                          <select multiple id="equipment" class="chosen-select">
-                            <option>Hammer</option>
-                            <option>Cotton Candy Machine</option>
-                            <option>Walrus</option>
-                            <option>Cheese Cutter</option>
-                          </select>
+									<div class="col-sm-12 form-container">						  
+								  		<label for="equipment">Equipment</label>                         
+                          		<select multiple id="equipment" class="form-control chosen-select">
+                            		<option>Hammer</option>
+                            		<option>Cotton Candy Machine</option>
+                            		<option>Walrus</option>
+		                           <option>Cheese Cutter</option>
+      	                     </select>
+      	                   </div>
                       </div>
                     </div>
                     </div>
