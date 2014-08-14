@@ -121,10 +121,45 @@
                    	 	<div class="col-xs-12">
 								  <label for="moveType">Move Type</label>                         
                           <select multiple id="moveType" class="chosen-select">
-                            <option>Left</option>
-                            <option>Right</option>
-                            <option>Up</option>
-                            <option>Down</option>
+                            <option>Pack</option>
+                            <option>Crate/Freight</option>
+                            <option>Export Wrap</option>
+                            <option>Unpack</option>
+                            <option>Load</option>
+                            <option>Deliver</option>
+                            <option>Early Out</option>
+                            <option>Release</option>
+                            <option>Shuttle</option>
+                            <option>DOS</option>
+                            <option>SIT</option>
+                            <option>APU</option>
+                            <option>DPU</option>
+                            <option>Mat'l Del</option>
+                            <option>Mat'l P/U</option>
+                            <option>Spot Trailer</option>
+                            <option>Orig Svs</option>
+                            <option>Dest Svs</option>
+                            <option>Smart Move</option>
+                            <option>Air</option>
+                            <option>Surface</option>
+                            <option>Military/GSA</option>
+                            <option>Install (AMS)</option>
+                            <option>Install (3P)</option>
+                            <option>Rigging (3P)</option>
+                            <option>PC Dis/Rec (3P)</option>
+                            <option>Storage In</option>
+                            <option>Storage Perm</option>
+                            <option>Stage & Store</option>
+                            <option>Day 1 of 2</option>
+                            <option>Day 2 of 2</option>
+                            <option>Day 1 of 3</option>
+                            <option>Day 2 of 3</option>
+                            <option>Day 3 of 3</option>
+                            <option>Day 1 of 4</option>
+                            <option>Day 2 of 4</option>
+                            <option>Day 3 of 4</option>
+                            <option>Day 4 of 4</option>
+                            <option>Other-See Driver/Crew/Scope Notes</option>
                           </select>
                         </div>
                       </div>
