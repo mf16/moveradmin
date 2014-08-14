@@ -279,9 +279,9 @@
                         	<div class="form-group">
                             	<label for="insurance">Do daily insurance rates apply?</label>
                             		<br><input id="insuranceYes" name="insurance" type="radio" checked>
-  											<label for="insuranceYes" onclick="">Yes</label>
+  											<label for="week" onclick="">Yes</label>
 											<input id="insuranceNo" name="insurance" type="radio">
-  											<label for="insuranceNo" onclick="">No</label>
+  											<label for="month" onclick="">No</label>
 	                     	</div>
                         </div>
                     </div>
