@@ -39,7 +39,7 @@
 <!-- body -->
 <style type="text/css">
 	.col-sm-12.form-container{
-		margin-top: 5px;
+		margin-top: 10px;
 	}
     .searchResults{
         position: absolute;
@@ -74,6 +74,18 @@
 </style>
 
 
+<!--
+<div class="form-group">
+                            <div class="col-md-4 col-xs-12">
+                                <select multiple class="chosen-select">
+                                    <option>Test 1</option>
+                                    <option>Tsfd</option>
+                                </select>
+                            </div>
+                        </div>
+-->                       
+
+
 <body>
    <?php include 'includes/header.php'; ?>
 
@@ -85,7 +97,7 @@
                     <div class="col-md-12">
                         <h1 class="no-mg-t">New Job</h1>
                     </div>
-						  <div class="row">                    
+						                   
                     		<div class="col-sm-12 form-container">
                         <!-- EDIT :datepicker this box -->
 						     		<div class="col-sm-4 form-container">
@@ -107,14 +119,14 @@
                         		</div>
                         	</div>
                     		</div>
-                    </div>
+                   
                     
-                    <div class="row">
+                    
                     <div class="col-sm-12 form-container">
                    	 <div class="form-group has-error">
                    	 	<div class="col-sm-12 form-container">
 								  <label for="moveType">Move Type</label>                         
-                          <select id="moveType" multiple >
+                          <select id="moveType" multiple class="form-control chosen-select">
                             <option>Pack</option>
                             <option>Crate/Freight</option>
                             <option>Export Wrap</option>
@@ -158,9 +170,9 @@
                         </div>
                       </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                   
                     <div class="col-sm-12 form-container">
 						     	<div class="col-sm-4 form-container">
                         	<div class="form-group has-error">
@@ -180,9 +192,9 @@
                             	<input type="text" id="phone" class="form-control" placeholder="###-###-####">                        	</div>
                         </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                    
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group has-error">
@@ -191,9 +203,9 @@
                        		</div>
                         </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                   
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -202,9 +214,9 @@
                         	</div>
                         </div>
                     </div>
-                    </div>
                     
-						  <div class="row">
+                    
+						  
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group has-error">
@@ -213,9 +225,9 @@
                        		</div>
                         </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                    
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -224,9 +236,9 @@
                         	</div>
                         </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                   
 					     <div class="col-sm-12 form-container">
 						     	<div class="col-sm-6 form-container">
                         	<div class="form-group">
@@ -246,9 +258,9 @@
 	                     	</div>
                         </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                    
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -257,13 +269,13 @@
                         	</div>
                         </div>
                     </div>
-                    </div>
+                    
                     
                     
                     <div class="col-md-12">
                         <h1 class="no-mg-t">Crew</h1>
                     </div>            
-						  <div class="row">                    
+						                      
                     <div class="col-sm-12 form-container">	
                    	 <div class="form-group">
                    	 	<div class="col-sm-12 form-container">
@@ -277,9 +289,9 @@
                         </div>
                       </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                    
                     <div class="col-sm-12 form-container">
                    	 <div class="form-group">
                    	 	<div class="col-sm-12 form-container">
@@ -293,9 +305,9 @@
                         </div>
                       </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                    
                     <div class="col-sm-12 form-container">
                     		<div class="col-sm-12 form-container">
                     			<div class="form-group">
@@ -304,14 +316,14 @@
                        		</div>
                         </div>
                     </div>
-                    </div>
+                    
                     
                     
                     
                     <div class="col-md-12">
                         <h1 class="no-mg-t">Equipment</h1>
                     </div>
-                    <div class="row">     
+                        
                     <div class="col-sm-12 form-container">
                    	 <div class="form-group">
 									<div class="col-sm-12 form-container">						  
@@ -325,9 +337,9 @@
       	                   </div>
                       </div>
                     </div>
-                    </div>
                     
-                    <div class="row">
+                    
+                    
                     <div class="col-sm-12 form-container">
 						     	<div class="col-sm-6 form-container">
                         	<div class="form-group">
@@ -345,7 +357,7 @@
 	                     	</div>
                         </div>
                     </div>
-                    </div>
+                    
                     
                     
                 </div>

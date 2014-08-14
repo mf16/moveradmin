@@ -39,7 +39,7 @@
 <!-- body -->
 <style type="text/css">
 	.col-sm-12.form-container{
-		margin-top: 5px;
+		margin-top: 10px;
 	}
     .searchResults{
         position: absolute;
@@ -72,6 +72,18 @@
         height: auto;
     }
 </style>
+
+
+<!--
+<div class="form-group">
+                            <div class="col-md-4 col-xs-12">
+                                <select multiple class="chosen-select">
+                                    <option>Test 1</option>
+                                    <option>Tsfd</option>
+                                </select>
+                            </div>
+                        </div>
+-->                       
 
 
 <body>
@@ -114,7 +126,7 @@
                    	 <div class="form-group has-error">
                    	 	<div class="col-sm-12 form-container">
 								  <label for="moveType">Move Type</label>                         
-                          <select id="moveType" multiple class="form-control">
+                          <select id="moveType" multiple class="form-control chosen-select">
                             <option>Pack</option>
                             <option>Crate/Freight</option>
                             <option>Export Wrap</option>
