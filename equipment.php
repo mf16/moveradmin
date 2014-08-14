@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="vendor/offline/theme.css">
     <!-- /core styles -->
 
@@ -36,6 +37,9 @@
 
 <!-- body -->
 <style type="text/css">
+	.col-sm-12.form-container{
+		margin-top: 10px;
+	}    
     .searchResults{
         position: absolute;
         background-color: white;
@@ -207,6 +211,80 @@
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
+                	 <div class="col-md-12">
+                        <h1 class="no-mg-t">New Equipment</h1>
+                   </div>
+                   <div class="row">                    
+                    		<div class="col-sm-12 form-container">
+						     		<div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           	 	<label for="idNo">ID Number</label>
+                           	 	<input type="text" id="idNo" class="form-control" placeholder="ID #">
+                        		</div>
+                       		 </div>
+                        	 <div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           		<label for="make">Make</label>
+                           		<input type="text" id="make" class="form-control" placeholder="Ford">
+	                     	 	</div>
+                        	 </div>
+                        	<div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           		<label for="model">Model</label>
+                            		<input type="text" id="model" class="form-control" placeholder="Escape">
+                        		</div>
+                        	</div>
+                    		</div>
+                    </div>
+                    
+                    <div class="row">                    
+                    		<div class="col-sm-12 form-container">
+						     		<div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           	 	<label for="year">Year</label>
+                           	 	<input type="text" id="year" class="form-control" placeholder="2008">
+                        		</div>
+                       		 </div>
+                        	 <div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           		<label for="mileage">Mileage</label>
+                           		<input type="text" id="mileage" class="form-control" placeholder="32099">
+	                     	 	</div>
+                        	 </div>
+                        	<div class="col-sm-4 form-container">
+                        		<div class="form-group has-error">
+                           		<label for="rentOwn">Do you rent or own?</label>
+                           		<br><input id="rent" name="rentOwn" type="radio" checked>
+  											<label for="rent">Rent</label>
+											<input id="own" name="rentOwn" type="radio">
+  											<label for="own">Own</label>
+                        		</div>
+                        	</div>
+                    		</div>
+                    </div>
+                    
+                    <div class="row">
+						   	<div class="col-sm-12 form-container">
+						   		<label>Photo Upload</label>
+						   	</div>
+						   </div>
+						   <div class="row">
+						   	<div class="col-sm-12 form-container">
+						   		<div class="col-sm-12 form-container">
+										<div class="form-group">
+											<div class="fileinput fileinput-new" data-provides="fileinput">
+  												<span class="btn btn-default btn-file">
+  													<span class="fileinput-new">Select file</span>
+  													<span class="fileinput-exists">Change</span>
+  													<input type="file" name="...">
+  												</span>
+  												<span class="fileinput-filename"></span>
+  												<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+											</div>										
+										</div>
+									</div>
+								</div>
+						   </div>
                     
                 </div>
                 <!-- /content wrapper -->
@@ -231,6 +309,7 @@
     <script src="vendor/offline/offline.min.js"></script>
     <script src="vendor/pace/pace.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
     <!-- /theme scripts -->
 
 </body>

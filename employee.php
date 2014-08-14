@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="vendor/offline/theme.css">
     <!-- /core styles -->
 
@@ -36,6 +38,12 @@
 
 <!-- body -->
 <style type="text/css">
+	.col-sm-12.form-container{
+		margin-top: 10px;
+	}
+	#ex1Slider .slider-selection {
+		background: #BABABA;
+	}	 
     .searchResults{
         position: absolute;
         background-color: white;
@@ -207,6 +215,79 @@
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
+							<div class="col-md-12">
+								<h1 class="no-mg-t">New Employee</h1>
+							</div>
+							<div class="row">
+						   	<div class="col-sm-12 form-container">
+							   	<div class="col-sm-6 form-container">
+										<div class="form-group has-error">
+											<label for="firstname">First Name</label>
+											<input type="text" id="firstname" class="form-control" placeholder="First Name">
+										</div>
+							   	</div>
+							   	<div class="col-sm-6 form-container">
+							   		<div class="form-group has-error">
+							   			<label for="lastname">Last Name</label>
+							   			<input type="text" id="lastname" class="form-control" placeholder="Last Name">
+							   		</div>
+							   	</div>
+						   	</div>
+						   </div>
+						   
+						   <div class="row">
+								<div class="col-sm-12 form-container">
+									<div class="col-sm-6 form-container">
+										<div class="form-group has-error">
+											<label for="phone">Phone Number</label>
+											<input type="text" id="phone" class="form-control" placeholder="###-###-####">
+										</div>
+									</div>
+									<div class="col-sm-6 form-container">
+										<div class="form-group has-error">
+											<label for="startDate">Date Started Working</label>
+											<input type="text" id="startDate" class="form-control" placeholder="5-15-2014">
+										</div>
+									</div>
+								</div>
+						   </div>
+						   
+						   
+						   <div class="row">
+						   	<div class="col-sm-12 form-container">
+						   		<label>Photo Upload</label>
+						   	</div>
+						   </div>
+						   <div class="row">
+						   	<div class="col-sm-12 form-container">
+						   		<div class="col-sm-12 form-container">
+										<div class="form-group">
+											<div class="fileinput fileinput-new" data-provides="fileinput">
+  												<span class="btn btn-default btn-file">
+  													<span class="fileinput-new">Select file</span>
+  													<span class="fileinput-exists">Change</span>
+  													<input type="file" name="...">
+  												</span>
+  												<span class="fileinput-filename"></span>
+  												<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+											</div>										
+										</div>
+									</div>
+								</div>
+						   </div>
+						   
+						   
+						   <div class="row">
+						   	<div class="col-sm-12 form-container">
+							   	<div class="form-group">
+						   			<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+							   	</div>
+						   	</div>
+						   </div>
+                
+                
+                
+                
                     
                 </div>
                 <!-- /content wrapper -->
@@ -231,6 +312,16 @@
     <script src="vendor/offline/offline.min.js"></script>
     <script src="vendor/pace/pace.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/bootstrap-slider.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	$('#ex1').slider({
+    		formater: function(value) {
+				return 'Current value: ' + value;
+			}
+	 	});
+    </script>
+    
     <!-- /theme scripts -->
 
 </body>
