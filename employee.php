@@ -60,6 +60,12 @@
     .searchResult>.title{
         font-size: 20px;
     }
+    .white{
+        color: white;
+    }
+    .tableRow{
+        padding:15px;
+    }
 </style>
 
 <body>
@@ -207,7 +213,9 @@
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                    
+                    <div class="col-lg-8 col-md-12">
+                     
+                    </div>
                 </div>
                 <!-- /content wrapper -->
             </section>

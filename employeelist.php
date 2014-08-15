@@ -35,32 +35,6 @@
 </head>
 
 <!-- body -->
-<style type="text/css">
-    .searchResults{
-        position: absolute;
-        background-color: white;
-        z-index: 1;
-        display: none;
-        top: 50px;
-    }
-    .searchResult{
-        cursor: pointer;
-        border-top: solid 1px rgb(180, 180, 180);
-        line-height: 70px;
-    }
-    .searchResult:hover{
-        background-color: #EEEEEE;
-    }
-    .searchResult>div>img{
-        width: 50px;
-        -webkit-border-radius: 25px; 
-        -moz-border-radius: 25px; 
-        border-radius: 25px; 
-    }
-    .searchResult>.title{
-        font-size: 20px;
-    }
-</style>
 
 <body>
     <div class="searchResults">
@@ -207,7 +181,28 @@
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                    
+                    <div class="col-lg-8 col-md-12">
+                        <section class="panel panel-primary">
+                            <div class="panel-heading"><h4 class="white">Employees</h4>
+                            </div>
+                            <div class="row tableRow">
+                                <div class="hidden-xs col-sm-2 col-md-1">
+                                    <span class="pull-left mg-t-xs">
+                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                    </span>
+                                </div>
+                                <div class="col-xs-6 col-sm-8 col-md-5">
+                                    Taylor King<br>
+                                    <small class="text-muted">Employee since Marh 31, 2010</small>
+                                </div>
+                                <div class="col-xs-3 mg-t-xs">Skill Level: 5</div>
+                                <div class="col-xs-3 text-right">
+                                    <button class="btn btn-primary">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
                 <!-- /content wrapper -->
             </section>

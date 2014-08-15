@@ -207,7 +207,45 @@
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                    
+                    <div class="col-lg-8 col-md-12">
+                        <section class="panel panel-primary">
+                            <div class="panel-heading"><h4 class="white">Equipment</h4>
+                            </div>
+                            <div class="row tableRow">
+                                <div class="hidden-xs col-sm-2 col-md-1">
+                                    <span class="pull-left mg-t-xs">
+                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                    </span>
+                                </div>
+                                <div class="col-xs-6 col-sm-8 col-md-5">
+                                    Alexandria, VA<br>
+                                    <small class="text-muted">ID # 45E2SD</small>
+                                </div>
+                                <div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-danger btn-outline">Issue</button></div>
+                                
+                                <div class="col-xs-3 text-right">
+                                    <button class="btn btn-primary">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                             <div class="row tableRow">
+                                <div class="hidden-xs col-sm-2 col-md-1">
+                                    <span class="pull-left mg-t-xs">
+                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                    </span>
+                                </div>
+                                <div class="col-xs-6 col-sm-8 col-md-5">
+                                    Forest Hill, MD<br>
+                                    <small class="text-muted">ID # 45E2SD</small>
+                                </div>
+                                <div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-success btn-outline">Good</button></div>
+                                <div class="col-xs-3 text-right">
+                                    <button class="btn btn-primary">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
                 <!-- /content wrapper -->
             </section>

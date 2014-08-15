@@ -6511,3 +6511,30 @@ canvas {
 .white{
   color: white;
 }
+.searchResults{
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    display: none;
+    top: 50px;
+}
+.searchResult{
+    cursor: pointer;
+    border-top: solid 1px rgb(180, 180, 180);
+    line-height: 70px;
+}
+.searchResult:hover{
+    background-color: #EEEEEE;
+}
+.searchResult>div>img{
+    width: 50px;
+    -webkit-border-radius: 25px; 
+    -moz-border-radius: 25px; 
+    border-radius: 25px; 
+}
+.searchResult>.title{
+    font-size: 20px;
+}
+.tableRow{
+  padding:15px;
+}
