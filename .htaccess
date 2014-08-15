@@ -1,6 +1,6 @@
 RewriteEngine On
 RewriteRule ^jobs/new newJob.php
-RewriteRule ^jobs/([0-9,a-z,A-Z]+)$ job.php?id=$1
+RewriteRule ^jobs/([0-9,a-z,A-Z]+)$ newJob.php?id=$1
 RewriteRule ^equipment/([0-9,a-z,A-Z]+)$ equipment.php?id=$1
 RewriteRule ^equipment/$ equipment.php?id=new
 RewriteRule ^equipment$ equipment.php?id=new [L]

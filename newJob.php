@@ -40,20 +40,9 @@
     <![endif]-->
     <!-- load modernizer -->
 
-    <script src="vendor/modernizr.js"></script>
+    <script src="/vendor/modernizr.js"></script>
     <style type="text/css">
 .searchResults{
-=======
-    <script src="/vendor/modernizr.js"></script>
-</head>
-
-<!-- body -->
-<style type="text/css">
-    .col-sm-12.form-container{
-        margin-top: 10px;
-    }
-    .searchResults{
->>>>>>> b5a668a86ae08e4d9c2c7ec251d71ef7a6f0a98a:newJob.php
         position: absolute;
         background-color: white;
         z-index: 1;
@@ -86,88 +75,6 @@
     </style>
 </head><!-- body -->
 
-<body>
-    <?php include 'includes/header.php'; ?><!--ADD has-error class to all the elements that are required after the form is submitted-->
-    <!-- main content -->
-
-    <section class="main-content">
-        <!-- content wrapper -->
-
-        <div class="content-wrap">
-            <div class="col-md-12">
-                <h1 class="no-mg-t">New Job</h1>
-            </div>
-            <div class="col-sm-4 form-group">
-                <label for="date">Job Date</label> 
-                <input class="form-control" id="date" placeholder="05-15-2014" type="text">
-            </div>
-
-            <div class="col-sm-4 form-group">
-                <label for="startTime">Job Start time</label> 
-                <input class="form-control" id="startTime" placeholder="h:mm PM" type="text">
-            </div>
-
-            <div class="col-sm-4 form-group">
-                <label for="onsiteTime">On-site time</label> 
-                <input class="form-control" id="onsiteTime" placeholder="h:mm PM" type="text">
-            </div>
-
-            <div class="form-group col-sm-12">
-                <label for="moveType">Move Type</label> 
-                <select class="form-control chosen-select" id="moveType" multiple><option>Pack</option><option>Crate/Freight</option><option>Export Wrap</option><option>Unpack</option><option>Load</option><option>Deliver</option><option>Early Out</option><option>Release</option><option>Shuttle</option><option>DOS</option><option>SIT</option><option>APU</option><option>DPU</option><option>Mat'l Del</option><option>Mat'l P/U</option><option>Spot Trailer</option><option>Orig Svs</option><option>Dest Svs</option><option>Smart Move</option><option>Air</option><option>Surface</option><option>Military/GSA</option><option>Install (AMS)</option><option>Install (3P)</option><option>Rigging (3P)</option><option>PC Dis/Rec (3P)</option><option>Storage In</option><option>Storage Perm</option><option>Stage & Store</option><option>Day 1 of 2</option><option>Day 2 of 2</option><option>Day 1 of 3</option><option>Day 2 of 3</option><option>Day 3 of 3</option><option>Day 1 of 4</option><option>Day 2 of 4</option><option>Day 3 of 4</option><option>Day 4 of 4</option><option>Other-See Driver/Crew/Scope Notes</option></select>
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="otherDriverNotes">Other Driver Notes</label> 
-                <input class="form-control" id="otherDriverNotes" placeholder="Other Driver Notes" type="text">
-            </div>
-
-            <div class="col-sm-4 form-group">
-                <label for="regNumber">Reg Number</label> 
-                <input class="form-control" id="regNumber" placeholder="Reg Number" type="text">
-            </div>
-
-            <div class="col-sm-4 form-group">
-                <label for="shipper">Shipper</label> 
-                <input class="form-control" id="shipper" placeholder="Shipper" type="text">
-            </div>
-
-            <div class="col-sm-4 form-group">
-                <label for="phone">Phone Number</label> 
-                <input class="form-control" id="phone" placeholder="###-###-####" type="text">
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="originAddr">Origin</label> 
-                <input class="form-control" id="originAddr" placeholder="Address" type="text">
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="originSpecial">Origin Special Instructions</label> 
-                <input class="form-control" id="originSpecial" placeholder="Special Instructions" type="text">
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="destination">Destination</label> 
-                <input class="form-control" id="destination" placeholder="Address" type="text">
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="destinationSpecial">Destination Special Instructions</label> 
-                <input class="form-control" id="destinationSpecial" placeholder="Special Instructions" type="text">
-            </div>
-
-            <div class="col-sm-6 form-group">
-                <label for="weight">Weight</label> 
-                <input class="form-control" id="weight" placeholder="####" type="text">
-            </div>
-
-            <div class="col-sm-6 form-group">
-                <label for="weightType">Weight Type</label> 
-                <select class="form-control chosen-select" id="weightType" multiple>
-                    <option>
-                        Pounds
-                   </option>
 <body>
    <?php include 'includes/header.php'; ?>
 
@@ -488,129 +395,17 @@
             </section>
             <!-- /main content -->
 
-    </div>
-                    <option>
-                        Grams
-                   </option>
-
-                    <option>
-                        Ounces
-                   </option>
-
-                    <option>
-                        Tons
-                   </option>
-                </select>
-            </div>
-
-            <div class=" col-sm-12 col-sm-12 form-group">
-                <label for="vault">Vault/Pack Order</label> 
-                <input class="form-control" id="vault" placeholder="Type something" type="text">
-            </div>
-
-            <div class="col-md-12">
-                <h1 class="no-mg-t">Crew</h1>
-            </div>
-
-            <div class=" col-sm-12 form-group col-sm-12">
-                <label for="drivers">Driver(s)</label> 
-                <select class="form-control chosen-select" id="drivers" multiple>
-                    <option>
-                        Bill Nye
-                   </option>
-
-                    <option>
-                        Earl of Bacon
-                   </option>
-
-                    <option>
-                        Mr. T
-                   </option>
-
-                    <option>
-                        George Washington
-                   </option>
-                </select>
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="laborers">Laborer(s)</label> 
-                <select class="form-control chosen-select" id="laborers" multiple>
-                    <option>
-                        Paco
-                   </option>
-
-                    <option>
-                        Steve
-                   </option>
-
-                    <option>
-                        Yolando
-                   </option>
-
-                    <option>
-                        George Washington Carver
-                   </option>
-                </select>
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="driverNotes">Driver Notes</label> 
-                <input class="form-control" id="driverNotes" placeholder="Notes" type="text">
-            </div>
-
-            <div class="col-md-12">
-                <h1 class="no-mg-t">Equipment</h1>
-            </div>
-
-            <div class="col-sm-12 form-group">
-                <label for="equipment">Equipment</label> 
-                <select class="form-control chosen-select" id="equipment" multiple>
-                    <option>
-                        Hammer
-                   </option>
-
-                    <option>
-                        Cotton Candy Machine
-                   </option>
-
-                    <option>
-                        Walrus
-                   </option>
-
-                    <option>
-                        Cheese Cutter
-                   </option>
-                </select>
-            </div>
-
-            <div class="col-sm-6 form-group">
-                <label for="truckNo">Shuttle Truck Number</label> 
-                <input class="form-control" id="truckNo" placeholder="##" type="text">
-            </div>
-
-            <div class="col-sm-6 form-group">
-                <label for="insurance">Do daily insurance rates apply?</label><br>
-                <input checked id="insuranceYes" name="insurance" type="radio" value="yes"> 
-                <label for="insuranceYes" onclick="">Yes</label> 
-                <input id="insuranceNo" name="insurance" type="radio" value="no"> <label for="insuranceNo" onclick="">No</label>
-            </div>
-
-            <div class="col-sm-4 col-sm-offset-4 form-group">
-                <button class="btn btn-default" id="submit" type="submit">Add Job</button>
-            </div>
-
             <div class="col-sm-4"></div>
         </div><!-- /content wrapper -->
     </section><!-- /main content -->
     <!-- core scripts -->
-    <script src="vendor/jquery-1.11.1.min.js"></script> <script src="bootstrap/js/bootstrap.js"></script> <script src="js/chosen.jquery.min.js" type="text/javascript"></script> <!-- /core scripts -->
+    <script src="/vendor/jquery-1.11.1.min.js"></script> <script src="bootstrap/js/bootstrap.js"></script> <script src="js/chosen.jquery.min.js" type="text/javascript"></script> <!-- /core scripts -->
      <!-- theme scripts -->
-     <script src="js/global.js"></script> <script src="js/off-canvas.js"></script> 
-     <script src="vendor/jquery.placeholder.js"></script> 
-     <script src="vendor/offline/offline.min.js"></script> 
-     <script src="vendor/pace/pace.min.js"></script> 
-     <script src="js/main.js"></script> 
+     <script src="/js/global.js"></script> <script src="js/off-canvas.js"></script> 
+     <script src="/vendor/jquery.placeholder.js"></script> 
+     <script src="/vendor/offline/offline.min.js"></script> 
+     <script src="/vendor/pace/pace.min.js"></script> 
+     <script src="/js/main.js"></script> 
      <!-- /theme scripts -->
      <script type="text/javascript">
         $(".chosen-select").chosen();
