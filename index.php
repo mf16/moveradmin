@@ -14,11 +14,11 @@
     <!-- /bootstrap -->
 
     <!-- core styles -->
-    <link rel="stylesheet" href="css/skins/palette.css" id="skin">
-    <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="vendor/offline/theme.css">
+    <link rel="stylesheet" href="/css/skins/palette.css" id="skin">
+    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/vendor/offline/theme.css">
     <!-- /core styles -->
 
     <!-- page level styles -->
@@ -157,7 +157,7 @@
                                 <h1 class="no-mg-t">Weekly Overview</h1>
                             </section>
                             <section class="col-md-6 text-right mg-b-lg">
-                                <a href="job.php"><button type="button" class="btn btn-primary">New Job</button></a>
+                                <a href="/jobs/new"><button type="button" class="btn btn-primary">New Job</button></a>
                             </section>
                         </div>
 
