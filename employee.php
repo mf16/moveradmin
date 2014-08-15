@@ -338,8 +338,11 @@
 	 		var formData = {
 	 			'first'				:$('input[id=firstname]').val(),
 	 			'last'				:$('input[id=lastname]').val(),
+	 			'rate'				:$('input[id=rate]').val(),
+	 			//'CDL'				:$('input[id=type]').val(),
+	 			//'license'			:$('input[id=type]').val(),
 	 			'phone'				:$('input[id=phone]').val(),
-	 			'start'				:$('input[id=startDate]').val(),
+	 			'empStart'			:$('input[id=startDate]').val(),
 	 			'skill'				:$('input[id=ex1]').data('slider').getValue(),
 	 			'picture'			:$('span[class=fileinput-filename]').html()
 	 		}

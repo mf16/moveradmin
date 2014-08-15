@@ -294,7 +294,7 @@
                    	 	<div class="col-sm-12 form-container">
 						  <label for="drivers">Driver(s)</label>                         
 							<?php
-								$query="SELECT * FROM moverAdmin.employees WHERE type='driver';";
+								$query="SELECT * FROM moverAdmin.employees WHERE (CDL>0 OR license>0);";
 								$drivers=query($query);
 							?>
                           <select multiple id="drivers" class="form-control chosen-select">
@@ -319,7 +319,7 @@
                    	 	<div class="col-sm-12 form-container">
 								  <label for="laborers">Laborer(s)</label>                         
 							<?php
-								$query="SELECT * FROM moverAdmin.employees WHERE type='labor';";
+								$query="SELECT * FROM moverAdmin.employees;";
 								$laborers=query($query);
 							?>
                           <select multiple id="laborers" class="form-control chosen-select">
