@@ -16,6 +16,7 @@ class equipmentAjax {
 		print_r($_FILES);
 		 */
 		global $db;
+		print_r($_REQUEST['picture']);
 		if($_REQUEST['equipmentid']=='new'){
 			$sql="INSERT INTO moverAdmin.equipment (manufacid,name,make,model,year,propertyType,mileage,picURI) VALUES (?,?,?,?,?,?,?,?);";
 			print_r(query($sql,$_REQUEST['manufacid'],'name here',$_REQUEST['make'],$_REQUEST['model'],$_REQUEST['year'],$_REQUEST['rentOwn'],$_REQUEST['mileage'],$_REQUEST['picture']));

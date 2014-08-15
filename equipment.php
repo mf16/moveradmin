@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include_once "global.php"?>
+<?php include_once "global.php"; ?>
 <html class="no-js">
 
 <head>
@@ -241,115 +241,102 @@
 
             <!-- main content -->
             <section class="main-content">
-
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                	 <div class="col-md-12">
-						<?php
-						$newEditString='';
-						if($equipmentid=='new'){
-							$newEditString='New ';
-						} else {
-							$newEditString='Edit ';
-						}
-						?>
-						<h1 class="no-mg-t"><?php echo $newEditString;?>Equipment</h1>
-                   </div>
-                   <div class="row">                    
-				   equipmentid: <div id="equipmentidDiv"><?php echo $equipmentid; ?></div>
-                    		<div class="col-sm-12 form-container">
-						     		<div class="col-sm-4 form-container">
-                        		<div class="form-group has-error">
-                           	 	<label for="idNo">ID Number</label>
-								<input type="text" id="idNo" class="form-control" placeholder="ID #" value="<?php echo $manufacid;?>">
-                        		</div>
-                       		 </div>
-                        	 <div class="col-sm-4 form-container">
-                        		<div class="form-group has-error">
-                           		<label for="make">Make</label>
-                           		<input type="text" id="make" class="form-control" placeholder="Ford" value="<?php echo $make;?>">
-	                     	 	</div>
-                        	 </div>
-                        	<div class="col-sm-4 form-container">
-                        		<div class="form-group has-error">
-                           		<label for="model">Model</label>
-                            		<input type="text" id="model" class="form-control" placeholder="Escape" value="<?php echo $model;?>">
-                        		</div>
-                        	</div>
-                    		</div>
+                    <div class="col-md-12">
+                        <?php
+                            $newEditString='';
+                            if($equipmentid=='new'){
+                                $newEditString='New ';
+                            } else {
+                                $newEditString='Edit ';
+                            }
+                        ?>
+
+                        <h1 class="no-mg-t"><?php echo $newEditString;?>Equipment</h1>
                     </div>
-                    
-                    <div class="row">                    
-                    		<div class="col-sm-12 form-container">
-						     		<div class="col-sm-4 form-container">
-                        		<div class="form-group has-error">
-                           	 	<label for="year">Year</label>
-								<input type="text" id="year" class="form-control" placeholder="2008" value="<?php echo $year;?>">
-                        		</div>
-                       		 </div>
-                        	 <div class="col-sm-4 form-container">
-                        		<div class="form-group has-error">
-                           		<label for="mileage">Mileage</label>
-                           		<input type="text" id="mileage" class="form-control" placeholder="32099" value="<?php echo $mileage;?>">
-	                     	 	</div>
-                        	 </div>
-                        	<div class="col-sm-4 form-container">
-                        		<div class="form-group has-error">
-                           		<label for="rentOwn">Do you rent or own?</label>
-								<br><input id="rent" name="rentOwn" type="radio" value="rent" <?php echo $rentChecked;?>>
-  											<label for="rent">Rent</label>
-											<input id="own" name="rentOwn" type="radio" value="own" <?php echo $ownChecked;?>>
-  											<label for="own">Own</label>
-                        		</div>
-                        	</div>
-                    		</div>
+                        <form action="/equipmentAjax.php?action=saveEquip" method="post" enctype="multipart/form-data">
+                            <div id="equipmentidDiv">
+                                <?php echo $equipmentid; ?>
+                            </div>
+                            
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="name">Name</label> 
+                                <input class="form-control" id="name" placeholder="Name" name="name" type="text" value="<?php //echo $name;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="idNo">ID Number</label> 
+                                <input class="form-control" id="idNo" placeholder="ID #" name="idNo" type="text" value="<?php echo $manufacid;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <input type="hidden" name="type" id="type" value=""/>
+                            <div class="dropdown col-xs-12 col-md-4">
+                              <button class="btn btn-default dropdown-toggle" type="button" id="typeMenu" data-toggle="dropdown">
+                                Type
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="typeMenu">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Truck');">Truck</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Trailer');">Trailer</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Flatbed');">Flatbed</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Other');">Other</a></li>
+                              </ul>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="make">Make</label> 
+                                <input class="form-control" id="make" name="make" placeholder="Ford" type="text" value="<?php echo $make;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="model">Model</label> 
+                                <input class="form-control" id="model" name="model" placeholder="Escape" type="text" value="<?php echo $model;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="year">Year</label> 
+                                <input class="form-control" id="year" name="year" placeholder="2008" type="text" value="<?php echo $year;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="mileage">Mileage</label> 
+                                <input class="form-control" id="mileage" name="mileage" placeholder="32099" type="text" value="<?php echo $mileage;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="rentOwn">Do you rent or own?</label><br>
+                                <input id="rent" name="rentOwn" type="radio" value="rent"> 
+                                <label for="rent">Rent</label> 
+                                <input id="own" name="rentOwn" type="radio" value="own">
+                                <label for="own">Own</label>
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                            <label>Photo Upload</label><br>
+                            <input type="file" name="picture" id="file">
+                            </div>
+                        </form>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-xs-4 form-group">
+                            <?php
+                                $newAddString='';
+                                if($equipmentid=='new'){
+                                    $newAddString='Add ';
+                                } else {
+                                    $newAddString='Save ';
+                                }
+                            ?>
+                            <button class="btn btn-default" onclick="validate()";><?php echo $newAddString;?>Equipment</button>
+                        </div>
                     </div>
-                    
-                    <div class="row">
-						   	<div class="col-sm-12 form-container">
-						   		<label>Photo Upload</label>
-						   	</div>
-						   </div>
-						   <div class="row">
-						   	<div class="col-sm-12 form-container">
-						   		<div class="col-sm-12 form-container">
-										<div class="form-group">
-											<div class="fileinput fileinput-new" data-provides="fileinput">
-  												<span class="btn btn-default btn-file">
-  													<span class="fileinput-new">Select file</span>
-  													<span class="fileinput-exists">Change</span>
-  													<input type="file" name="...">
-  												</span>
-  												<span class="fileinput-filename"></span>
-  												<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
-											</div>										
-										</div>
-									</div>
-								</div>
-						   </div>
-						   
-						   <div class="row">
-						   	<div class="col-sm-12 form-container">
-						   	<div class="col-sm-4 form-container"></div>
-						   	<div class="col-sm-4 form-container">
-							   	<div class="form-group">
-						<?php
-						$newAddString='';
-						if($equipmentid=='new'){
-							$newAddString='Add ';
-						} else {
-							$newAddString='Save ';
-						}
-						?>
-							<button type="submit" class="btn btn-default" id="submit"><?php echo $newAddString;?>Equipment</button>
-							   	</div>
-						   	</div>
-						   	<div class="col-sm-4 form-container"></div>
-						   	</div>
-						   </div>
-                    
-                </div>
-                <!-- /content wrapper -->
+                </div><!-- /content wrapper -->
             </section>
             <!-- /main content -->
         </section>
@@ -375,32 +362,51 @@
     
     
     <script type="text/javascript">
-    	$('#submit').click(function () {
-	 		var formData = {
-				'equipmentid'		:$('#equipmentidDiv').html(),
-	 			'manufacid'				:$('input[id=idNo]').val(),
-	 			'make'				:$('input[id=make]').val(),
-	 			'model'				:$('input[id=model]').val(),
-	 			'year'				:$('input[id=year]').val(),
-	 			'mileage'			:$('input[id=mileage]').val(),
-	 			'rentOwn'			:$('input[name=rentOwn]:checked').val(),
-	 			'picture'			:$('span[class=fileinput-filename]').html()
-	 		}
-	 		
-	 		$.ajax({
-	 			type: 'POST',
-	 			url:	'/equipmentAjax.php?action=saveEquip',
-	 			data: formData,
-				encode: true,
-				success: function(result){
-					$('#submit').hide();
-					window.location.replace("/equipment/"+result);
-				},
-				fail: function(result){
-					alert('fail');
-				}
-	 		});	 		
-	 	});
+    function testytest(){
+        var file=$('#file');
+
+        console.log(file);
+    }
+        function typeText(text){
+            $('#typeMenu').html(text + ' <span class="caret"></span>');
+            text = text.toLowerCase();
+            $('#type').val(text);
+        }
+
+        function validate(){
+            var formData = new FormData();
+
+            formData = {
+                equipmentid       :$('#equipmentidDiv').html(),
+                manufacid         :$('input[id=idNo]').val(),
+                make              :$('input[id=make]').val(),
+                model             :$('input[id=model]').val(),
+                name              :$('input[id=name]').val(),
+                year              :$('input[id=year]').val(),
+                type              :$('input[id=type]').val(),
+                mileage           :$('input[id=mileage]').val(),
+                rentOwn           :$('input[name=rentOwn]:checked').val(),
+                picture           :$('#file').get(0).files[0]
+            };
+            
+            console.log(formData);
+            $.ajax({
+                type: 'POST',
+                url:    '/equipmentAjax.php?action=saveEquip',
+                data: formData,
+                encode: true,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,   // tell jQuery not to set contentType
+                success: function(result){
+                    alert(result);
+                    $('#submit').hide();
+                    window.location.replace("/equipment/"+result);
+                },
+                fail: function(result){
+                    alert('fail');
+                }
+            });   
+        }
     </script>
     <!-- /theme scripts -->
 

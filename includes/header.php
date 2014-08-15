@@ -90,19 +90,19 @@
                 <nav class="main-navigation">
                     <ul>
                         <li>
-                            <a href="index.html">
+                            <a href="/joblist">
                                 <i class="fa fa-tasks"></i>
                                 <span>Jobs List</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="/employeelist">
                                 <i class="fa fa-users"></i>
                                 <span>Employees</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="/equipmentlist">
                                 <i class="fa fa-truck"></i>
                                 <span>Equipment</span>
                             </a>

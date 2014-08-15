@@ -3129,7 +3129,7 @@ textarea {
   color: #aaa;
 }
 .form-control {
-  border: 1px solid #e8ecf3;
+  border: 1px solid #C0C3C9;
   border-radius: 2px;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -3142,7 +3142,7 @@ textarea {
 .form-control:focus,
 #focusedInput {
   outline: 0;
-  border-color: #e5e9ec;
+  border-color: #C0C3C9;
   background-color: #e8ecf3;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -6540,4 +6540,7 @@ canvas {
 }
 .tableRow{
   padding:15px;
+}
+.btn-default{
+  border: solid 1px rgb(165, 165, 165);
 }
