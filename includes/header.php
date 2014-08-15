@@ -4,14 +4,14 @@
  <div class="searchResults">
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
-                <img src="img/photo.jpg">
+                <img src="/img/photo.jpg">
             </div>
             <div class="col-xs-12 col-md-3 title">Tyler Slater</div>
             <div class="col-xs-12 col-md-8">Employee</div>
         </div>
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
-                <img src="img/flatbed.jpg">
+                <img src="/img/flatbed.jpg">
             </div>
             <div class="col-xs-12 col-md-3 title">FA659DE</div>
             <div class="col-xs-12 col-md-8">Flatbed Truck</div>
@@ -27,7 +27,7 @@
             <div class="brand">
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
 
-                <a href="index.php" class="navbar-brand text-white">
+                <a href="/" class="navbar-brand text-white">
                     <i class="fa fa-stop mg-r-sm"></i>
                     <span class="heading-font">
                         Mover<b>ADMIN</b> 
@@ -52,7 +52,7 @@
                 </li>
                 <li class="quickmenu mg-r-md">
                     <a href="javascript:;" data-toggle="dropdown">
-                        <img src="img/avatar.jpg" class="avatar pull-left img-circle" alt="user" title="user">
+                        <img src="/img/avatar.jpg" class="avatar pull-left img-circle" alt="user" title="user">
                         <i class="caret mg-l-xs hidden-xs no-margin"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right mg-r-xs">
@@ -116,7 +116,7 @@
                 <footer>
                     <div class="about-app pd-md animated pulse">
                         <a href="javascript:;">
-                            <img src="img/about.png" alt="">
+                            <img src="/img/about.png" alt="">
                         </a>
                         <span>
                             <b>MoverAdmin</b>&#32;is a web based management tool for contractors within the transportation industry.

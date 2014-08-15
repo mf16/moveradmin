@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php include_once "global.php";?>
+
 <html class="no-js">
 
 <head>
@@ -10,16 +12,16 @@
     <title>MoverAdmin | Simple Crew Management</title>
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <!-- /bootstrap -->
 
     <!-- core styles -->
-    <link rel="stylesheet" href="css/skins/palette.css" id="skin">
-    <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="vendor/offline/theme.css">
-    <link rel="stylesheet" href="css/chosen.min.css">
+    <link rel="stylesheet" href="/css/skins/palette.css" id="skin">
+    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/vendor/offline/theme.css">
+    <link rel="stylesheet" href="/css/chosen.min.css">
 
     <!-- /core styles -->
 
@@ -33,7 +35,7 @@
     <![endif]-->
 
     <!-- load modernizer -->
-    <script src="vendor/modernizr.js"></script>
+    <script src="/vendor/modernizr.js"></script>
 </head>
 
 <!-- body -->
@@ -290,8 +292,17 @@
                     <div class="col-sm-12 form-container">	
                    	 <div class="form-group">
                    	 	<div class="col-sm-12 form-container">
-								  <label for="drivers">Driver(s)</label>                         
+						  <label for="drivers">Driver(s)</label>                         
+							<?php
+								$query="SELECT * FROM moverAdmin.employees WHERE type='driver';";
+								$drivers=query($query);
+							?>
                           <select multiple id="drivers" class="form-control chosen-select">
+							<?php
+								foreach($drivers as $key=>$driver){
+									echo '<option>'.$driver['first'].' '.$driver['last'].'</option>';
+								}
+							?>
                             <option>Bill Nye</option>
                             <option>Earl of Bacon</option>
                             <option>Mr. T</option>
@@ -307,7 +318,16 @@
                    	 <div class="form-group">
                    	 	<div class="col-sm-12 form-container">
 								  <label for="laborers">Laborer(s)</label>                         
+							<?php
+								$query="SELECT * FROM moverAdmin.employees WHERE type='labor';";
+								$laborers=query($query);
+							?>
                           <select multiple id="laborers" class="form-control chosen-select">
+							<?php
+								foreach($laborers as $key=>$laborer){
+									echo '<option>'.$laborer['first'].' '.$laborer['last'].'</option>';
+								}
+							?>
                             <option>Paco</option>
                             <option>Steve</option>
                             <option>Yolando</option>
@@ -391,23 +411,24 @@
     </div>
 
     <!-- core scripts -->
-    <script src="vendor/jquery-1.11.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/chosen.jquery.min.js"></script>
+    <script src="/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/chosen.jquery.min.js"></script>
     <!-- /core scripts -->
 
     <!-- page level scripts -->
     <!-- /page level scripts -->
 
     <!-- theme scripts -->
-    <script src="js/global.js"></script>
-    <script src="js/off-canvas.js"></script>
-    <script src="vendor/jquery.placeholder.js"></script>
-    <script src="vendor/offline/offline.min.js"></script>
-    <script src="vendor/pace/pace.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/vendor/jquery.placeholder.js"></script>
+    <script src="/vendor/offline/offline.min.js"></script>
+    <script src="/vendor/pace/pace.min.js"></script>
+    <script src="/js/main.js"></script>
     <!-- /theme scripts -->
     <script type="text/javascript">
+		
         $(".chosen-select").chosen();
         
         
@@ -438,11 +459,17 @@
 	 		console.log($('input[name=insurance]:checked').val());
 	 		$.ajax({
 	 			type: 'POST',
-	 			url:	'jobAdd.php',
+	 			url:	'/newJobAjax.php?action=checkData',
 	 			data: formData,
-	 			dataType: 'json',
-	 			encode: true
-	 		})		
+	 			encode: true,
+				success: function(result){
+					//successful. Do javascripty stuff here? I'll return the id.
+					console.log(result);
+				},
+				fail:function(result){
+					console.log(result);
+				}
+	 		});		
 	 	});
     </script>
 </body>
