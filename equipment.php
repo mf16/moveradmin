@@ -389,7 +389,6 @@
                 picture           :$('#file').get(0).files[0]
             };
             
-            console.log(formData);
             $.ajax({
                 type: 'POST',
                 url:    '/equipmentAjax.php?action=saveEquip',
@@ -403,7 +402,7 @@
                     window.location.replace("/equipment/"+result);
                 },
                 fail: function(result){
-                    alert('fail');
+                    alert('Request failed. Please reload the page and try again.');
                 }
             });   
         }

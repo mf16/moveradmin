@@ -238,6 +238,13 @@
 							   			<input type="text" id="lastname" class="form-control" placeholder="Last Name">
 							   		</div>
 							   	</div>
+
+                                <div class="col-sm-6 form-container">
+                                    <div class="form-group has-error">
+                                        <label for="dailyRate">Daily Rate</label>
+                                        <input type="text" id="dailyRate" class="form-control" placeholder="Regular Daily Rate">
+                                    </div>
+                                </div>
 						   	</div>
 						   </div>
 						   
@@ -268,19 +275,24 @@
 						   	<div class="col-sm-12 form-container">
 						   		<div class="col-sm-12 form-container">
 										<div class="form-group">
-											<div class="fileinput fileinput-new" data-provides="fileinput">
-  												<span class="btn btn-default btn-file">
-  													<span class="fileinput-new">Select file</span>
-  													<span class="fileinput-exists">Change</span>
-  													<input type="file" name="...">
-  												</span>
-  												<span class="fileinput-filename"></span>
-  												<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
-											</div>										
+											<div class="col-xs-12 col-md-8 form-group">
+                                            <label>Photo Upload</label><br>
+                                            <input type="file" name="picture" id="file">
+                                            </div>									
 										</div>
 									</div>
 								</div>
 						   </div>
+
+                           <div class="col-xs-12 col-md-8 form-group">
+                                <label for="rentOwn">Driver Type?</label><br>
+                                <input id="CDL" name="license" type="radio" value="2"> 
+                                <label for="CDL">CDL</label>
+                                <input id="dl" name="license" type="radio" value="1"> 
+                                <label for="dl">Drivers License</label> 
+                                <input id="dlNone" name="license" type="radio" value="0">
+                                <label for="dlNone">None</label>
+                            </div>
 						   
 						   
 						   <div class="row">
@@ -341,25 +353,35 @@
 	 	});
 	 	
 	 	$('#submit').click(function () {
-	 		var formData = {
-	 			'first'				:$('input[id=firstname]').val(),
-	 			'last'				:$('input[id=lastname]').val(),
-	 			'rate'				:$('input[id=rate]').val(),
-	 			//'CDL'				:$('input[id=type]').val(),
-	 			//'license'			:$('input[id=type]').val(),
-	 			'phone'				:$('input[id=phone]').val(),
-	 			'empStart'			:$('input[id=startDate]').val(),
-	 			'skill'				:$('input[id=ex1]').data('slider').getValue(),
-	 			'picture'			:$('span[class=fileinput-filename]').html()
-	 		}
-	 		
+            var formData = new FormData();
+
+            formData = {
+	 			first				:$('input[id=firstname]').val(),
+	 			last				:$('input[id=lastname]').val(),
+	 			rate				:$('input[id=rate]').val(),
+	 			license		        :$('input[name=license]:checked').val(),
+	 			phone			    :$('input[id=phone]').val(),
+	 			employeeStart		:$('input[id=startDate]').val(),
+                skill               :$('input[id=ex1]').data('slider').getValue(),
+	 			picture			    :$('#file').get(0).files[0]
+	 		};
+
 	 		$.ajax({
-	 			type: 'POST',
-	 			url:	'employeeAdd.php',
-	 			data: formData,
-	 			dataType: 'json',
-	 			encode: true
-	 		})	 		
+                type: 'POST',
+                url:    '/employeeAjax.php?action=saveEmployee',
+                data: formData,
+                encode: true,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,   // tell jQuery not to set contentType
+                success: function(result){
+                    alert(result);
+                    $('#submit').hide();
+                    window.location.replace("/equipment/"+result);
+                },
+                fail: function(result){
+                    alert('Request failed. Please reload the page and try again.');
+                }
+            });	 		
 	 	});
     </script>
     
