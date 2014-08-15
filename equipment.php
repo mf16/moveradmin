@@ -82,7 +82,6 @@
 						global $db;
 						$sql="SELECT * from moverAdmin.equipment WHERE idequipment=?";
 						$equipInfo=query($sql,$equipmentid)[0];
-						print_r($equipInfo);
 						$manufacid=$equipInfo['manufacid'];
 						$make=$equipInfo['make'];
 						$model=$equipInfo['model'];
