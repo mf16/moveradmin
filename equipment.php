@@ -330,6 +330,10 @@
                             </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
+                                <input type="checkbox" id = "isEquipAvailable"> Available
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
                             <label>Photo Upload</label><br>
                             <input type="file" name="picture" id="file">
                             </div>
@@ -391,8 +395,13 @@
 
         function validate(){
             var formData = new FormData();
+            var isEquipAvailable = '0';
+            if($("#isEquipAvailable").prop('checked') == true){
+                isEquipAvailable = '1';
+            }
 
             formData = {
+                isAvailable       :isEquipAvailable,
                 equipmentid       :$('#equipmentidDiv').html(),
                 manufacid         :$('input[id=idNo]').val(),
                 name			  :$('input[id=name]').val(),
