@@ -11,19 +11,15 @@ class equipmentAjax {
 	}
 
 	function saveEquip(){
-		/*
-		print_r($_REQUEST);
-		print_r($_FILES);
-		 */
 		global $db;
-		print_r($_REQUEST['picture']);
+		//print_r($_REQUEST);
 		if($_REQUEST['equipmentid']=='new'){
-			$sql="INSERT INTO moverAdmin.equipment (manufacid,name,make,model,year,propertyType,mileage,picURI) VALUES (?,?,?,?,?,?,?,?);";
-			print_r(query($sql,$_REQUEST['manufacid'],'name here',$_REQUEST['make'],$_REQUEST['model'],$_REQUEST['year'],$_REQUEST['rentOwn'],$_REQUEST['mileage'],$_REQUEST['picture']));
+			$sql="INSERT INTO moverAdmin.equipment (manufacid,name,make,model,year,propertyType,mileage,picURI,type) VALUES (?,?,?,?,?,?,?,?,?);";
+			print_r(query($sql,$_REQUEST['manufacid'],$_REQUEST['name'],$_REQUEST['make'],$_REQUEST['model'],$_REQUEST['year'],$_REQUEST['rentOwn'],$_REQUEST['mileage'],$_REQUEST['picture'],$_REQUEST['type']));
 		} else {
 			//save
-			$sql="UPDATE moverAdmin.equipment SET manufacid=?,name=?,make=?,model=?,year=?,propertyType=?,mileage=?,picURI=? WHERE idequipment=?;";
-			query($sql,$_REQUEST['manufacid'],'name here',$_REQUEST['make'],$_REQUEST['model'],$_REQUEST['year'],$_REQUEST['rentOwn'],$_REQUEST['mileage'],$_REQUEST['picture'],$_REQUEST['equipmentid']);
+			$sql="UPDATE moverAdmin.equipment SET manufacid=?,name=?,make=?,model=?,year=?,propertyType=?,mileage=?,picURI=?,type=? WHERE idequipment=?;";
+			query($sql,$_REQUEST['manufacid'],$_REQUEST['name'],$_REQUEST['make'],$_REQUEST['model'],$_REQUEST['year'],$_REQUEST['rentOwn'],$_REQUEST['mileage'],$_REQUEST['picture'],$_REQUEST['type'],$_REQUEST['equipmentid']);
 			print_r($_REQUEST['equipmentid']);
 		}
 	}

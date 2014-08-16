@@ -68,6 +68,7 @@
 </style>
 					<?php
 					// Set vars
+					$name='';
 					$manufacid='';
 					$make='';
 					$model='';
@@ -77,23 +78,31 @@
 					$picture='';
 					$rentChecked='';
 					$ownChecked='';
+					$type='';
 					if(isset($_REQUEST['id'])){
 						$equipmentid=$_REQUEST['id'];
 						global $db;
 						$sql="SELECT * from moverAdmin.equipment WHERE idequipment=?";
 						$equipInfo=query($sql,$equipmentid)[0];
-						$manufacid=$equipInfo['manufacid'];
-						$make=$equipInfo['make'];
-						$model=$equipInfo['model'];
-						$year=$equipInfo['year'];
-						$mileage=$equipInfo['mileage'];
-						$rentOwn=$equipInfo['propertyType'];
-						if($rentOwn=='rent'){
-							$rentChecked=' checked';
-						} else if ($rentOwn=='own'){
-							$ownChecked=' checked';
+						if(!isset($equipInfo)){
+							$equipmentid='new';
+							// do not set anything, that id does not exit
+						} else {
+							$name=$equipInfo['name'];
+							$manufacid=$equipInfo['manufacid'];
+							$make=$equipInfo['make'];
+							$model=$equipInfo['model'];
+							$year=$equipInfo['year'];
+							$mileage=$equipInfo['mileage'];
+							$rentOwn=$equipInfo['propertyType'];
+							$type=$equipInfo['type'];
+							if($rentOwn=='rent'){
+								$rentChecked=' checked';
+							} else if ($rentOwn=='own'){
+								$ownChecked=' checked';
+							}
+							$picture=$equipInfo['picture'];
 						}
-						$picture=$equipInfo['picture'];
 					} else {
 						$equipmentid='new';
 					}
@@ -256,13 +265,11 @@
                         <h1 class="no-mg-t"><?php echo $newEditString;?>Equipment</h1>
                     </div>
                         <form action="/equipmentAjax.php?action=saveEquip" method="post" enctype="multipart/form-data">
-                            <div id="equipmentidDiv">
-                                <?php echo $equipmentid; ?>
-                            </div>
+                            <div id="equipmentidDiv"><?php echo $equipmentid; ?></div>
                             
                             <div class="col-xs-12 col-md-8 form-group">
                                 <label for="name">Name</label> 
-                                <input class="form-control" id="name" placeholder="Name" name="name" type="text" value="<?php //echo $name;?>">
+                                <input class="form-control" id="name" placeholder="Name" name="name" type="text" value="<?php echo $name;?>">
                             </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
@@ -272,10 +279,16 @@
 
                             <div class="clearfix"></div>
 
-                            <input type="hidden" name="type" id="type" value=""/>
+							<input type="hidden" name="type" id="type" value="<?php echo ucwords($type);?>"/>
                             <div class="dropdown col-xs-12 col-md-4">
                               <button class="btn btn-default dropdown-toggle" type="button" id="typeMenu" data-toggle="dropdown">
-                                Type
+								<?php
+								if(isset($type) && $type!=''){
+									echo ucwords($type);
+								} else {
+									echo 'Type';
+								}
+								?>
                                 <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="typeMenu">
@@ -310,9 +323,9 @@
 
                             <div class="col-xs-12 col-md-8 form-group">
                                 <label for="rentOwn">Do you rent or own?</label><br>
-                                <input id="rent" name="rentOwn" type="radio" value="rent"> 
+								<input id="rent" name="rentOwn" type="radio" value="rent" <?php echo $rentChecked;?>> 
                                 <label for="rent">Rent</label> 
-                                <input id="own" name="rentOwn" type="radio" value="own">
+                                <input id="own" name="rentOwn" type="radio" value="own" <?php echo $ownChecked;?>>
                                 <label for="own">Own</label>
                             </div>
 
@@ -342,6 +355,9 @@
         </section>
 
     </div>
+<form id='testForm'>
+	
+</form>
 
     <!-- core scripts -->
     <script src="/vendor/jquery-1.11.1.min.js"></script>
@@ -379,6 +395,7 @@
             formData = {
                 equipmentid       :$('#equipmentidDiv').html(),
                 manufacid         :$('input[id=idNo]').val(),
+                name			  :$('input[id=name]').val(),
                 make              :$('input[id=make]').val(),
                 model             :$('input[id=model]').val(),
                 name              :$('input[id=name]').val(),
@@ -388,17 +405,16 @@
                 rentOwn           :$('input[name=rentOwn]:checked').val(),
                 picture           :$('#file').get(0).files[0]
             };
-            
-            console.log(formData);
+			
+            //console.log(formData);
+
             $.ajax({
                 type: 'POST',
                 url:    '/equipmentAjax.php?action=saveEquip',
                 data: formData,
                 encode: true,
-                processData: false,  // tell jQuery not to process the data
-                contentType: false,   // tell jQuery not to set contentType
                 success: function(result){
-                    alert(result);
+                    //alert(result);
                     $('#submit').hide();
                     window.location.replace("/equipment/"+result);
                 },

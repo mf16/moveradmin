@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php include_once "global.php";
+?>
 <html class="no-js">
 
 <head>
@@ -126,19 +128,19 @@
                 <nav class="main-navigation">
                     <ul>
                         <li>
-                            <a href="index.html">
+                            <a href="/joblist">
                                 <i class="fa fa-tasks"></i>
                                 <span>Jobs List</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="/employeeslist">
                                 <i class="fa fa-users"></i>
                                 <span>Employees</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="/equipmentlist">
                                 <i class="fa fa-truck"></i>
                                 <span>Equipment</span>
                             </a>
@@ -185,6 +187,32 @@
                         <section class="panel panel-primary">
                             <div class="panel-heading"><h4 class="white">Equipment</h4>
                             </div>
+							<?php
+							global $db;
+							$sql="SELECT * FROM moverAdmin.equipment;";
+							$equipments=query($sql);
+							foreach($equipments as $key=>$equipment){
+								print_r($equipment);
+								echo '<div class="row tableRow">
+									<div class="hidden-xs col-sm-2 col-md-1">
+										<span class="pull-left mg-t-xs">
+											<img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+										</span>
+									</div>
+									<div class="col-xs-6 col-sm-8 col-md-5">
+										Flatbed Truck<br>
+										<small class="text-muted">ID # 45E2SD</small>
+									</div>
+									<div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-success btn-outline">Available</button></div>
+									<div class="col-xs-3 text-right">
+										<button class="btn btn-primary">Edit</button>
+										<button class="btn btn-danger">Delete</button>
+									</div>
+								</div>';
+								echo '<br/>';
+								echo '<br/>';
+							}
+							?>
                             <div class="row tableRow">
                                 <div class="hidden-xs col-sm-2 col-md-1">
                                     <span class="pull-left mg-t-xs">
