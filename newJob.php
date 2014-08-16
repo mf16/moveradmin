@@ -409,6 +409,13 @@
     <script src="/plugins/timepicker/timepicker.js"></script> 
      <!-- /theme scripts -->
      <script type="text/javascript">
+        $("#phone").keyup(function(){
+            var text = $("#phone").val(); 
+            text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+            $("#phone").val(text)
+        });
+
+
         $('#startDate').datepicker({
             todayBtn: "linked"
         });
