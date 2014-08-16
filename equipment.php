@@ -405,8 +405,6 @@
                 rentOwn           :$('input[name=rentOwn]:checked').val(),
                 picture           :$('#file').get(0).files[0]
             };
-			
-            //console.log(formData);
 
             $.ajax({
                 type: 'POST',
@@ -419,7 +417,7 @@
                     window.location.replace("/equipment/"+result);
                 },
                 fail: function(result){
-                    alert('fail');
+                    alert('Request failed. Please reload the page and try again.');
                 }
             });   
         }
