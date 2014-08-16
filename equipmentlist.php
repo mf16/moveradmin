@@ -192,59 +192,31 @@
 							$sql="SELECT * FROM moverAdmin.equipment;";
 							$equipments=query($sql);
 							foreach($equipments as $key=>$equipment){
-								print_r($equipment);
-								echo '<div class="row tableRow">
+								if(isset($equipment['isAvailable']) && $equipment['isAvailable']>0){
+									$isAvailableString='<div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-success btn-outline">Available</button></div>';
+								} else {
+									$isAvailableString='<div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-danger btn-outline">Unavailable</button></div>';
+								}
+								echo '<div class="row tableRow" id="eachEquipmentRow'.$equipment['idequipment'].'">
 									<div class="hidden-xs col-sm-2 col-md-1">
 										<span class="pull-left mg-t-xs">
 											<img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
 										</span>
 									</div>
-									<div class="col-xs-6 col-sm-8 col-md-5">
-										Flatbed Truck<br>
-										<small class="text-muted">ID # 45E2SD</small>
+									<div class="col-xs-4 col-sm-5 col-md-3" style="margin-top:11px;">
+										'.$equipment['name'].'
 									</div>
-									<div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-success btn-outline">Available</button></div>
+									'.$isAvailableString.'
+									<div class="col-xs-2 col-sm-3 col-md-2">Type: '.$equipment['type'].'<br>
+										<small class="text-muted">ID#: '.$equipment['manufacid'].'</small>
+									</div>
 									<div class="col-xs-3 text-right">
-										<button class="btn btn-primary">Edit</button>
-										<button class="btn btn-danger">Delete</button>
+										<a href="/equipment/'.$equipment['idequipment'].'"><button class="btn btn-primary">Edit</button></a>
+										<button onclick="delEquip('.$equipment['idequipment'].');" class="btn btn-danger">Delete</button>
 									</div>
 								</div>';
-								echo '<br/>';
-								echo '<br/>';
 							}
 							?>
-                            <div class="row tableRow">
-                                <div class="hidden-xs col-sm-2 col-md-1">
-                                    <span class="pull-left mg-t-xs">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
-                                    </span>
-                                </div>
-                                <div class="col-xs-6 col-sm-8 col-md-5">
-                                    Flatbed Truck<br>
-                                    <small class="text-muted">ID # 45E2SD</small>
-                                </div>
-                                <div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-success btn-outline">Available</button></div>
-                                <div class="col-xs-3 text-right">
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </div>
-                            </div>
-                             <div class="row tableRow">
-                                <div class="hidden-xs col-sm-2 col-md-1">
-                                    <span class="pull-left mg-t-xs">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
-                                    </span>
-                                </div>
-                                <div class="col-xs-6 col-sm-8 col-md-5">
-                                    Flatbed Truck<br>
-                                    <small class="text-muted">ID # 45E2SD</small>
-                                </div>
-                                <div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-danger btn-outline">Unavailable</button></div>
-                                <div class="col-xs-3 text-right">
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </div>
-                            </div>
                         </section>
                     </div>
                 </div>
@@ -255,6 +227,19 @@
 
     </div>
 
+	<script>
+		function delEquip(equipmentid){
+			alert('Are you sure you want to delete this?\n\nToo bad you only have one answer... blame the front end guy..');
+			$.ajax({
+				type: 'POST',
+				url: '/equipmentAjax.php?action=delEquip&equipmentid='+equipmentid,
+				success:function(result){
+					//alert('success');
+					$('#eachEquipmentRow'+equipmentid).remove();
+				}
+			});
+		}
+	</script>
     <!-- core scripts -->
     <script src="vendor/jquery-1.11.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>

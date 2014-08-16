@@ -79,6 +79,7 @@
 					$rentChecked='';
 					$ownChecked='';
 					$type='';
+					$isAvailable=false;
 					if(isset($_REQUEST['id'])){
 						$equipmentid=$_REQUEST['id'];
 						global $db;
@@ -102,6 +103,7 @@
 								$ownChecked=' checked';
 							}
 							$picture=$equipInfo['picture'];
+							$isAvailable=$equipInfo['isAvailable'];
 						}
 					} else {
 						$equipmentid='new';
@@ -330,7 +332,13 @@
                             </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
-                                <input type="checkbox" id = "isEquipAvailable"> Available
+							<?php
+							$isAvailableChecked='';
+							if(isset($isAvailable) && $isAvailable>0){
+								$isAvailableChecked=' checked';
+							}
+							?>
+								<input type="checkbox" id = "isEquipAvailable" <?php echo $isAvailableChecked;?>> Available
                             </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
