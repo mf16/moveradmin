@@ -431,7 +431,9 @@
                 success: function(result){
                     //alert(result);
                     $('#submit').hide();
-                    window.location.replace("/equipment/"+result);
+                    window.location.replace("/equipment");
+					// reloads current editing window including id
+                    //window.location.replace("/equipment/"+result);
                 },
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');
