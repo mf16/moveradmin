@@ -2,7 +2,12 @@ RewriteEngine On
 RewriteRule ^jobs/new newJob.php
 RewriteRule ^jobs/([0-9,a-z,A-Z]+)$ newJob.php?id=$1 [L]
 RewriteRule ^equipment/([0-9,a-z,A-Z]+)$ equipment.php?id=$1
+RewriteRule ^equipment/([0-9,a-z,A-Z]+)/$ equipment.php?id=$1
 RewriteRule ^equipment/$ equipmentlist.php
 RewriteRule ^equipment$ equipmentlist.php
 RewriteRule ^equipmentlist/$ equipmentlist.php
 RewriteRule ^equipmentlist$ equipmentlist.php [L]
+RewriteRule ^employees/([0-9,a-z,A-Z]+)$ employees.php?id=$1
+RewriteRule ^employees/([0-9,a-z,A-Z]+)/$ employees.php?id=$1
+RewriteRule ^employees/$ employeelist.php
+RewriteRule ^employees$ employeelist.php [L]

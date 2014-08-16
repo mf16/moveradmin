@@ -10,15 +10,15 @@
     <title>MoverAdmin | Simple Crew Management</title>
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <!-- /bootstrap -->
 
     <!-- core styles -->
-    <link rel="stylesheet" href="css/skins/palette.css" id="skin">
-    <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="vendor/offline/theme.css">
+    <link rel="stylesheet" href="/css/skins/palette.css" id="skin">
+    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/vendor/offline/theme.css">
     <!-- /core styles -->
 
     <!-- page level styles -->
@@ -31,7 +31,7 @@
     <![endif]-->
 
     <!-- load modernizer -->
-    <script src="vendor/modernizr.js"></script>
+    <script src="/vendor/modernizr.js"></script>
 </head>
 
 <!-- body -->
@@ -40,14 +40,14 @@
     <div class="searchResults">
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
-                <img src="img/photo.jpg">
+                <img src="/img/photo.jpg">
             </div>
             <div class="col-xs-12 col-md-3 title">Tyler Slater</div>
             <div class="col-xs-12 col-md-8">Employee</div>
         </div>
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
-                <img src="img/flatbed.jpg">
+                <img src="/img/flatbed.jpg">
             </div>
             <div class="col-xs-12 col-md-3 title">FA659DE</div>
             <div class="col-xs-12 col-md-8">Flatbed Truck</div>
@@ -63,7 +63,7 @@
             <div class="brand">
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
 
-                <a href="index.html" class="navbar-brand text-white">
+                <a href="/" class="navbar-brand text-white">
                     <i class="fa fa-stop mg-r-sm"></i>
                     <span class="heading-font">
                         Mover<b>ADMIN</b> 
@@ -82,13 +82,13 @@
 
             <ul class="nav navbar-nav navbar-right off-right">
                 <li class="hidden-xs">
-                    <a href="profile.html">
+                    <a href="/profile.html">
                         +Matt Underwood
                     </a>
                 </li>
                 <li class="quickmenu mg-r-md">
                     <a href="javascript:;" data-toggle="dropdown">
-                        <img src="img/avatar.jpg" class="avatar pull-left img-circle" alt="user" title="user">
+                        <img src="/img/avatar.jpg" class="avatar pull-left img-circle" alt="user" title="user">
                         <i class="caret mg-l-xs hidden-xs no-margin"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right mg-r-xs">
@@ -152,7 +152,7 @@
                 <footer>
                     <div class="about-app pd-md animated pulse">
                         <a href="javascript:;">
-                            <img src="img/about.png" alt="">
+                            <img src="/img/about.png" alt="">
                         </a>
                         <span>
                             <b>MoverAdmin</b>&#32;is a web based management tool for contractors within the transportation industry.
@@ -188,7 +188,7 @@
                             <div class="row tableRow">
                                 <div class="hidden-xs col-sm-2 col-md-1">
                                     <span class="pull-left mg-t-xs">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                        <img src="/img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </span>
                                 </div>
                                 <div class="col-xs-6 col-sm-8 col-md-5">
@@ -212,20 +212,20 @@
     </div>
 
     <!-- core scripts -->
-    <script src="vendor/jquery-1.11.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
     <!-- /core scripts -->
 
     <!-- page level scripts -->
     <!-- /page level scripts -->
 
     <!-- theme scripts -->
-    <script src="js/global.js"></script>
-    <script src="js/off-canvas.js"></script>
-    <script src="vendor/jquery.placeholder.js"></script>
-    <script src="vendor/offline/offline.min.js"></script>
-    <script src="vendor/pace/pace.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/vendor/jquery.placeholder.js"></script>
+    <script src="/vendor/offline/offline.min.js"></script>
+    <script src="/vendor/pace/pace.min.js"></script>
+    <script src="/js/main.js"></script>
     <!-- /theme scripts -->
 
 </body>

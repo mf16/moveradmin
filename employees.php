@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php include_once "global.php";
+?>
 <html class="no-js">
 
 <head>
@@ -10,17 +12,17 @@
     <title>MoverAdmin | Simple Crew Management</title>
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <!-- /bootstrap -->
 
     <!-- core styles -->
-    <link rel="stylesheet" href="css/skins/palette.css" id="skin">
-    <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
-    <link rel="stylesheet" href="css/slider.css">
-    <link rel="stylesheet" href="vendor/offline/theme.css">
+    <link rel="stylesheet" href="/css/skins/palette.css" id="skin">
+    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/vendor/offline/theme.css">
     <!-- /core styles -->
 
     <!-- page level styles -->
@@ -33,7 +35,7 @@
     <![endif]-->
 
     <!-- load modernizer -->
-    <script src="vendor/modernizr.js"></script>
+    <script src="/vendor/modernizr.js"></script>
 </head>
 
 <!-- body -->
@@ -76,18 +78,52 @@
     }
 </style>
 
+					<?php
+					// Set vars
+					$first='';
+					$last='';
+					$rate='';
+					$license='';
+					$empSince='';
+					$picture='';
+					$phone='';
+					$skill='5';
+					if(isset($_REQUEST['id'])){
+						$employeeid=$_REQUEST['id'];
+						global $db;
+						$sql="SELECT * from moverAdmin.employees WHERE idemployees=?";
+						$empInfo=query($sql,$employeeid)[0];
+						if(!isset($empInfo)){
+							$empInfo='new';
+							// do not set anything, that id does not exit
+						} else {
+							$first=$empInfo['first'];
+							$last=$empInfo['last'];
+							$rate=$empInfo['dailyRate'];
+							$license=$empInfo['license'];
+							$empSince=$empInfo['empSince'];
+							$picture=$empInfo['picture'];
+							$phone=$empInfo['phone'];
+							$skill=$empInfo['skill'];
+						}
+					} else {
+						$equipmentid='new';
+					}
+					?>
+
+
 <body>
     <div class="searchResults">
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
-                <img src="img/photo.jpg">
+                <img src="/img/photo.jpg">
             </div>
             <div class="col-xs-12 col-md-3 title">Tyler Slater</div>
             <div class="col-xs-12 col-md-8">Employee</div>
         </div>
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
-                <img src="img/flatbed.jpg">
+                <img src="/img/flatbed.jpg">
             </div>
             <div class="col-xs-12 col-md-3 title">FA659DE</div>
             <div class="col-xs-12 col-md-8">Flatbed Truck</div>
@@ -103,7 +139,7 @@
             <div class="brand">
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
 
-                <a href="index.html" class="navbar-brand text-white">
+                <a href="/" class="navbar-brand text-white">
                     <i class="fa fa-stop mg-r-sm"></i>
                     <span class="heading-font">
                         Mover<b>ADMIN</b> 
@@ -122,13 +158,13 @@
 
             <ul class="nav navbar-nav navbar-right off-right">
                 <li class="hidden-xs">
-                    <a href="profile.html">
+                    <a href="/profile.html">
                         +Matt Underwood
                     </a>
                 </li>
                 <li class="quickmenu mg-r-md">
                     <a href="javascript:;" data-toggle="dropdown">
-                        <img src="img/avatar.jpg" class="avatar pull-left img-circle" alt="user" title="user">
+                        <img src="/img/avatar.jpg" class="avatar pull-left img-circle" alt="user" title="user">
                         <i class="caret mg-l-xs hidden-xs no-margin"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right mg-r-xs">
@@ -151,7 +187,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="signin.html">Logout</a>
+                            <a href="/signin.html">Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -166,19 +202,19 @@
                 <nav class="main-navigation">
                     <ul>
                         <li>
-                            <a href="index.html">
+                            <a href="/jobs">
                                 <i class="fa fa-tasks"></i>
                                 <span>Jobs List</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="/employees">
                                 <i class="fa fa-users"></i>
                                 <span>Employees</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="/equipment">
                                 <i class="fa fa-truck"></i>
                                 <span>Equipment</span>
                             </a>
@@ -192,7 +228,7 @@
                 <footer>
                     <div class="about-app pd-md animated pulse">
                         <a href="javascript:;">
-                            <img src="img/about.png" alt="">
+                            <img src="/img/about.png" alt="">
                         </a>
                         <span>
                             <b>MoverAdmin</b>&#32;is a web based management tool for contractors within the transportation industry.
@@ -224,25 +260,26 @@
 							<div class="col-md-12">
 								<h1 class="no-mg-t">New Employee</h1>
 							</div>
+							<div id="employeeidDiv"><?php echo $employeeid;?></div>
 							<div class="row">
 						   	<div class="col-sm-12 form-container">
 							   	<div class="col-sm-6 form-container">
 										<div class="form-group has-error">
 											<label for="firstname">First Name</label>
-											<input type="text" id="firstname" class="form-control" placeholder="First Name">
+											<input type="text" id="firstname" class="form-control" placeholder="First Name" value="<?php echo $first;?>">
 										</div>
 							   	</div>
 							   	<div class="col-sm-6 form-container">
 							   		<div class="form-group has-error">
 							   			<label for="lastname">Last Name</label>
-							   			<input type="text" id="lastname" class="form-control" placeholder="Last Name">
+							   			<input type="text" id="lastname" class="form-control" placeholder="Last Name" value="<?php echo $last;?>">
 							   		</div>
 							   	</div>
 
                                 <div class="col-sm-6 form-container">
                                     <div class="form-group has-error">
-                                        <label for="dailyRate">Daily Rate</label>
-                                        <input type="text" id="dailyRate" class="form-control" placeholder="Regular Daily Rate">
+                                        <label for="rate">Daily Rate</label>
+                                        <input type="text" id="rate" class="form-control" placeholder="Regular Daily Rate" value="<?php echo $rate;?>">
                                     </div>
                                 </div>
 						   	</div>
@@ -253,13 +290,13 @@
 									<div class="col-sm-6 form-container">
 										<div class="form-group has-error">
 											<label for="phone">Phone Number</label>
-											<input type="text" id="phone" class="form-control" placeholder="###-###-####">
+											<input type="text" id="phone" class="form-control" placeholder="###-###-####" value="<?php echo $phone;?>">
 										</div>
 									</div>
 									<div class="col-sm-6 form-container">
 										<div class="form-group has-error">
-											<label for="startDate">Date Started Working</label>
-											<input type="text" id="startDate" class="form-control" placeholder="5-15-2014">
+											<label for="empSince">Date Started Working</label>
+											<input type="text" id="empSince" class="form-control" placeholder="5-15-2014" value="<?php print_r($empSince);?>">
 										</div>
 									</div>
 								</div>
@@ -283,14 +320,26 @@
 									</div>
 								</div>
 						   </div>
-
+<?php
+							$CDLSelected='';
+							$dlSelected='';
+							$noneSelected=' checked ';
+							if(!isset($license) && $license<1){
+							} else if ($license >2){
+								$CDLSelected=' checked ';
+								$noneSelected='';
+							} else if ($license ==2){
+								$dlSelected=' checked ';
+								$noneSelected='';
+							}
+?>
                            <div class="col-xs-12 col-md-8 form-group">
                                 <label for="rentOwn">Driver Type?</label><br>
-                                <input id="CDL" name="license" type="radio" value="2"> 
+								<input id="CDL" name="license" type="radio" value="2" <?php echo $CDLSelected;?>> 
                                 <label for="CDL">CDL</label>
-                                <input id="dl" name="license" type="radio" value="1"> 
+                                <input id="dl" name="license" type="radio" value="1" <?php echo $dlSelected;?>> 
                                 <label for="dl">Drivers License</label> 
-                                <input id="dlNone" name="license" type="radio" value="0">
+                                <input id="dlNone" name="license" type="radio" value="0" <?php echo $noneSelected;?>>
                                 <label for="dlNone">None</label>
                             </div>
 						   
@@ -299,7 +348,7 @@
 						   	<div class="col-sm-12 form-container">
 							   	<div class="form-group">
 						   			<label for="ex1">Skill Level</label>
-						   			<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+									<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="<?php echo $skill;?>"/>
 							   	</div>
 						   	</div>
 						   </div>
@@ -329,22 +378,22 @@
     </div>
 
     <!-- core scripts -->
-    <script src="vendor/jquery-1.11.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
     <!-- /core scripts -->
 
     <!-- page level scripts -->
     <!-- /page level scripts -->
 
     <!-- theme scripts -->
-    <script src="js/global.js"></script>
-    <script src="js/off-canvas.js"></script>
-    <script src="vendor/jquery.placeholder.js"></script>
-    <script src="vendor/offline/offline.min.js"></script>
-    <script src="vendor/pace/pace.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/bootstrap-slider.js"></script>
-    <script src="js/jasny-bootstrap.min.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/vendor/jquery.placeholder.js"></script>
+    <script src="/vendor/offline/offline.min.js"></script>
+    <script src="/vendor/pace/pace.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/bootstrap-slider.js"></script>
+    <script src="/js/jasny-bootstrap.min.js"></script>
     <script type="text/javascript">
     	$('#ex1').slider({
     		formater: function(value) {
@@ -356,27 +405,26 @@
             var formData = new FormData();
 
             formData = {
+				employeeid			:$('#employeeidDiv').html(),
 	 			first				:$('input[id=firstname]').val(),
 	 			last				:$('input[id=lastname]').val(),
 	 			rate				:$('input[id=rate]').val(),
 	 			license		        :$('input[name=license]:checked').val(),
 	 			phone			    :$('input[id=phone]').val(),
-	 			employeeStart		:$('input[id=startDate]').val(),
+	 			empSince			:$('input[id=empSince]').val(),
                 skill               :$('input[id=ex1]').data('slider').getValue(),
 	 			picture			    :$('#file').get(0).files[0]
 	 		};
 
 	 		$.ajax({
                 type: 'POST',
-                url:    '/employeeAjax.php?action=saveEmployee',
+                url:    '/employeeAjax.php?action=saveEmp',
                 data: formData,
                 encode: true,
-                processData: false,  // tell jQuery not to process the data
-                contentType: false,   // tell jQuery not to set contentType
                 success: function(result){
                     alert(result);
                     $('#submit').hide();
-                    window.location.replace("/equipment/"+result);
+                    window.location.replace("/employees/"+result);
                 },
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');
