@@ -27,6 +27,7 @@
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/animate.min.css" rel="stylesheet">
     <link href="/vendor/offline/theme.css" rel="stylesheet">
+    <link href="/css/job.css" rel="stylesheet">
     <link href="/css/chosen.min.css" rel="stylesheet"><!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -68,6 +69,7 @@
     }
 
     </style>
+
     <style type="text/css">
     .bootstrap-timepicker-hour, .bootstrap-timepicker-minute, .bootstrap-timepicker-meridian{
             border: none;
@@ -75,40 +77,6 @@
     </style>
 </head><!-- body -->
 
-<style type="text/css">
-    .label{
-        text-align: right;
-        padding-right: 15px;
-        color: rgb(85, 85, 85);
-        font-size: 15px;
-        margin-bottom: 15px;
-    }
-    .mg-b-lg{
-        margin-bottom: 75px;
-    }
-    h1{
-        margin-bottom: 25px;
-    }
-    #submit{
-        min-width: 52px;
-        width: 50%;
-    }
-    #insuranceNo{
-        margin-left: 25px;
-        margin-right: 5px;
-    }
-    #insuranceYes{
-        margin-right: 5px;
-    }
-    @media all and (max-width: 480px) and (min-width: 320px) {
-      .clearfix{
-        height: 15px;
-      }
-      .content-wrap>.col-md-12{
-        padding: 0px;
-      }
-    }
-</style>
 <body>
     <?php include 'includes/header.php'; ?><!-- main content -->
 
@@ -478,18 +446,6 @@
                 </div>
                 <div class="col-md-8">
                     <select class="form-control chosen-select" id="equipment" multiple>
-                        <option>
-                            Hammer
-                        </option>
-                        <option>
-                            Cotton Candy Machine
-                        </option>
-                        <option>
-                            Walrus
-                        </option>
-                        <option>
-                            Cheese Cutter
-                        </option>
                     </select> 
                 </div>
 

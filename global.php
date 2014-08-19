@@ -17,10 +17,10 @@ if($_SERVER['REMOTE_ADDR']=='127.0.0.1' || $_SERVER['HTTP_HOST']=='localhost'){
 	$db = new mysqli('localhost', 'root', '');
 	$_SERVER['DOCUMENT_ROOT']='/moveradmin/';
 }
-elseif($_SERVER['HTTP_HOST']=='dev..com'){
-	$db = new mysqli('localhost', '', '');
+elseif($_SERVER['HTTP_HOST']=='moveradmin.com'){
+	$db = new mysqli('localhost', 'goaptitude', 'Chicheme2013');
 	$_SERVER['DOCUMENT_ROOT']='/';
-	error_reporting(0);
+	//error_reporting(1);
 }
 else{ //other server info here
 }

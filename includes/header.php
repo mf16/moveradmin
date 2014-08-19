@@ -1,6 +1,3 @@
-
-
-
  <div class="searchResults">
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
