@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<?php include_once "global.php";
-?>
+<?php include_once "global.php"; ?>
 <html class="no-js">
 
 <head>
@@ -21,8 +20,8 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/animate.min.css">
     <link rel="stylesheet" href="/css/jasny-bootstrap.min.css">
-    <link rel="stylesheet" href="/css/slider.css">
     <link rel="stylesheet" href="/vendor/offline/theme.css">
+    <link rel="stylesheet" href="/css/equipment.css">
     <!-- /core styles -->
 
     <!-- page level styles -->
@@ -42,9 +41,6 @@
 <style type="text/css">
     .col-sm-12.form-container{
         margin-top: 10px;
-    }
-    #ex1Slider .slider-selection {
-        background: #BABABA;
     }    
     .searchResults{
         position: absolute;
@@ -70,312 +66,277 @@
     .searchResult>.title{
         font-size: 20px;
     }
-    .white{
-        color: white;
-    }
-    .tableRow{
-        padding:15px;
+    #submit{
+        min-width: 52px;
+        width: 50%;
     }
 </style>
-
-                    <?php
-                    // Set vars
-                    $first='';
-                    $last='';
-                    $rate='';
-                    $license='';
-                    $empSince='';
-                    $picture='';
-                    $phone='';
-                    $skill='5';
-                    if(isset($_REQUEST['id'])){
-                        $employeeid=$_REQUEST['id'];
-                        global $db;
-                        $sql="SELECT * from moverAdmin.employees WHERE idemployees=?";
-                        $empInfo=query($sql,$employeeid)[0];
-                        if(!isset($empInfo)){
-                            $empInfo='new';
-                            // do not set anything, that id does not exit
-                        } else {
-                            $first=$empInfo['first'];
-                            $last=$empInfo['last'];
-                            $rate=$empInfo['dailyRate'];
-                            $license=$empInfo['license'];
-                            $empSince=$empInfo['empSince'];
-                            $picture=$empInfo['picture'];
-                            $phone=$empInfo['phone'];
-                            $skill=$empInfo['skill'];
-                        }
-                    } else {
-                        $equipmentid='new';
-                    }
-                    ?>
-
+<?php
+    // Set vars
+    $name='';
+    $manufacid='';
+    $make='';
+    $model='';
+    $year='';
+    $mileage='';
+    $rentOwn='';
+    $picture='';
+    $rentChecked='';
+    $ownChecked='';
+    $type='';
+    $isAvailable=false;
+    if(isset($_REQUEST['id'])){
+        $equipmentid=$_REQUEST['id'];
+        global $db;
+        $sql="SELECT * from moverAdmin.equipment WHERE idequipment=?";
+        $equipInfo=query($sql,$equipmentid)[0];
+        if(!isset($equipInfo)){
+            $equipmentid='new';
+            // do not set anything, that id does not exit
+        } else {
+            $name=$equipInfo['name'];
+            $manufacid=$equipInfo['manufacid'];
+            $make=$equipInfo['make'];
+            $model=$equipInfo['model'];
+            $year=$equipInfo['year'];
+            $mileage=$equipInfo['mileage'];
+            $rentOwn=$equipInfo['propertyType'];
+            $type=$equipInfo['type'];
+            if($rentOwn=='rent'){
+                $rentChecked=' checked';
+            } else if ($rentOwn=='own'){
+                $ownChecked=' checked';
+            }
+            $picture=$equipInfo['picture'];
+            $isAvailable=$equipInfo['isAvailable'];
+        }
+    } else {
+        $equipmentid='new';
+    }
+?>
 
 <body>
-    <div class="searchResults">
-        <div class="col-xs-12 searchResult">
-            <div class="col-xs-12 col-md-1">
-                <img src="/img/photo.jpg">
-            </div>
-            <div class="col-xs-12 col-md-3 title">Tyler Slater</div>
-            <div class="col-xs-12 col-md-8">Employee</div>
-        </div>
-        <div class="col-xs-12 searchResult">
-            <div class="col-xs-12 col-md-1">
-                <img src="/img/flatbed.jpg">
-            </div>
-            <div class="col-xs-12 col-md-3 title">FA659DE</div>
-            <div class="col-xs-12 col-md-8">Flatbed Truck</div>
-        </div>
-
-    </div>
-
-
-    <div class="app">
-        <!-- top header -->
-        <header class="header header-fixed navbar">
-
-            <div class="brand">
-                <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
-
-                <a href="/" class="navbar-brand text-white">
-                    <i class="fa fa-stop mg-r-sm"></i>
-                    <span class="heading-font">
-                        Mover<b>ADMIN</b> 
-                    </span>
-                </a>
-            </div>
-
-            <form class="navbar-form navbar-left hidden-xs" role="search">
-                <div class="form-group">
-                    <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                    <input type="text" class="form-control no-border no-padding search" placeholder="Search Workspace" onkeyup="searchSite()">
-                </div>
-            </form>
-
-            <ul class="nav navbar-nav navbar-right off-right">
-                <li class="hidden-xs">
-                    <a href="/profile.html">
-                        +Matt Underwood
-                    </a>
-                </li>
-                <li class="quickmenu mg-r-md">
-                    <a href="javascript:;" data-toggle="dropdown">
-                        <img src="/img/avatar.jpg" class="avatar pull-left img-circle" alt="user" title="user">
-                        <i class="caret mg-l-xs hidden-xs no-margin"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right mg-r-xs">
-                        <li>
-                            <a href="javascript:;">
-                                <div class="pd-t-sm">
-                                    importb18@gmail.com
-                                    <br>
-                                    
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="profile.html">Settings</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">Notifications
-                                <div class="badge bg-danger pull-right"></div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="/signin.html">Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </header>
-        <!-- /top header -->
-
-        <section class="layout">
-            <!-- sidebar menu -->
-            <aside class="sidebar canvas-left">
-                <!-- main navigation -->
-                <nav class="main-navigation">
-                    <ul>
-                        <li>
-                            <a href="/jobs">
-                                <i class="fa fa-tasks"></i>
-                                <span>Jobs List</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/employees">
-                                <i class="fa fa-users"></i>
-                                <span>Employees</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/equipment">
-                                <i class="fa fa-truck"></i>
-                                <span>Equipment</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- /main navigation -->
-
-
-                <!-- footer -->
-                <footer>
-                    <div class="about-app pd-md animated pulse">
-                        <a href="javascript:;">
-                            <img src="/img/about.png" alt="">
-                        </a>
-                        <span>
-                            <b>MoverAdmin</b>&#32;is a web based management tool for contractors within the transportation industry.
-                            <a href="javascript:;">
-                                <b>Find out more</b>
-                            </a>
-                        </span>
-                    </div>
-
-                    <div class="footer-toolbar pull-left">
-                        <a href="javascript:;" class="pull-left help">
-                            <i class="fa fa-question-circle"></i>
-                        </a>
-
-                        <a href="javascript:;" class="toggle-sidebar pull-right hidden-xs">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                    </div>
-                </footer>
-                <!-- /footer -->
-            </aside>
-            <!-- /sidebar menu -->
+    <?php include '/includes/header.php';?>
 
             <!-- main content -->
             <section class="main-content">
-
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                            <div class="col-md-12">
-                                <h1 class="no-mg-t">New Employee</h1>
-                            </div>
-                            <div id="employeeidDiv"><?php echo $employeeid;?></div>
-                            <div class="row">
-                            <div class="col-sm-12 form-container">
-                                <div class="col-sm-6 form-container">
-                                        <div class="form-group has-error">
-                                            <label for="firstname">First Name</label>
-                                            <input type="text" id="firstname" class="form-control" placeholder="First Name" value="<?php echo $first;?>">
-                                        </div>
-                                </div>
-                                <div class="col-sm-6 form-container">
-                                    <div class="form-group has-error">
-                                        <label for="lastname">Last Name</label>
-                                        <input type="text" id="lastname" class="form-control" placeholder="Last Name" value="<?php echo $last;?>">
-                                    </div>
-                                </div>
+                    <div class="col-md-12">
+                        <?php
+                            $newEditString='';
+                            if($equipmentid=='new'){
+                                $newEditString='New ';
+                            } else {
+                                $newEditString='Edit ';
+                            }
+                        ?>
 
-                                <div class="col-sm-6 form-container">
-                                    <div class="form-group has-error">
-                                        <label for="rate">Daily Rate</label>
-                                        <input type="text" id="rate" class="form-control" placeholder="Regular Daily Rate" value="<?php echo $rate;?>">
-                                    </div>
-                                </div>
+                        <h1 class="no-mg-t"><?php echo $newEditString;?>Equipment</h1>
+                    </div>
+                        <form action="/equipmentAjax.php?action=saveEquip" method="post" enctype="multipart/form-data">
+                            <div id="equipmentidDiv"><?php echo $equipmentid; ?></div>                            
+                                
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="name">Name</label> 
                             </div>
-                           </div>
-                           
-                           <div class="row">
-                                <div class="col-sm-12 form-container">
-                                    <div class="col-sm-6 form-container">
-                                        <div class="form-group has-error">
-                                            <label for="phone">Phone Number</label>
-                                            <input type="text" id="phone" class="form-control" placeholder="###-###-####" value="<?php echo $phone;?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 form-container">
-                                        <div class="form-group has-error">
-                                            <label for="empSince">Date Started Working</label>
-                                            <input type="text" id="empSince" class="form-control" placeholder="5-15-2014" value="<?php print_r($empSince);?>">
-                                        </div>
-                                    </div>
-                                </div>
-                           </div>
-                           
-                           
-                           <div class="row">
-                            <div class="col-sm-12 form-container">
+                            <div class="col-md-8">
+                                <input class="form-control" id="name" placeholder="Name" name="name" type="text" value="<?php echo $name;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="idNo">ID Number</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="idNo" placeholder="ID #" name="idNo" type="text" value="<?php echo $manufacid;?>">
+                            </div>
+
+
+                            <input type="hidden" name="type" id="type" value="<?php echo ucwords($type);?>"/>
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="typeMenu">Type</label>
+                            </div>
+                            <div class="col-md-8">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="typeMenu" data-toggle="dropdown">
+                                    <?php
+                                        if(isset($type) && $type!=''){
+                                        echo ucwords($type);
+                                        } else {
+                                        echo 'Truck';
+                                        }
+                                    ?>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="typeMenu">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Bobtail');">Bobtail</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Car');">Car</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Flatbed');">Flatbed</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Overseas Container');">Overseas Container</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Pickup Truck');">Pickup Truck</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Tractor');">Tractor</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Trailer');">Trailer</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Van');">Van</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Other');">Other</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="make">Make</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="make" name="make" placeholder="Ford" type="text" value="<?php echo $make;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="model">Model</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="model" name="model" placeholder="Escape" type="text" value="<?php echo $model;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="year">Year</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="year" name="year" placeholder="2008" type="text" value="<?php echo $year;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="mileage">Mileage</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="mileage" name="mileage" placeholder="32099" type="text" value="<?php echo $mileage;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="length">Length (ft)</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="length" name="length" placeholder="32099" type="text" value="<?php echo $length;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="heightFeet">Height (ft - in)</label> 
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" id="heightFeet" name="heightFeet" placeholder="Feet" type="text" value="<?php echo $heightFeet;?>">
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" id="heightInches" name="heightInches" placeholder="Inches" type="text" value="<?php echo $heightInches;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="gvw">GVW (lbs)</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="gvw" name="gvw" placeholder="32099" type="text" value="<?php echo $gvw;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="rentOwn">Do you rent or own?</label><br>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="rent" name="rentOwn" type="radio" value="rent" <?php echo $rentChecked;?>> 
+                                <label for="rent">Rent</label> 
+                                <input id="own" name="rentOwn" type="radio" value="own" <?php echo $ownChecked;?>>
+                                <label for="own">Own</label>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="billable">Billable?</label><br>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="billableYes" name="billable" type="radio" value="1" <?php echo $billableYes;?>> 
+                                <label for="billableYes">Yes</label> 
+                                <input id="billableNo" name="billable" type="radio" value="0" <?php echo $billableNo;?>>
+                                <label for="billableNo">No</label>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="equipped">Is it equipped?</label><br>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="equipeedYes" name="equipeed" type="radio" value="1" <?php echo $rentChecked;?>> 
+                                <label for="equipeedYes">Yes</label> 
+                                <input id="equipeedNo" name="equipeed" type="radio" value="0" <?php echo $ownChecked;?>>
+                                <label for="equipeedNo">No</label>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="isEquipAvailable">Check if available</label>
+                            </div>
+                            <div class="col-md-8">
+                                <?php
+                                    $isAvailableChecked='';
+                                    if(isset($isAvailable) && $isAvailable>0){
+                                        $isAvailableChecked=' checked';
+                                    }
+                                ?>
+                                <input type="checkbox" id = "isEquipAvailable" <?php echo $isAvailableChecked;?>> Available to use
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="damages">Damages</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="damages" name="damages" placeholder="Damages" type="text" value="<?php echo $damages;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
+                                <label for="notes">Notes</label> 
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" id="notes" name="notes" placeholder="Notes" type="text" value="<?php echo $notes;?>">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 label">
                                 <label>Photo Upload</label>
                             </div>
-                           </div>
-                           <div class="row">
-                            <div class="col-sm-12 form-container">
-                                <div class="col-sm-12 form-container">
-                                        <div class="form-group">
-                                            <div class="col-xs-12 col-md-8 form-group">
-                                            <label>Photo Upload</label><br>
-                                            <input type="file" name="picture" id="file">
-                                            </div>                                  
-                                        </div>
-                                    </div>
-                                </div>
-                           </div>
-<?php
-                            $CDLSelected='';
-                            $dlSelected='';
-                            $noneSelected=' checked ';
-                            if(!isset($license) && $license<1){
-                            } else if ($license >2){
-                                $CDLSelected=' checked ';
-                                $noneSelected='';
-                            } else if ($license ==2){
-                                $dlSelected=' checked ';
-                                $noneSelected='';
-                            }
-?>
-                           <div class="col-xs-12 col-md-8 form-group">
-                                <label for="rentOwn">Driver Type?</label><br>
-                                <input id="CDL" name="license" type="radio" value="2" <?php echo $CDLSelected;?>> 
-                                <label for="CDL">CDL</label>
-                                <input id="dl" name="license" type="radio" value="1" <?php echo $dlSelected;?>> 
-                                <label for="dl">Drivers License</label> 
-                                <input id="dlNone" name="license" type="radio" value="0" <?php echo $noneSelected;?>>
-                                <label for="dlNone">None</label>
+                            <div class="col-md-8">
+                                <input type="file" name="picture" id="file">
                             </div>
-                           
-                           
-                           <div class="row">
-                            <div class="col-sm-12 form-container">
-                                <div class="form-group">
-                                    <label for="ex1">Skill Level</label>
-                                    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="<?php echo $skill;?>"/>
-                                </div>
+        
+                            <div class="clearfix"></div>
+                            <div class="col-md-8 col-md-offset-3">
+                                <?php
+                                    $newAddString='';
+                                    if($equipmentid=='new'){
+                                        $newAddString='Add ';
+                                    } else {
+                                        $newAddString='Save ';
+                                    }
+                                ?>
+                                <button class="btn btn-default mg-b-lg" onclick="validate()";><?php echo $newAddString;?>Equipment</button>
                             </div>
-                           </div>
-                           
-                           <div class="row">
-                            <div class="col-sm-12 form-container">
-                            <div class="col-sm-4 form-container"></div>
-                            <div class="col-sm-4 form-container">
-                                <div class="form-group">
-                                        <button type="submit" class="btn btn-default" id="submit">Add Employee</button>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 form-container"></div>
-                            </div>
-                           </div>
-                
-                
-                
-                
-                    
-                </div>
-                <!-- /content wrapper -->
+                        </form>
+
+                    </div>
+                </div><!-- /content wrapper -->
             </section>
             <!-- /main content -->
         </section>
 
     </div>
+<form id='testForm'>
+    
+</form>
 
     <!-- core scripts -->
     <script src="/vendor/jquery-1.11.1.min.js"></script>
@@ -392,47 +353,61 @@
     <script src="/vendor/offline/offline.min.js"></script>
     <script src="/vendor/pace/pace.min.js"></script>
     <script src="/js/main.js"></script>
-    <script src="/js/bootstrap-slider.js"></script>
     <script src="/js/jasny-bootstrap.min.js"></script>
+    
+    
     <script type="text/javascript">
-        $('#ex1').slider({
-            formater: function(value) {
-                return 'Current value: ' + value;
-            }
-        });
-        
-        $('#submit').click(function () {
+    function testytest(){
+        var file=$('#file');
+
+        console.log(file);
+    }
+        function typeText(text){
+            $('#typeMenu').html(text + ' <span class="caret"></span>');
+            text = text.toLowerCase();
+            $('#type').val(text);
+        }
+
+        function validate(){
             var formData = new FormData();
+            var isEquipAvailable = '0';
+            if($("#isEquipAvailable").prop('checked') == true){
+                isEquipAvailable = '1';
+            }
 
             formData = {
-                employeeid          :$('#employeeidDiv').html(),
-                first               :$('input[id=firstname]').val(),
-                last                :$('input[id=lastname]').val(),
-                rate                :$('input[id=rate]').val(),
-                license             :$('input[name=license]:checked').val(),
-                phone               :$('input[id=phone]').val(),
-                empSince            :$('input[id=empSince]').val(),
-                skill               :$('input[id=ex1]').data('slider').getValue(),
-                picture             :$('#file').get(0).files[0]
+                isAvailable       :isEquipAvailable,
+                equipmentid       :$('#equipmentidDiv').html(),
+                manufacid         :$('input[id=idNo]').val(),
+                name              :$('input[id=name]').val(),
+                make              :$('input[id=make]').val(),
+                model             :$('input[id=model]').val(),
+                name              :$('input[id=name]').val(),
+                year              :$('input[id=year]').val(),
+                type              :$('input[id=type]').val(),
+                mileage           :$('input[id=mileage]').val(),
+                rentOwn           :$('input[name=rentOwn]:checked').val(),
+                picture           :$('#file').get(0).files[0]
             };
 
             $.ajax({
                 type: 'POST',
-                url:    '/employeeAjax.php?action=saveEmp',
+                url:    '/equipmentAjax.php?action=saveEquip',
                 data: formData,
                 encode: true,
                 success: function(result){
-                    alert(result);
+                    //alert(result);
                     $('#submit').hide();
-                    window.location.replace("/employees/"+result);
+                    window.location.replace("/equipment");
+                    // reloads current editing window including id
+                    //window.location.replace("/equipment/"+result);
                 },
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');
                 }
-            });         
-        });
+            });   
+        }
     </script>
-    
     <!-- /theme scripts -->
 
 </body>
