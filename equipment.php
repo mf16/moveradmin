@@ -294,14 +294,38 @@
                                 <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" role="menu" aria-labelledby="typeMenu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Truck');">Truck</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Trailer');">Trailer</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Bobtail');">Bobtail</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Car');">Car</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Flatbed');">Flatbed</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Overseas Container');">Overseas Container</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Pickup Truck');">Pickup Truck</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Tractor');">Tractor</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Trailer');">Trailer</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="typeText('Other');">Other</a></li>
                               </ul>
                             </div>
 
                             <div class="clearfix"></div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="make">Length (ft)</label> 
+                                <input class="form-control" id="length" name="make" placeholder="43" type="text" value="<?php echo $length;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="make">Height (in)</label> 
+                                <input class="form-control" id="height" name="height" placeholder="63" type="text" value="<?php echo $height;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="make">GVW (lbs)</label> 
+                                <input class="form-control" id="gvw" name="gvw" placeholder="15000" type="text" value="<?php echo $gvw;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="make">Make</label> 
+                                <input class="form-control" id="make" name="make" placeholder="Ford" type="text" value="<?php echo $make;?>">
+                            </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
                                 <label for="make">Make</label> 
@@ -324,11 +348,37 @@
                             </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
+                                <label for="mileage"></label> 
+                                <input class="form-control" id="mileage" name="mileage" placeholder="32099" type="text" value="<?php echo $mileage;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="mileage">Mileage</label> 
+                                <input class="form-control" id="mileage" name="mileage" placeholder="32099" type="text" value="<?php echo $mileage;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="billable">Billable?</label><br>
+                                <input id="billableYes" name="billable" type="radio" value="1" <?php echo $rentChecked;?>> 
+                                <label for="billableYes">Yes</label> 
+                                <input id="billableNo" name="billable" type="radio" value="0" <?php echo $ownChecked;?>>
+                                <label for="billableNo">No</label>
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
                                 <label for="rentOwn">Do you rent or own?</label><br>
 								<input id="rent" name="rentOwn" type="radio" value="rent" <?php echo $rentChecked;?>> 
                                 <label for="rent">Rent</label> 
                                 <input id="own" name="rentOwn" type="radio" value="own" <?php echo $ownChecked;?>>
                                 <label for="own">Own</label>
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="equiped">Is it equiped?</label><br>
+                                <input id="equipedYes" name="equiped" type="radio" value="1" <?php echo $rentChecked;?>> 
+                                <label for="equipedYes">Yes</label> 
+                                <input id="equipedNo" name="equiped" type="radio" value="0" <?php echo $ownChecked;?>>
+                                <label for="equipedNo">No</label>
                             </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
@@ -338,7 +388,17 @@
 								$isAvailableChecked=' checked';
 							}
 							?>
-								<input type="checkbox" id = "isEquipAvailable" <?php echo $isAvailableChecked;?>> Available
+								<input type="checkbox" id = "isEquipAvailable" <?php echo $isAvailableChecked;?>> Available for use
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="damages">Damages</label> 
+                                <input class="form-control" id="damages" name="damages" placeholder="Damages" type="text" value="<?php echo $damages;?>">
+                            </div>
+
+                            <div class="col-xs-12 col-md-8 form-group">
+                                <label for="notes">Notes</label> 
+                                <input class="form-control" id="notes" name="notes" placeholder="Notes" type="text" value="<?php echo $notes;?>">
                             </div>
 
                             <div class="col-xs-12 col-md-8 form-group">
