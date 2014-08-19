@@ -27,8 +27,7 @@
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/animate.min.css" rel="stylesheet">
     <link href="/vendor/offline/theme.css" rel="stylesheet">
-    <link href="/css/job.css" rel="stylesheet">
-    <link href="/css/chosen.min.css" rel="stylesheet"><!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <link href="/css/job.css" rel="stylesheet"><!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -37,7 +36,7 @@
 
     <script src="/vendor/modernizr.js"></script>
     <style type="text/css">
-.searchResults{
+    .searchResults{
         position: absolute;
         background-color: white;
         z-index: 1;
@@ -93,14 +92,6 @@
                 </div>
                 <div class="col-md-8">
                     <input class="form-control" id="startDate" placeholder="05-15-2014" type="text"> 
-                </div>
-                
-                <div class="clearfix"></div>
-                <div class="col-md-3 label">
-                    <label for="endDate">End Date</label> 
-                </div>
-                <div class="col-md-8">
-                    <input class="form-control" id="endDate" placeholder="05-15-2014" type="text"> 
                 </div>
                 
                 <div class="clearfix"></div>
@@ -308,10 +299,10 @@
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
-                    <label for="shipper">Shipper</label> 
+                    <label for="shipperName">Shipper Name</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="shipper" placeholder="Shipper" type="text"> 
+                    <input class="form-control" id="shipperName" placeholder="Shipper name" type="text"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -324,10 +315,37 @@
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
+                    <label for="altShipperName">Alternate Shipper Name</label> 
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control" id="altShipperName" placeholder="Shipper name" type="text"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="altPhone">Alternate Phone Number</label> 
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control" id="altPhone" placeholder="###-###-####" type="text"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
                     <label for="originAddr">Origin</label> 
                 </div>
                 <div class="col-md-8">
                     <input class="form-control" id="originAddr" placeholder="Address" type="text"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="originShuttle">Origin Shuttle?</label><br>
+                </div>
+                <div class="col-md-8">
+                    <input id="originShuttleYes" name="originShuttle" type="radio" value="1"> 
+                    <label for="originShuttleYes">Yes</label> 
+                    <input id="originShuttleNo" name="originShuttle" type="radio" value="0">
+                    <label for="originShuttleNo">No</label>
                 </div>
 
                 <div class="clearfix"></div>
@@ -348,10 +366,43 @@
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
+                    <label for="destinationShuttle">Destination Shuttle?</label><br>
+                </div>
+                <div class="col-md-8">
+                    <input id="destinationShuttleYes" name="destinationShuttle" type="radio" value="1"> 
+                    <label for="destinationShuttleYes">Yes</label> 
+                    <input id="destinationShuttleNo" name="destinationShuttle" type="radio" value="0">
+                    <label for="destinationShuttleNo">No</label>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
                     <label for="destinationSpecial">Destination Special Instructions</label> 
                 </div>
                 <div class="col-md-8 mg-b-lg">
                     <input class="form-control" id="destinationSpecial" placeholder="Special Instructions" type="text"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">Status</div>
+                <div class="col-md-8">
+                    <select class="form-control" id="status">
+                        <option>Not confirmed</option>
+                        <option>Confirmed</option>
+                        <option>Left voice mail</option>
+                        <option>No answer</option>
+                        <option>Busy signal</option>
+                        <option>Confirmed by CSR</option>
+                        <option>Do Not Call</option>
+                        <option>Confirmed by dispatch</option>
+                    </select> 
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="destination">Confirmed By</label> 
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control" id="confirmedBy" placeholder="Confirmed by" type="text"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -474,10 +525,17 @@
             </div>
         </section>
         <!-- /main content -->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script> <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> <script src="/js/chosen.jquery.min.js"></script> <!-- /core scripts -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script> 
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+     <script src="/js/chosen.jquery.min.js"></script> <!-- /core scripts -->
      <!-- theme scripts -->
-     <script src="/js/global.js"></script> <script src="/js/off-canvas.js"></script> <script src="/vendor/jquery.placeholder.js"></script> <script src="/vendor/offline/offline.min.js"></script> <script src="/vendor/pace/pace.min.js"></script> <script src="/js/main.js"></script> <script src="/plugins/datepicker/js/bootstrap-datepicker.js"></script>
-    <link href="http://jdewit.github.io/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet"><script src="/plugins/timepicker/timepicker.js"></script> <!-- /theme scripts -->
+     <script src="/js/global.js"></script> <script src="/js/off-canvas.js"></script> 
+     <script src="/vendor/jquery.placeholder.js"></script> 
+     <script src="/vendor/offline/offline.min.js"></script> <script src="/vendor/pace/pace.min.js"></script> 
+     <script src="/js/main.js"></script> <script src="/plugins/datepicker/js/bootstrap-datepicker.js"></script>
+     <link href="http://jdewit.github.io/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <script src="/plugins/timepicker/timepicker.js"></script> <!-- /theme scripts -->
      <script type="text/javascript">
     $("#phone").keyup(function(){
             var text = $("#phone").val(); 
@@ -551,7 +609,6 @@
             });
         });
     </script><!-- /body -->
-     <script src="/vendor/jquery-1.11.1.min.js"></script> <script src="/bootstrap/js/bootstrap.js"></script> <script src="/js/chosen.jquery.min.js" type="text/javascript"></script> <!-- /core scripts -->
      <!-- page level scripts -->
      <!-- /page level scripts -->
 </body>

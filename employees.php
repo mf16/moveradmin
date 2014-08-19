@@ -16,6 +16,7 @@
     <!-- /bootstrap -->
 
     <!-- core styles -->
+    <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/skins/palette.css" id="skin">
     <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
     <link rel="stylesheet" href="/css/main.css">
@@ -23,7 +24,9 @@
     <link rel="stylesheet" href="/css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="/css/slider.css">
     <link rel="stylesheet" href="/vendor/offline/theme.css">
-    <link rel="stylesheet" href="/css/employee.css">
+    <link rel="stylesheet" href="/css/employee.css">    
+    <link href="/plugins/datepicker/css/datepicker.css" rel="stylesheet">
+    <link href="/css/chosen.min.css" rel="stylesheet">
     <!-- /core styles -->
 
     <!-- page level styles -->
@@ -77,6 +80,12 @@
     .tableRow{
         padding:15px;
     }
+    .chosen-select{
+        width: 100%;
+    }
+    .chosen-container-multi .chosen-choices li.search-field input[type=text]{
+        height: auto;
+    }
 </style>
 
 <?php
@@ -128,6 +137,13 @@
 
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
+                        <label for="nickname">Nickname</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="nickname" class="form-control" placeholder="Nickname" value="<?php echo $nickname;?>">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
                         <label for="firstname">First Name</label>
                     </div>
                     <div class="col-md-8">
@@ -142,14 +158,35 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
-                        <label for="rate">Daily Rate</label>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="email" class="form-control" placeholder="email" value="<?php echo $email;?>">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="address" class="form-control" placeholder="Address" value="<?php echo $address;?>">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="rate">Regular Daily Rate</label>
                     </div>
                     <div class="col-md-8">
                         <input type="text" id="rate" class="form-control" placeholder="Regular Daily Rate" value="<?php echo $rate;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
-                        <label for="phone">Phone Number</label>
+                        <label for="cell">Cell Phone</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="cell" class="form-control" placeholder="cell" value="<?php echo $cell;?>">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="phone">Home Phone Number</label>
                     </div>
                     <div class="col-md-8">
                         <input type="text" id="phone" class="form-control" placeholder="###-###-####" value="<?php echo $phone;?>">
@@ -163,12 +200,195 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
-                        <label>Photo Upload</label>
+                        <label for="cid">CID Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="picture" id="file">
+                        <input type="text" id="cid" class="form-control" placeholder="###" value="<?php echo $cid;?>">
                     </div>
-					<div class="clearfix"></div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="pvo">PVO Number</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="pvo" class="form-control" placeholder="###" value="<?php echo $pvo;?>">
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="rentOwn">Drug screened?</label><br>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="drugScreenedYes" name="drugScreened" type="radio" value="1"> 
+                        <label for="drugScreenedYes">Yes</label> 
+                        <input id="drugScreenedNo" name="drugScreened" type="radio" value="0">
+                        <label for="drugScreenedNo">No</label>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="pvo">Last Screened Date</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="drugScreenDate" class="form-control">
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="rentOwn">Can drive?</label><br>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="driverYes" name="driver" type="radio" value="1"> 
+                        <label for="driverYes">Yes</label> 
+                        <input id="driverNo" name="driver" type="radio" value="0">
+                        <label for="driverNo">No</label>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="idNumber">License/ID Number</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="idNumber" class="form-control" placeholder="###" value="<?php echo $idNumber;?>">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="stateIssued">State Issued</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select class="form-control">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="idClass">Class</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="idClass" class="form-control">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">Endorsements</div>
+                    <div class="col-md-8">
+                        <select class="form-control chosen-select" id="drivers" multiple>
+                            <option value="double/tripple">Double/Tripple</option>
+                            <option value="tanker">Tanker</option>
+                            <option value="hazmat">Hazmat</option>
+                        </select>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="bobtailExperience">Bobtail Experience?</label><br>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="bobtailExperienceYes" name="bobtailExperience" type="radio" value="1"> 
+                        <label for="bobtailExperienceYes">Yes</label> 
+                        <input id="bobtailExperienceNo" name="bobtailExperience" type="radio" value="0">
+                        <label for="bobtailExperienceNo">No</label>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="bobtailExperienceYears">Years Driver</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="bobtailExperienceYears" class="form-control" placeholder="Years" value="">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="bobtailExperienceMiles">Estimated Miles Driven</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="bobtailExperienceMiles" class="form-control" placeholder="Miles" value="">
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="tractorExperience">Tractor Experience?</label><br>
+                    </div>
+                    <div class="col-md-8">
+                        <input id="tractorExperienceYes" name="tractorExperience" type="radio" value="1"> 
+                        <label for="tractorExperienceYes">Yes</label> 
+                        <input id="tractorExperienceNo" name="tractorExperience" type="radio" value="0">
+                        <label for="tractorExperienceNo">No</label>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="tractorExperienceYears">Years Driver</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="tractorExperienceYears" class="form-control" placeholder="Years" value="">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label for="tractorExperienceMiles">Estimated Miles Driven</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="tractorExperienceMiles" class="form-control" placeholder="Miles" value="">
+                    </div>
+
+
+
+
+
+					<!-- THIS PART ISNT RIGHT ANYMORE BECAUSE CDL AND NORMAL DL IS DEFINED IN THE #idClass DIV
+                    <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="rentOwn">Driver Type?</label><br>
                     </div>
@@ -193,12 +413,20 @@
                         <input id="dlNone" name="license" type="radio" value="0" <?php echo $noneSelected;?>>
                         <label for="dlNone">None</label>
                     </div>
+                -->
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
-                        <label for="ex1">Skill Level</label>
+                        <label for="ex1">Laborer Skill Level</label>
                     </div>
                     <div class="col-md-8">
                         <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="<?php echo $skill;?>"/>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3 label">
+                        <label>Photo Upload</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" name="picture" id="file">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-8 col-md-offset-3 mg-b-lg">
@@ -229,8 +457,17 @@
     <script src="/js/main.js"></script>
     <script src="/js/bootstrap-slider.js"></script>
     <script src="/js/jasny-bootstrap.min.js"></script>
+    <script src="/js/main.js"></script> <script src="/plugins/datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/js/chosen.jquery.min.js"></script>
+
     <script type="text/javascript">
-    	$('#ex1').slider({
+        $(".chosen-select").chosen();
+
+        $('#drugScreenDate').datepicker({
+            todayBtn: "linked"
+        });
+    	
+        $('#ex1').slider({
     		formater: function(value) {
 				return 'Current value: ' + value;
 			}
