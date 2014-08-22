@@ -418,20 +418,7 @@
                     <label for="weightType">Weight Type</label> 
                 </div>
                 <div class="col-md-8">
-                    <select class="form-control chosen-select" id="weightType" multiple>
-                        <option>
-                            Pounds
-                        </option>
-                        <option>
-                            Grams
-                        </option>
-                        <option>
-                            Ounces
-                        </option>
-                        <option>
-                            Tons
-                        </option>
-                    </select> 
+                    <input class="form-control" id="weightType" type="text"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -502,10 +489,10 @@
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
-                    <label for="truckNo">Shuttle Truck Number</label> 
+                    <label for="shuttleTruckNumber">Shuttle Truck Number</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="truckNo" placeholder="##" type="text"> 
+                    <input class="form-control" id="shuttleTruckNumber" placeholder="##" type="text"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -577,30 +564,36 @@
             var formData = new FormData();
 
             var formData = {
-                date           :$('#date').val(),
-                start          :$('#startTime').val(),
-                onsite         :$('#onsiteTime').val(),
-                moveType       :$('#moveType').val(), //this posts an array or "undefined if nothing is selected"
-                serviceType
-                otherNotes     :$('#otherDriverNotes').val(),
-                regNumber      :$('#regNumber').val(),
-                shipperName    :$('#shipperName').val(),
-                shipperPhone   :$('#shipperPhone').val(),
-                
-                oAddr          :$('input[id=originAddr]').val(),
-                oSpec          :$('input[id=originSpecial]').val(),
-                dest           :$('input[id=destination]').val(),
-                destSpec       :$('input[id=destinationSpecial]').val(),
-                weight         :$('input[id=weight]').val(),
-                weightType     :$('#weightType').val(), //this posts an array or "undefined if nothing is selected"
-                vault          :$('input[id=vault]').val(),
-                drivers        :$('#drivers').val(), //this posts an array or "undefined if nothing is selected"
-                laborers       :$('#laborers').val(), //this posts an array or "undefined if nothing is selected"
-                driverNotes    :$('input[id=driverNotes]').val(),
-                equipment      :$('#equipment').val(),
-                truckNo        :$('input[id=truckNo]').val(),
-                insurance      :$('input[name=insurance]:checked').val()
+                date                     :$('#startDate').val(),
+                start                    :$('#startTime').val(),
+                onsite                   :$('#onsiteTime').val(),
+                moveType                 :$('#moveType').val(), //this posts an array or "undefined if nothing is selected"
+                serviceType              :$('#serviceType').val(), //this posts an array or "undefined if nothing is selected"
+                otherNotes               :$('#otherDriverNotes').val(),
+                regNumber                :$('#regNumber').val(),
+                shipperName              :$('#shipperName').val(),
+                shipperPhone             :$('#phone').val(),
+                altShipperName           :$('#altShipperName').val(),
+                altShipperPhone          :$('#altPhone').val(),
+                originAddress            :$('#originAddr').val(),
+                originShuttle            :$('input[name=originShuttle]:checked').val(),
+                originInstructions       :$('#originSpecial').val(),
+                destinationAddress       :$('#destination').val(),
+                destinationShuttle       :$('input[name=destinationShuttle]:checked').val(),
+                destinationInstructions  :$('#destinationSpecial').val(),
+                status                   :$('#status').val(),
+                confirmedBy              :$('#confirmedBy').val(),
+                weight                   :$('#weight').val(),
+                weightType               :$('#weightType').val(), //this posts an array or "undefined if nothing is selected"
+                vault                    :$('#vault').val(),
+                drivers                  :$('#drivers').val(), //this posts an array or "undefined if nothing is selected"
+                laborers                 :$('#laborers').val(), //this posts an array or "undefined if nothing is selected"
+                driverNotes              :$('#driverNotes').val(),
+                equipment                :$('#equipment').val(),
+                shuttleTruckNumber       :$('#shuttleTruckNumber').val(),
+                insuranceRates           :$('input[name=insurance]:checked').val()
             };
+
             console.log(formData);
 /*
             $.ajax({
