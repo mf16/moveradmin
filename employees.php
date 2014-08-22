@@ -505,8 +505,7 @@
 	 			picture			       :$('#file').get(0).files[0]
 	 		};
 
-            console.log(formData);
-	 		/*$.ajax({
+	 		$.ajax({
                 type: 'POST',
                 url:    '/employeeAjax.php?action=saveEmp',
                 data: formData,
@@ -519,7 +518,7 @@
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');
                 }
-            });	*/		
+            });		
 	 	});
     </script>
     

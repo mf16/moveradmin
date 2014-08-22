@@ -577,29 +577,32 @@
             var formData = new FormData();
 
             var formData = {
-                date           :$('input[id=date]').val(),
-                start          :$('input[id=startTime]').val(),
-                onsite         :$('input[id=onsiteTime]').val(),
-                moveType       :$('#moveType').val(), //this posts an array
-                otherNotes     :$('input[id=otherDriverNotes]').val(),
-                regNo          :$('input[id=regNumber]').val(),
-                shipper        :$('input[id=shipper]').val(),
-                phone          :$('input[id=phone]').val(),
+                date           :$('#date').val(),
+                start          :$('#startTime').val(),
+                onsite         :$('#onsiteTime').val(),
+                moveType       :$('#moveType').val(), //this posts an array or "undefined if nothing is selected"
+                serviceType
+                otherNotes     :$('#otherDriverNotes').val(),
+                regNumber      :$('#regNumber').val(),
+                shipperName    :$('#shipperName').val(),
+                shipperPhone   :$('#shipperPhone').val(),
+                
                 oAddr          :$('input[id=originAddr]').val(),
                 oSpec          :$('input[id=originSpecial]').val(),
                 dest           :$('input[id=destination]').val(),
                 destSpec       :$('input[id=destinationSpecial]').val(),
                 weight         :$('input[id=weight]').val(),
-                weightType     :$('#weightType').val(), //this posts an array
+                weightType     :$('#weightType').val(), //this posts an array or "undefined if nothing is selected"
                 vault          :$('input[id=vault]').val(),
-                drivers        :$('#drivers').val(), //this posts an array
-                laborers       :$('#laborers').val(), //this posts an array
+                drivers        :$('#drivers').val(), //this posts an array or "undefined if nothing is selected"
+                laborers       :$('#laborers').val(), //this posts an array or "undefined if nothing is selected"
                 driverNotes    :$('input[id=driverNotes]').val(),
                 equipment      :$('#equipment').val(),
                 truckNo        :$('input[id=truckNo]').val(),
                 insurance      :$('input[name=insurance]:checked').val()
             };
-
+            console.log(formData);
+/*
             $.ajax({
                 type: 'POST',
                 url: 'jobAdd.php',
@@ -607,6 +610,7 @@
                 dataType: 'json',
                 encode: true
             });
+*/
         });
     </script><!-- /body -->
      <!-- page level scripts -->
