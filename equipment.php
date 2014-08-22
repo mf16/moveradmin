@@ -147,10 +147,10 @@
 
                             <div class="clearfix"></div>
                             <div class="col-md-3 label">
-                                <label for="idNo">ID Number</label> 
+                                <label for="idNumber">ID Number</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="idNo" placeholder="ID #" name="idNo" type="text" value="<?php echo $manufacid;?>">
+                                <input class="form-control" id="idNumber" placeholder="ID #" name="idNumber" type="text" value="<?php echo $manufacid;?>">
                             </div>
 
 
@@ -165,7 +165,7 @@
                                         if(isset($type) && $type!=''){
                                         echo ucwords($type);
                                         } else {
-                                        echo 'Truck';
+                                        echo 'Select Type';
                                         }
                                     ?>
                                     <span class="caret"></span>
@@ -220,7 +220,7 @@
                                 <label for="length">Length (ft)</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="length" name="length" placeholder="32099" type="text" value="<?php echo $length;?>">
+                                <input class="form-control" id="length" name="length" placeholder="32099" type="text" value="">
                             </div>
 
                             <div class="clearfix"></div>
@@ -228,10 +228,10 @@
                                 <label for="heightFeet">Height (ft - in)</label> 
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" id="heightFeet" name="heightFeet" placeholder="Feet" type="text" value="<?php echo $heightFeet;?>">
+                                <input class="form-control" id="heightFeet" name="heightFeet" placeholder="Feet" type="text" value="">
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" id="heightInches" name="heightInches" placeholder="Inches" type="text" value="<?php echo $heightInches;?>">
+                                <input class="form-control" id="heightInches" name="heightInches" placeholder="Inches" type="text" value="">
                             </div>
 
                             <div class="clearfix"></div>
@@ -239,7 +239,7 @@
                                 <label for="gvw">GVW (lbs)</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="gvw" name="gvw" placeholder="32099" type="text" value="<?php echo $gvw;?>">
+                                <input class="form-control" id="gvw" name="gvw" placeholder="32099" type="text" value="">
                             </div>
 
                             <div class="clearfix"></div>
@@ -258,9 +258,9 @@
                                 <label for="billable">Billable?</label><br>
                             </div>
                             <div class="col-md-8">
-                                <input id="billableYes" name="billable" type="radio" value="1" <?php echo $billableYes;?>> 
+                                <input id="billableYes" name="billable" type="radio" value="1"> 
                                 <label for="billableYes">Yes</label> 
-                                <input id="billableNo" name="billable" type="radio" value="0" <?php echo $billableNo;?>>
+                                <input id="billableNo" name="billable" type="radio" value="0">
                                 <label for="billableNo">No</label>
                             </div>
 
@@ -269,10 +269,10 @@
                                 <label for="equipped">Is it equipped?</label><br>
                             </div>
                             <div class="col-md-8">
-                                <input id="equipeedYes" name="equipeed" type="radio" value="1" <?php echo $rentChecked;?>> 
-                                <label for="equipeedYes">Yes</label> 
-                                <input id="equipeedNo" name="equipeed" type="radio" value="0" <?php echo $ownChecked;?>>
-                                <label for="equipeedNo">No</label>
+                                <input id="equippedYes" name="equipped" type="radio" value="1"> 
+                                <label for="equippedYes">Yes</label> 
+                                <input id="equippedNo" name="equipped" type="radio" value="0">
+                                <label for="equippedNo">No</label>
                             </div>
 
                             <div class="clearfix"></div>
@@ -294,7 +294,7 @@
                                 <label for="damages">Damages</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="damages" name="damages" placeholder="Damages" type="text" value="<?php echo $damages;?>">
+                                <input class="form-control" id="damages" name="damages" placeholder="Damages" type="text" value="">
                             </div>
 
                             <div class="clearfix"></div>
@@ -302,7 +302,7 @@
                                 <label for="notes">Notes</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="notes" name="notes" placeholder="Notes" type="text" value="<?php echo $notes;?>">
+                                <input class="form-control" id="notes" name="notes" placeholder="Notes" type="text" value="">
                             </div>
 
                             <div class="clearfix"></div>
@@ -314,6 +314,7 @@
                             </div>
         
                             <div class="clearfix"></div>
+                        </form>
                             <div class="col-md-8 col-md-offset-3">
                                 <?php
                                     $newAddString='';
@@ -323,9 +324,8 @@
                                         $newAddString='Save ';
                                     }
                                 ?>
-                                <button class="btn btn-default mg-b-lg" onclick="validate()";><?php echo $newAddString;?>Equipment</button>
+                            <button class="btn btn-default mg-b-lg" onclick="validate()";><?php echo $newAddString;?>Equipment</button>
                             </div>
-                        </form>
 
                     </div>
                 </div><!-- /content wrapper -->
@@ -369,27 +369,37 @@
         }
 
         function validate(){
+            console.log('test');
             var formData = new FormData();
+            
             var isEquipAvailable = '0';
             if($("#isEquipAvailable").prop('checked') == true){
                 isEquipAvailable = '1';
             }
 
             formData = {
-                isAvailable       :isEquipAvailable,
-                equipmentid       :$('#equipmentidDiv').html(),
-                manufacid         :$('input[id=idNo]').val(),
-                name              :$('input[id=name]').val(),
-                make              :$('input[id=make]').val(),
-                model             :$('input[id=model]').val(),
-                name              :$('input[id=name]').val(),
-                year              :$('input[id=year]').val(),
-                type              :$('input[id=type]').val(),
-                mileage           :$('input[id=mileage]').val(),
+                name              :$('#name').val(),
+                equipmentid       :$('#idNumber').html(),
+                type              :$('#type').val(),
+                make              :$('#make').val(),
+                model             :$('#model').val(),
+                year              :$('#year').val(),
+                mileage           :$('#mileage').val(),
+                length            :$('#length').val(),
+                heightFeet        :$('#heightFeet').val(),
+                heightInches      :$('#heightInches').val(),
+                GVW               :$('#gvw').val(),
                 rentOwn           :$('input[name=rentOwn]:checked').val(),
+                billable          :$('input[name=billable]:checked').val(),
+                equipped          :$('input[name=equipped]:checked').val(),
+                isAvailable       :isEquipAvailable,
+                damages           :$('#damages').val(),
+                notes             :$('#notes').val(),
                 picture           :$('#file').get(0).files[0]
+
             };
 
+            console.log(formData);
             $.ajax({
                 type: 'POST',
                 url:    '/equipmentAjax.php?action=saveEquip',
