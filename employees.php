@@ -140,7 +140,7 @@
                         <label for="nickname">Nickname</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="nickname" class="form-control" placeholder="Nickname" value="<?php echo $nickname;?>">
+                        <input type="text" id="nickname" class="form-control" placeholder="Nickname" value="<?php //echo $nickname;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -161,14 +161,14 @@
                         <label for="email">Email</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="email" class="form-control" placeholder="email" value="<?php echo $email;?>">
+                        <input type="text" id="email" class="form-control" placeholder="Email" value="<?php //echo $email;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="address">Address</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="address" class="form-control" placeholder="Address" value="<?php echo $address;?>">
+                        <input type="text" id="address" class="form-control" placeholder="Address" value="<?php //echo $address;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -182,7 +182,7 @@
                         <label for="cell">Cell Phone</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="cell" class="form-control" placeholder="cell" value="<?php echo $cell;?>">
+                        <input type="text" id="cell" class="form-control" placeholder="###-###-####" value="<?php //echo $cell;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -203,14 +203,14 @@
                         <label for="cid">CID Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="cid" class="form-control" placeholder="###" value="<?php echo $cid;?>">
+                        <input type="text" id="cid" class="form-control" placeholder="###" value="<?php //echo $cid;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="pvo">PVO Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="pvo" class="form-control" placeholder="###" value="<?php echo $pvo;?>">
+                        <input type="text" id="pvo" class="form-control" placeholder="###" value="<?php //echo $pvo;?>">
                     </div>
 
                     <div class="clearfix"></div>
@@ -248,14 +248,14 @@
                         <label for="idNumber">License/ID Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="idNumber" class="form-control" placeholder="###" value="<?php echo $idNumber;?>">
+                        <input type="text" id="idNumber" class="form-control" placeholder="###" value="<?php //echo $idNumber;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="stateIssued">State Issued</label>
                     </div>
                     <div class="col-md-8">
-                        <select class="form-control">
+                        <select class="form-control" id="issueState">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -325,7 +325,7 @@
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">Endorsements</div>
                     <div class="col-md-8">
-                        <select class="form-control chosen-select" id="drivers" multiple>
+                        <select class="form-control chosen-select" id="endorsements" multiple>
                             <option value="double/tripple">Double/Tripple</option>
                             <option value="tanker">Tanker</option>
                             <option value="hazmat">Hazmat</option>
@@ -477,18 +477,36 @@
             var formData = new FormData();
 
             formData = {
-				employeeid			:$('#employeeidDiv').html(),
-	 			first				:$('input[id=firstname]').val(),
-	 			last				:$('input[id=lastname]').val(),
-	 			rate				:$('input[id=rate]').val(),
-	 			license		        :$('input[name=license]:checked').val(),
-	 			phone			    :$('input[id=phone]').val(),
-	 			empSince			:$('input[id=empSince]').val(),
-                skill               :$('input[id=ex1]').data('slider').getValue(),
-	 			picture			    :$('#file').get(0).files[0]
+                nickname               :$('#nickname').val(),
+	 			first				   :$('#firstname').val(),
+	 			last				   :$('#lastname').val(),
+                email                  :$('#email').val(),
+                address                :$('#address').val(),
+	 			rate				   :$('#rate').val(),
+	 			phone			       :$('#phone').val(),
+                cell                   :$('#cell').val(),
+	 			empSince			   :$('#empSince').val(),
+                cid                    :$('#cid').val(),
+                pvo                    :$('#pvo').val(),
+                drugScreened           :$('input[name=drugScreened]:checked').val(),
+                lastScreened           :$('#drugScreenDate').val(),
+                canDrive               :$('input[name=driver]:checked').val(),
+                idNumber               :$('#idNumber').val(),
+                issueState             :$('#issueState').val(),
+                licenseClass           :$('#idClass').val(),
+                endorsements           :$('#endorsements').val(),
+                bobtailExperience      :$('input[name=bobtailExperience]:checked').val(),
+                bobtailExperienceYears :$('#bobtailExperienceYears').val(),
+                bobtailExperienceMiles :$('#bobtailExperienceMiles').val(),
+                tractorExperience      :$('input[name=tractorExperience]:checked').val(),
+                tractorExperienceYears :$('#tractorExperienceYears').val(),
+                tractorExperienceMiles :$('#tractorExperienceMiles').val(),
+                skill                  :$('input[id=ex1]').data('slider').getValue(),
+	 			picture			       :$('#file').get(0).files[0]
 	 		};
 
-	 		$.ajax({
+            console.log(formData);
+	 		/*$.ajax({
                 type: 'POST',
                 url:    '/employeeAjax.php?action=saveEmp',
                 data: formData,
@@ -501,7 +519,7 @@
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');
                 }
-            });	 		
+            });	*/		
 	 	});
     </script>
     
