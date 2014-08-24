@@ -21,12 +21,55 @@ class equipmentAjax {
 		}
 	}
 
+	// beginnings of a validating function
+	function validateEquipInfo($name,$manufacid,$type,$make,$model,$year,$mileage,$length,$heightFt,$heightIn,$GVW,$rentOwn,$billable,$equipped,$isAvailable,$picURI,$damages,$notes){
+		$message=array();
+	}
+
 	function saveEquip(){
 		global $db;
 		print_r($_REQUEST);
 		if($_REQUEST['equipmentid']=='new'){
-			$sql="INSERT INTO moverAdmin.equipment (manufacid,name,make,model,year,rentOwn,mileage,picURI,type,isAvailable) VALUES (?,?,?,?,?,?,?,?,?,?);";
-			print_r(query($sql,$_REQUEST['manufacid'],$_REQUEST['name'],$_REQUEST['make'],$_REQUEST['model'],$_REQUEST['year'],$_REQUEST['rentOwn'],$_REQUEST['mileage'],$_REQUEST['picture'],$_REQUEST['type'],$_REQUEST['isAvailable']));
+			$sql="INSERT INTO moverAdmin.equipment (
+				name
+				,manufacid
+				,type
+				,make
+				,model
+				,year
+				,mileage
+				,length
+				,heightFt
+				,heightIn
+				,GVW
+				,rentOwn
+				,billable
+				,equipped
+				,isAvailable
+				,picURI
+				,damages
+				,notes
+				) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+			print_r(query($sql
+				,$_REQUEST['name']
+				,$_REQUEST['manufacid']
+				,$_REQUEST['type']
+				,$_REQUEST['make']
+				,$_REQUEST['model']
+				,$_REQUEST['year']
+				,$_REQUEST['mileage']
+				,$_REQUEST['length']
+				,$_REQUEST['heightFt']
+				,$_REQUEST['heightIn']
+				,$_REQUEST['GVW']
+				,$_REQUEST['rentOwn']
+				,$_REQUEST['billable']
+				,$_REQUEST['equipped']
+				,$_REQUEST['isAvailable']
+				,$_REQUEST['picture']
+				,$_REQUEST['damages']
+				,$_REQUEST['notes']
+			));
 		} else {
 			//save
 			$sql="UPDATE moverAdmin.equipment SET 
