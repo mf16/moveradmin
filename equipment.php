@@ -75,16 +75,24 @@
     // Set vars
     $name='';
     $manufacid='';
+    $type='';
     $make='';
     $model='';
     $year='';
     $mileage='';
+	$length='';
+	$heightFt='';
+	$heightIn='';
+	$GVWlbs='';
     $rentOwn='';
+    $billable='';
+    $equipped='';
+    $isAvailable=false;
     $picture='';
+	$damages='';
+	$notes='';
     $rentChecked='';
     $ownChecked='';
-    $type='';
-    $isAvailable=false;
     if(isset($_REQUEST['id'])){
         $equipmentid=$_REQUEST['id'];
         global $db;
@@ -100,7 +108,16 @@
             $model=$equipInfo['model'];
             $year=$equipInfo['year'];
             $mileage=$equipInfo['mileage'];
-            $rentOwn=$equipInfo['propertyType'];
+			$length=$equipInfo['length'];
+			$heightFt=$equipInfo['heightFt'];
+			$heightIn=$equipInfo['heightIn'];
+			$GVW=$equipInfo['GVW'];
+            $rentOwn=$equipInfo['rentOwn'];
+			$billable=$equipInfo['billable'];
+			$equipped=$equipInfo['equipped'];
+            $isAvailable=$equipInfo['isAvailable'];
+			$damages=$equipInfo['damages'];
+			$notes=$equipInfo['notes'];
             $type=$equipInfo['type'];
             if($rentOwn=='rent'){
                 $rentChecked=' checked';
@@ -108,7 +125,6 @@
                 $ownChecked=' checked';
             }
             $picture=$equipInfo['picture'];
-            $isAvailable=$equipInfo['isAvailable'];
         }
     } else {
         $equipmentid='new';
@@ -220,7 +236,7 @@
                                 <label for="length">Length (ft)</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="length" name="length" placeholder="32099" type="text" value="">
+								<input class="form-control" id="length" name="length" placeholder="32099" type="text" value="<?php echo $length;?>">
                             </div>
 
                             <div class="clearfix"></div>
@@ -228,10 +244,10 @@
                                 <label for="heightFeet">Height (ft - in)</label> 
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" id="heightFeet" name="heightFeet" placeholder="Feet" type="text" value="">
+								<input class="form-control" id="heightFeet" name="heightFeet" placeholder="Feet" type="text" value="<?php echo $heightFt;?>">
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" id="heightInches" name="heightInches" placeholder="Inches" type="text" value="">
+								<input class="form-control" id="heightInches" name="heightInches" placeholder="Inches" type="text" value="<?php echo $heightIn;?>">
                             </div>
 
                             <div class="clearfix"></div>
@@ -239,7 +255,7 @@
                                 <label for="gvw">GVW (lbs)</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="gvw" name="gvw" placeholder="32099" type="text" value="">
+								<input class="form-control" id="gvw" name="gvw" placeholder="32099" type="text" value="<?php echo $GVW;?>">
                             </div>
 
                             <div class="clearfix"></div>
@@ -257,21 +273,39 @@
                             <div class="col-md-3 label">
                                 <label for="billable">Billable?</label><br>
                             </div>
+<?php
+							$billableYesCheckedString='';
+							$billableNoCheckedString='';
+							if(isset($billable) && ($billable>0)){
+								$billableYesCheckedString=' checked';
+							} else {
+								$billableNoCheckedString=' checked';
+							}
+?>
                             <div class="col-md-8">
-                                <input id="billableYes" name="billable" type="radio" value="1"> 
+								<input id="billableYes" name="billable" type="radio" value="1" <?php echo $billableYesCheckedString;?>> 
                                 <label for="billableYes">Yes</label> 
-                                <input id="billableNo" name="billable" type="radio" value="0">
+                                <input id="billableNo" name="billable" type="radio" value="0" <?php echo $billableNoCheckedString;?>>
                                 <label for="billableNo">No</label>
                             </div>
 
+<?php
+							$equippedYesCheckedString='';
+							$equippedNoCheckedString='';
+							if(isset($equipped) && ($equipped>0)){
+								$equippedYesCheckedString=' checked';
+							} else {
+								$equippedNoCheckedString=' checked';
+							}
+?>
                             <div class="clearfix"></div>
                             <div class="col-md-3 label">
                                 <label for="equipped">Is it equipped?</label><br>
                             </div>
                             <div class="col-md-8">
-                                <input id="equippedYes" name="equipped" type="radio" value="1"> 
+                                <input id="equippedYes" name="equipped" type="radio" value="1" <?php echo $equippedYesCheckedString;?>> 
                                 <label for="equippedYes">Yes</label> 
-                                <input id="equippedNo" name="equipped" type="radio" value="0">
+                                <input id="equippedNo" name="equipped" type="radio" value="0" <?php echo $equippedNoCheckedString;?>>
                                 <label for="equippedNo">No</label>
                             </div>
 
@@ -294,7 +328,7 @@
                                 <label for="damages">Damages</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="damages" name="damages" placeholder="Damages" type="text" value="">
+								<input class="form-control" id="damages" name="damages" placeholder="Damages" type="text" value="<?php echo $damages;?>">
                             </div>
 
                             <div class="clearfix"></div>
@@ -302,7 +336,7 @@
                                 <label for="notes">Notes</label> 
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" id="notes" name="notes" placeholder="Notes" type="text" value="">
+                                <input class="form-control" id="notes" name="notes" placeholder="Notes" type="text" value="<?php echo $notes;?>">
                             </div>
 
                             <div class="clearfix"></div>
@@ -324,7 +358,7 @@
                                         $newAddString='Save ';
                                     }
                                 ?>
-                            <button class="btn btn-default mg-b-lg" onclick="validate()";><?php echo $newAddString;?>Equipment</button>
+                            <button class="btn btn-default mg-b-lg" onclick="validate()"><?php echo $newAddString;?>Equipment</button>
                             </div>
 
                     </div>
@@ -379,15 +413,16 @@
 
             formData = {
                 name              :$('#name').val(),
-                equipmentid       :$('#idNumber').html(),
+                equipmentid       :$('#equipmentidDiv').html(),
+                manufacid		  :$('#idNumber').val(),
                 type              :$('#type').val(),
                 make              :$('#make').val(),
                 model             :$('#model').val(),
                 year              :$('#year').val(),
                 mileage           :$('#mileage').val(),
                 length            :$('#length').val(),
-                heightFeet        :$('#heightFeet').val(),
-                heightInches      :$('#heightInches').val(),
+                heightFt        :$('#heightFeet').val(),
+                heightIn      :$('#heightInches').val(),
                 GVW               :$('#gvw').val(),
                 rentOwn           :$('input[name=rentOwn]:checked').val(),
                 billable          :$('input[name=billable]:checked').val(),
@@ -406,7 +441,7 @@
                 data: formData,
                 encode: true,
                 success: function(result){
-                    //alert(result);
+                    alert(result);
                     $('#submit').hide();
                     window.location.replace("/equipment");
                     // reloads current editing window including id
