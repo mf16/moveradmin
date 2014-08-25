@@ -678,7 +678,7 @@ Job</button> <!-- /content wrapper -->
             var formData = new FormData();
 
             var formData = {
-				jobid:<?php echo $jobid;?>,
+				jobid:'<?php echo $jobid;?>',
                 startDate                     :$('#startDate').val(),
                 startTime                    :$('#startTime').val(),
                 onsiteTime                   :$('#onsiteTime').val(),
