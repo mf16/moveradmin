@@ -11,7 +11,7 @@ class employeeAjax {
 	}
 
 	function delEmp(){
-		global$db;
+		global $db;
 		if($_REQUEST['employeeid']=='new'){
 			echo "new cannot be deleted";
 		} else if (isset($_REQUEST['employeeid'])) {
@@ -115,7 +115,7 @@ class employeeAjax {
 				,tractorExp=?
 				,tractorYears=?
 				,tractorMiles=?
-				,picURI=?
+
 				,skill=?
 				WHERE idemployees=?;";
 			query($sql
@@ -146,7 +146,7 @@ class employeeAjax {
 				,$_REQUEST['tractorExp']
 				,$_REQUEST['tractorYears']
 				,$_REQUEST['tractorMiles']
-				,$_REQUEST['picURI']
+				//,$_REQUEST['picURI']
 				,$_REQUEST['skill']
 				,$_REQUEST['employeeid']
 			);

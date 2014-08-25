@@ -12,15 +12,15 @@
     <title>MoverAdmin | Simple Crew Management</title>
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <!-- /bootstrap -->
 
     <!-- core styles -->
-    <link rel="stylesheet" href="css/skins/palette.css" id="skin">
-    <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="vendor/offline/theme.css">
+    <link rel="stylesheet" href="/css/skins/palette.css" id="skin">
+    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/vendor/offline/theme.css">
     <!-- /core styles -->
 
     <!-- page level styles -->
@@ -33,13 +33,13 @@
     <![endif]-->
 
     <!-- load modernizer -->
-    <script src="vendor/modernizr.js"></script>
+    <script src="/vendor/modernizr.js"></script>
 </head>
 
 <!-- body -->
 
 <body>
-    <?php include '/includes/header.php';?>
+    <?php include 'includes/header.php';?>
 
             <!-- main content -->
             <section class="main-content">
@@ -49,10 +49,11 @@
                     <div class="col-lg-8 col-md-12">
                         <section class="panel panel-primary">
                             <div class="panel-heading"><h4 class="white">Equipment</h4>
+								<a href="/equipment/new"><button class="btn" style="background-color:orange;">New Equipment</button></a>
                             </div>
 							<?php
 							global $db;
-							$sql="SELECT * FROM moverAdmin.equipment;";
+							$sql="SELECT * FROM moverAdmin.equipment ORDER BY isAvailable DESC;";
 							$equipments=query($sql);
 							foreach($equipments as $key=>$equipment){
 								if(isset($equipment['isAvailable']) && $equipment['isAvailable']>0){
@@ -63,7 +64,7 @@
 								echo '<div class="row tableRow" id="eachEquipmentRow'.$equipment['idequipment'].'">
 									<div class="hidden-xs col-sm-2 col-md-1">
 										<span class="pull-left mg-t-xs">
-											<img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+											<img src="/img/equip/'.$equipment['picURI'].'" class="avatar avatar-sm img-circle" alt="">
 										</span>
 									</div>
 									<div class="col-xs-4 col-sm-5 col-md-3" style="margin-top:11px;">
@@ -71,7 +72,7 @@
 									</div>
 									'.$isAvailableString.'
 									<div class="col-xs-2 col-sm-3 col-md-2">Type: '.$equipment['type'].'<br>
-										<small class="text-muted">ID#: '.$equipment['manufacid'].'</small>
+										<small class="text-muted">'.$equipment['manufacid'].'</small>
 									</div>
 									<div class="col-xs-3 text-right">
 										<a href="/equipment/'.$equipment['idequipment'].'"><button class="btn btn-primary">Edit</button></a>
@@ -104,20 +105,20 @@
 		}
 	</script>
     <!-- core scripts -->
-    <script src="vendor/jquery-1.11.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
     <!-- /core scripts -->
 
     <!-- page level scripts -->
     <!-- /page level scripts -->
 
     <!-- theme scripts -->
-    <script src="js/global.js"></script>
-    <script src="js/off-canvas.js"></script>
-    <script src="vendor/jquery.placeholder.js"></script>
-    <script src="vendor/offline/offline.min.js"></script>
-    <script src="vendor/pace/pace.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/vendor/jquery.placeholder.js"></script>
+    <script src="/vendor/offline/offline.min.js"></script>
+    <script src="/vendor/pace/pace.min.js"></script>
+    <script src="/js/main.js"></script>
     <!-- /theme scripts -->
 
 </body>

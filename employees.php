@@ -159,13 +159,16 @@
 			$skill=$empInfo['skill'];
     	}
     } else {
-    	$equipmentid='new';
+    	$employeeid='new';
     }
 ?>
 
 
 <body>
-   <?php include '/includes/header.php';?>
+   <?php 
+	
+	error_reporting(-1);
+include 'includes/header.php';?>
 
             <!-- main content -->
             <section class="main-content">
@@ -173,9 +176,17 @@
                 <!-- content wrapper -->
                 <div class="content-wrap">
 					<div class="col-md-12">
-						<h1 class="no-mg-t">New Employee</h1>
+						<h1 class="no-mg-t">
+<?php
+if($employeeid=='new'){
+	echo 'New ';
+} else {
+	echo 'Edit ';
+}
+?>
+Employee</h1>
 					</div>
-					<div id="employeeidDiv"><?php echo $employeeid;?></div>
+					<div id="employeeidDiv" style="display:none;"><?php echo $employeeid;?></div>
 
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -573,9 +584,9 @@
                 data: formData,
                 encode: true,
                 success: function(result){
-                    alert(result);
+                    //alert(result);
                     //$('#submit').hide();
-                    //window.location.replace("/employees/"+result);
+                    window.location.replace("/employees");
                 },
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');

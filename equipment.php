@@ -132,7 +132,7 @@
 ?>
 
 <body>
-    <?php include '/includes/header.php';?>
+    <?php include 'includes/header.php';?>
 
             <!-- main content -->
             <section class="main-content">
@@ -151,7 +151,7 @@
                         <h1 class="no-mg-t"><?php echo $newEditString;?>Equipment</h1>
                     </div>
                         <form action="/equipmentAjax.php?action=saveEquip" method="post" enctype="multipart/form-data">
-                            <div id="equipmentidDiv"><?php echo $equipmentid; ?></div>                            
+                            <div id="equipmentidDiv" style="display:none;"><?php echo $equipmentid; ?></div>                            
                                 
                             <div class="clearfix"></div>
                             <div class="col-md-3 label">
@@ -441,8 +441,8 @@
                 data: formData,
                 encode: true,
                 success: function(result){
-                    alert(result);
-                    $('#submit').hide();
+                    //alert(result);
+                    //$('#submit').hide();
                     window.location.replace("/equipment");
                     // reloads current editing window including id
                     //window.location.replace("/equipment/"+result);

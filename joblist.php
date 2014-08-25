@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+include_once "global.php";
+?>
 <html class="no-js">
 
 <head>
@@ -10,15 +13,15 @@
     <title>MoverAdmin | Simple Crew Management</title>
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <!-- /bootstrap -->
 
     <!-- core styles -->
-    <link rel="stylesheet" href="css/skins/palette.css" id="skin">
-    <link rel="stylesheet" href="css/fonts/style.1.css" id="font">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="vendor/offline/theme.css">
+    <link rel="stylesheet" href="/css/skins/palette.css" id="skin">
+    <link rel="stylesheet" href="/css/fonts/style.1.css" id="font">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/vendor/offline/theme.css">
     <!-- /core styles -->
 
     <!-- page level styles -->
@@ -31,7 +34,7 @@
     <![endif]-->
 
     <!-- load modernizer -->
-    <script src="vendor/modernizr.js"></script>
+    <script src="/vendor/modernizr.js"></script>
 </head>
 
 <!-- body -->
@@ -63,7 +66,7 @@
 </style>
 
 <body>
-    <?php include '/includes/header.php';?>
+    <?php include 'includes/header.php';?>
 
             <!-- main content -->
             <section class="main-content">
@@ -72,29 +75,41 @@
                 <div class="content-wrap">
                     <div class="col-lg-8 col-md-12">
                         <section class="panel panel-primary">
-                            <div class="panel-heading"><h4 class="white">Equipment</h4>
+                            <div class="panel-heading"><h4 class="white">Jobs</h4>
+								<a href="/job/new"><button class="btn" style="background-color:orange;">New Job</button></a>
                             </div>
-                            <div class="row tableRow">
+<?php
+							global $db;
+							$sql="SELECT * FROM moverAdmin.jobs;";
+							$jobs=query($sql);
+							foreach($jobs as $key=>$job){
+?>
+
+							<div class="row tableRow" id="eachJobRow<?php echo $job['idjobs'];?>">
                                 <div class="hidden-xs col-sm-2 col-md-1">
                                     <span class="pull-left mg-t-xs">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+										<img src="/img/jobs/<?php echo $job['picURI'];?>" class="avatar avatar-sm img-circle" alt="">
                                     </span>
                                 </div>
                                 <div class="col-xs-6 col-sm-8 col-md-5">
-                                    Alexandria, VA<br>
+									<?php echo $job['destinationAddress'];?>
+									<br>
                                     <small class="text-muted">ID # 45E2SD</small>
                                 </div>
                                 <div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-danger btn-outline">Issue</button></div>
                                 
                                 <div class="col-xs-3 text-right">
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
+									<a href="/job/<?php echo $job['idjobs'];?>"><button class="btn btn-primary">Edit</button></a>
+									<button onclick="delJob(<?php echo $job['idjobs'];?>);" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
+<?php
+							}
+?>
                              <div class="row tableRow">
                                 <div class="hidden-xs col-sm-2 col-md-1">
                                     <span class="pull-left mg-t-xs">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                        <img src="/img/jobs/house2.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </span>
                                 </div>
                                 <div class="col-xs-6 col-sm-8 col-md-5">
@@ -116,22 +131,36 @@
         </section>
 
     </div>
+	<script>
+		function delJob(jobid){
+			alert('Are you sure you want to delete this?\n\nToo bad you only have one answer... blame the front end guy..');
+			$.ajax({
+				type: 'POST',
+				url: '/newJobAjax.php?action=delJob&jobid='+jobid,
+				success:function(result){
+					//alert('success');
+					$('#eachJobRow'+jobid).remove();
+				}
+			});
+		}
+	</script>
+
 
     <!-- core scripts -->
-    <script src="vendor/jquery-1.11.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
     <!-- /core scripts -->
 
     <!-- page level scripts -->
     <!-- /page level scripts -->
 
     <!-- theme scripts -->
-    <script src="js/global.js"></script>
-    <script src="js/off-canvas.js"></script>
-    <script src="vendor/jquery.placeholder.js"></script>
-    <script src="vendor/offline/offline.min.js"></script>
-    <script src="vendor/pace/pace.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/vendor/jquery.placeholder.js"></script>
+    <script src="/vendor/offline/offline.min.js"></script>
+    <script src="/vendor/pace/pace.min.js"></script>
+    <script src="/js/main.js"></script>
     <!-- /theme scripts -->
 
 </body>

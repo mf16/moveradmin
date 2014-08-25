@@ -74,6 +74,7 @@
                     <div class="col-md-3 col-xs-12">
                         <div class="col-xs-12">
                             <section class="panel position-relative">
+<a href="/job/1">
                                 <div class="ribbon ribbon-danger">
                                     <div class="banner">
                                         <div class="text">Missing Man</div>
@@ -81,14 +82,15 @@
                                 </div>
                                 <div class="panel-body">
                                     <a href="javascript:;" class="pull-left mg-r-md">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                        <img src="img/emp/tyler.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </a>
-                                    <div>Gary Stone</div>
+                                    <div>Tyler Slater</div>
                                     <small>Driver</small><br>
                                     <small>
-                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a dictum nibh. Vestibulum tempor orci vel sem eleifend, id volutpat quam congue. Maecenas pharetra feugiat molestie. homepage.</small>
+                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>Mitch (Mitchell Facer) has reported a man missing from this job.</small>
                                     <p class="mg-xs"></p>
                                 </div>
+</a>
                             </section>
                         </div>
                         <div class="col-xs-12">
@@ -100,12 +102,12 @@
                                 </div>
                                 <div class="panel-body">
                                     <a href="javascript:;" class="pull-left mg-r-md">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                        <img src="img/emp/mitch.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </a>
-                                    <div>Gary Stone</div>
+                                    <div>Mitch (Mitchell Facer)</div>
                                     <small>Driver</small><br>
                                     <small>
-                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a dictum nibh. Vestibulum tempor orci vel sem eleifend, id volutpat quam congue. Maecenas pharetra feugiat molestie. homepage.</small>
+                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>This job is on schedule.</small>
                                     <p class="mg-xs"></p>
                                 </div>
                             </section>
@@ -119,13 +121,13 @@
                                 </div>
                                 <div class="panel-body">
                                     <a href="javascript:;" class="pull-left mg-r-md">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                        <img src="img/emp/superman.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </a>
-                                    <div>Gary Stone</div>
+                                    <div>Superman (Clark Kent)</div>
                                     <small>Driver</small><br>
 
                                     <small>
-                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a dictum nibh. Vestibulum tempor orci vel sem eleifend, id volutpat quam congue. Maecenas pharetra feugiat molestie. homepage.</small>
+                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>This job is complete.</small>
                                     <p class="mg-xs"></p>
                                 </div>
                             </section>
@@ -139,12 +141,12 @@
                                 </div>
                                 <div class="panel-body">
                                     <a href="javascript:;" class="pull-left mg-r-md">
-                                        <img src="img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+                                        <img src="img/emp/tyler.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </a>
-                                    <div>Gary Stone</div>
+                                    <div>Tyler Slater</div>
                                     <small>Driver</small><br>
                                     <small>
-                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a dictum nibh. Vestibulum tempor orci vel sem eleifend, id volutpat quam congue. Maecenas pharetra feugiat molestie. homepage.</small>
+                                        <i class="fa fa-circle text-primary mg-t-lg mg-r-xs"></i>Tyler Slater has reported an unusual amount of Traffic.</small>
                                     <p class="mg-xs"></p>
                                 </div>
                             </section>
@@ -157,7 +159,7 @@
                                 <h1 class="no-mg-t">Weekly Overview</h1>
                             </section>
                             <section class="col-md-6 text-right mg-b-lg">
-                                <a href="/jobs/new"><button type="button" class="btn btn-primary">New Job</button></a>
+                                <a href="/job/new"><button type="button" class="btn btn-primary">New Job</button></a>
                             </section>
                         </div>
 

@@ -39,7 +39,7 @@
 <!-- body -->
 
 <body>
-   <?php include '/includes/header.php';?>
+   <?php include 'includes/header.php';?>
 
             <!-- main content -->
             <section class="main-content">
@@ -49,6 +49,7 @@
                     <div class="col-lg-8 col-md-12">
                         <section class="panel panel-primary">
                             <div class="panel-heading"><h4 class="white">Employees</h4>
+								<a href="/employee/new"><button class="btn" style="background-color:orange;">New Employee</button></a>
                             </div>
 							<?php
 							global $db;
@@ -60,7 +61,7 @@
 							<div class="row tableRow" id="eachEmployeeRow<?php echo $employee['idemployees'];?>">
                                 <div class="hidden-xs col-sm-2 col-md-1">
                                     <span class="pull-left mg-t-xs">
-                                        <img src="/img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
+										<img src="/img/emp/<?php echo $employee['picURI'];?>" class="avatar avatar-sm img-circle" alt="">
                                     </span>
                                 </div>
                                 <div class="col-xs-6 col-sm-8 col-md-5">
@@ -74,7 +75,7 @@
 								echo $closeParenString;
 ?>
                                     <br>
-									<small class="text-muted">Employee since <?php echo date($employee['empSince']);?></small>
+									<small class="text-muted">Employee since <?php echo date('M d, Y',strtotime($employee['empSince']));?></small>
                                 </div>
 								<div class="col-xs-3 mg-t-xs">Skill Level: <?php echo $employee['skill'];?></div>
                                 <div class="col-xs-3 text-right">

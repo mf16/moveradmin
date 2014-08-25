@@ -76,6 +76,75 @@
     </style>
 </head><!-- body -->
 
+<?php
+	//set vars
+	$startDate='';
+	$startTime='';
+	$onsiteTime='';
+	$notes='';
+	$regNum='';
+
+	$shipperName='';
+	$shipperPhone='';
+	$altShipperName='';
+	$altPhone='';
+	$originAddress='';
+
+	$originShuttle=0;
+	$originInstructions='';
+	$destinationAddress='';
+	$destinationShuttle=0;
+	$destinationInstructions='';
+
+	$status='';
+	$confirmedBy='';
+	$weight='';
+	$weightType='';
+	$vaultPackOrder='';
+
+	$shuttleTruckNumber='';
+	$insuranceChargesApply=0;
+
+	if(isset($_REQUEST['id'])){
+		$jobid=$_REQUEST['id'];
+		global $db;
+		$sql="SELECT * FROM moverAdmin.jobs WHERE idjobs=?";
+		$jobInfo=query($sql,$jobid)[0];
+		if(!isset($jobInfo)){
+			$jobid='new';
+		} else {
+			$startDate=$jobInfo['startDate'];
+			$startTime=$jobInfo['startTime'];
+			$onsiteTime=$jobInfo['onsiteTime'];
+			$notes=$jobInfo['notes'];
+			$regNum=$jobInfo['regNum'];
+
+			$shipperName=$jobInfo['shipperName'];
+			$shipperPhone=$jobInfo['shipperPhone'];
+			$altShipperName=$jobInfo['altShipperName'];
+			$altPhone=$jobInfo['altPhone'];
+			$originAddress=$jobInfo['originAddress'];
+
+			$originShuttle=$jobInfo['originShuttle'];
+			$originInstructions=$jobInfo['originInstructions'];
+			$destinationAddress=$jobInfo['destinationAddress'];
+			$destinationShuttle=$jobInfo['destinationShuttle'];
+			$destinationInstructions=$jobInfo['destinationInstructions'];
+
+			$status=$jobInfo['status'];
+			$confirmedBy=$jobInfo['confirmedBy'];
+			$weight=$jobInfo['weight'];
+			$weightType=$jobInfo['weightType'];
+			$vaultPackOrder=$jobInfo['vaultPackOrder'];
+
+			$shuttleTruckNumber=$jobInfo['shuttleTruckNumber'];
+			$insuranceChargesApply=$jobInfo['insuranceChargesApply'];
+		}
+	} else {
+		$jobid='new';
+	}
+
+?>
 <body>
     <?php include 'includes/header.php'; ?><!-- main content -->
 
@@ -83,7 +152,15 @@
         <!-- content wrapper -->
         <div class="content-wrap">
             <div class="col-md-12">
-                <h1 class="no-mg-t">New Job</h1>
+				<h1 class="no-mg-t">
+<?php
+	if($jobid=='new'){
+		echo 'New ';
+	} else {
+		echo 'Edit ';
+	}
+?>
+Job</h1>
             </div>
 
             <div class="col-md-12">
@@ -282,19 +359,13 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <div class="col-md-3 label">
-                    <label for="otherDriverNotes">Other Driver Notes</label> 
-                </div>
-                <div class="col-md-8 mg-b-lg">
-                    <input class="form-control" id="otherDriverNotes" placeholder="Other Driver Notes" type="text"> 
-                </div>
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
                     <label for="regNumber">Reg Number</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="regNumber" placeholder="Reg Number" type="text"> 
+					<input class="form-control" id="regNumber" placeholder="Reg Number" type="text" value="<?php echo $regNum;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -302,7 +373,7 @@
                     <label for="shipperName">Shipper Name</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="shipperName" placeholder="Shipper name" type="text"> 
+					<input class="form-control" id="shipperName" placeholder="Shipper name" type="text" value="<?php echo $shipperName;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -310,7 +381,7 @@
                     <label for="phone">Phone Number</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="phone" placeholder="###-###-####" type="text"> 
+					<input class="form-control" id="phone" placeholder="###-###-####" type="text" value="<?php echo $shipperPhone;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -318,7 +389,7 @@
                     <label for="altShipperName">Alternate Shipper Name</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="altShipperName" placeholder="Shipper name" type="text"> 
+					<input class="form-control" id="altShipperName" placeholder="Shipper name" type="text" value="<?php echo $altShipperName;?>" > 
                 </div>
 
                 <div class="clearfix"></div>
@@ -326,7 +397,7 @@
                     <label for="altPhone">Alternate Phone Number</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="altPhone" placeholder="###-###-####" type="text"> 
+					<input class="form-control" id="altPhone" placeholder="###-###-####" type="text" value="<?php echo $altPhone; ?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -334,17 +405,27 @@
                     <label for="originAddr">Origin</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="originAddr" placeholder="Address" type="text"> 
+					<input class="form-control" id="originAddr" placeholder="Address" type="text" value="<?php echo $originAddress;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
                     <label for="originShuttle">Origin Shuttle?</label><br>
                 </div>
+<?php
+					$originShuttleYesCheckedString='';
+					$originShuttleNoCheckedString='';
+					if(isset($originShuttle) && ($originShuttle>0)){
+						$originShuttleYesCheckedString=' checked';
+					} else {
+						$originShuttleNoCheckedString=' checked';
+					}
+?>
+
                 <div class="col-md-8">
-                    <input id="originShuttleYes" name="originShuttle" type="radio" value="1"> 
+					<input id="originShuttleYes" name="originShuttle" type="radio" value="1" <?php echo $originShuttleYesCheckedString;?>> 
                     <label for="originShuttleYes">Yes</label> 
-                    <input id="originShuttleNo" name="originShuttle" type="radio" value="0">
+                    <input id="originShuttleNo" name="originShuttle" type="radio" value="0" <?php echo $originShuttleNoCheckedString;?>>
                     <label for="originShuttleNo">No</label>
                 </div>
 
@@ -353,7 +434,7 @@
                     <label for="originSpecial">Origin Special Instructions</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="originSpecial" placeholder="Special Instructions" type="text"> 
+					<input class="form-control" id="originSpecial" placeholder="Special Instructions" type="text" value="<?php echo $originInstructions;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -361,17 +442,26 @@
                     <label for="destination">Destination</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="destination" placeholder="Address" type="text"> 
+					<input class="form-control" id="destination" placeholder="Address" type="text" value="<?php echo $destinationAddress;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
                     <label for="destinationShuttle">Destination Shuttle?</label><br>
                 </div>
+<?php
+					$destinationShuttleYesCheckedString='';
+					$destinationShuttleNoCheckedString='';
+					if(isset($destinationShuttle) && ($destinationShuttle>0)){
+						$destinationShuttleYesCheckedString=' checked';
+					} else {
+						$destinationShuttleNoCheckedString=' checked';
+					}
+?>
                 <div class="col-md-8">
-                    <input id="destinationShuttleYes" name="destinationShuttle" type="radio" value="1"> 
+					<input id="destinationShuttleYes" name="destinationShuttle" type="radio" value="1" <?php echo $destinationShuttleYesCheckedString;?>> 
                     <label for="destinationShuttleYes">Yes</label> 
-                    <input id="destinationShuttleNo" name="destinationShuttle" type="radio" value="0">
+                    <input id="destinationShuttleNo" name="destinationShuttle" type="radio" value="0" <?php echo $destinationShuttleNoCheckedString;?>>
                     <label for="destinationShuttleNo">No</label>
                 </div>
 
@@ -380,7 +470,7 @@
                     <label for="destinationSpecial">Destination Special Instructions</label> 
                 </div>
                 <div class="col-md-8 mg-b-lg">
-                    <input class="form-control" id="destinationSpecial" placeholder="Special Instructions" type="text"> 
+                    <input class="form-control" id="destinationSpecial" placeholder="Special Instructions" type="text" value="<?php echo $destinationInstructions;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -402,7 +492,7 @@
                     <label for="destination">Confirmed By</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="confirmedBy" placeholder="Confirmed by" type="text"> 
+                    <input class="form-control" id="confirmedBy" placeholder="Confirmed by" type="text" value="<?php echo $confirmedBy;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -410,7 +500,7 @@
                     <label for="weight">Weight</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="weight" placeholder="####" type="text"> 
+                    <input class="form-control" id="weight" placeholder="####" type="text" value="<?php echo $weight;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -418,7 +508,7 @@
                     <label for="weightType">Weight Type</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="weightType" type="text"> 
+                    <input class="form-control" id="weightType" type="text" value="<?php echo $weightType;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -426,7 +516,7 @@
                     <label for="vault">Vault/Pack Order</label> 
                 </div>
                 <div class="col-md-8 mg-b-lg">
-                    <input class="form-control" id="vault" placeholder="Type something" type="text">
+                    <input class="form-control" id="vault" placeholder="Type something" type="text" value="<?php echo $vaultPackOrder;?>">
                 </div>
             </div>
             <div class="col-md-12">
@@ -441,7 +531,7 @@
                 <div class="col-md-8">
                     <select class="form-control chosen-select" id="drivers" multiple>
                         <?php
-                            $query="SELECT * FROM moverAdmin.employees WHERE (CDL>0 OR license>0);";
+                            $query="SELECT * FROM moverAdmin.employees WHERE canDrive>0;";
                             $drivers=query($query);
                             foreach($drivers as $key=>$driver){
                                 echo '<option>'.$driver['first'].' '.$driver['last'].'</option>';
@@ -471,7 +561,7 @@
                     <label for="driverNotes">Driver Notes</label> 
                 </div>
                 <div class="col-md-8 mg-b-lg">
-                    <input class="form-control" id="driverNotes" placeholder="Notes" type="text">
+					<input class="form-control" id="driverNotes" placeholder="Notes" type="text" value="<?php echo $notes;?>">
                 </div>
             </div>
             <div class="col-md-12">
@@ -484,6 +574,13 @@
                 </div>
                 <div class="col-md-8">
                     <select class="form-control chosen-select" id="equipment" multiple>
+                    <?php
+                        $query="SELECT * FROM moverAdmin.equipment;";
+                        $equipments=query($query);
+                        foreach($equipments as $key=>$equipment){
+                            echo '<option>'.$equipment['name'].'</option>';
+                        }
+                    ?>
                     </select> 
                 </div>
 
@@ -492,22 +589,39 @@
                     <label for="shuttleTruckNumber">Shuttle Truck Number</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="shuttleTruckNumber" placeholder="##" type="text"> 
+                    <input class="form-control" id="shuttleTruckNumber" placeholder="##" type="text" value="<?php echo $shuttleTruckNumber;?>"> 
                 </div>
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
                     <label for="insurance">Do daily insurance rates apply?</label><br>
                 </div>
+<?php
+					$dailyInsYesCheckedString='';
+					$dailyInsNoCheckedString='';
+					if(isset($insuranceChargesApply) && ($insuranceChargesApply>0)){
+						$dailyInsYesCheckedString=' checked';
+					} else {
+						$dailyInsNoCheckedString=' checked';
+					}
+?>
                 <div class="col-md-8">
-                    <input checked id="insuranceYes" name="insurance" type="radio" value="yes"> 
+					<input checked id="insuranceYes" name="insurance" type="radio" value="1" <?php echo $dailyInsYesCheckedString;?>> 
                     <label for="insuranceYes" onclick="">Yes</label> 
-                    <input id="insuranceNo" name="insurance" type="radio" value="no"> 
+                    <input id="insuranceNo" name="insurance" type="radio" value="0" <?php echo $dailyInsNoCheckedString;?>> 
                     <label for="insuranceNo" onclick="">No</label> 
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-md-8 col-md-offset-3 mg-b-lg mg-t">
-                    <button class="btn btn-default" id="submit" type="submit">Add Job</button> <!-- /content wrapper -->
+					<button class="btn btn-default" id="submit" type="submit">
+<?php
+	if($jobid=='new'){
+		echo 'Add ';
+	} else {
+		echo 'Save ';
+	}
+?>
+Job</button> <!-- /content wrapper -->
                 </div>
             </div>
         </section>
@@ -564,17 +678,15 @@
             var formData = new FormData();
 
             var formData = {
-                date                     :$('#startDate').val(),
-                start                    :$('#startTime').val(),
-                onsite                   :$('#onsiteTime').val(),
-                moveType                 :$('#moveType').val(), //this posts an array or "undefined if nothing is selected"
-                serviceType              :$('#serviceType').val(), //this posts an array or "undefined if nothing is selected"
-                otherNotes               :$('#otherDriverNotes').val(),
-                regNumber                :$('#regNumber').val(),
+				jobid:<?php echo $jobid;?>,
+                startDate                     :$('#startDate').val(),
+                startTime                    :$('#startTime').val(),
+                onsiteTime                   :$('#onsiteTime').val(),
+                regNum                :$('#regNumber').val(),
                 shipperName              :$('#shipperName').val(),
                 shipperPhone             :$('#phone').val(),
                 altShipperName           :$('#altShipperName').val(),
-                altShipperPhone          :$('#altPhone').val(),
+                altPhone          :$('#altPhone').val(),
                 originAddress            :$('#originAddr').val(),
                 originShuttle            :$('input[name=originShuttle]:checked').val(),
                 originInstructions       :$('#originSpecial').val(),
@@ -585,25 +697,28 @@
                 confirmedBy              :$('#confirmedBy').val(),
                 weight                   :$('#weight').val(),
                 weightType               :$('#weightType').val(), //this posts an array or "undefined if nothing is selected"
-                vault                    :$('#vault').val(),
-                drivers                  :$('#drivers').val(), //this posts an array or "undefined if nothing is selected"
-                laborers                 :$('#laborers').val(), //this posts an array or "undefined if nothing is selected"
-                driverNotes              :$('#driverNotes').val(),
-                equipment                :$('#equipment').val(),
+                vaultPackOrder                    :$('#vault').val(),
+                notes              :$('#driverNotes').val(),
                 shuttleTruckNumber       :$('#shuttleTruckNumber').val(),
-                insuranceRates           :$('input[name=insurance]:checked').val()
+                insuranceChargesApply :$('input[name=insurance]:checked').val()
             };
 
             console.log(formData);
-/*
-            $.ajax({
+	 		$.ajax({
                 type: 'POST',
-                url: 'jobAdd.php',
+                url:    '/newJobAjax.php?action=saveJob',
                 data: formData,
-                dataType: 'json',
-                encode: true
-            });
-*/
+                encode: true,
+                success: function(result){
+                    //alert(result);
+                    //$('#submit').hide();
+                    window.location.replace("/jobs");
+                },
+                fail: function(result){
+                    alert('Request failed. Please reload the page and try again.');
+                }
+            });		
+			
         });
     </script><!-- /body -->
      <!-- page level scripts -->

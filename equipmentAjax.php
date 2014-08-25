@@ -88,7 +88,6 @@ class equipmentAjax {
 				,billable=?
 				,equipped=?
 				,isAvailable=? 
-				,picURI=?
 				,damages=?
 				,notes=?
 				WHERE idequipment=?;";
@@ -108,7 +107,7 @@ class equipmentAjax {
 				,$_REQUEST['billable']
 				,$_REQUEST['equipped']
 				,$_REQUEST['isAvailable']
-				,$_REQUEST['picture']
+				//,$_REQUEST['picture']
 				,$_REQUEST['damages']
 				,$_REQUEST['notes']
 				,$_REQUEST['equipmentid']);
