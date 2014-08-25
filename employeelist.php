@@ -1,3 +1,5 @@
+<?php include_once "global.php";
+?>
 <!DOCTYPE html>
 <html class="no-js">
 
@@ -48,22 +50,41 @@
                         <section class="panel panel-primary">
                             <div class="panel-heading"><h4 class="white">Employees</h4>
                             </div>
-                            <div class="row tableRow">
+							<?php
+							global $db;
+							$sql="SELECT * FROM moverAdmin.employees;";
+							$employees=query($sql);
+							foreach($employees as $key=>$employee){
+								//print_r($employee);
+?>
+							<div class="row tableRow" id="eachEmployeeRow<?php echo $employee['idemployees'];?>">
                                 <div class="hidden-xs col-sm-2 col-md-1">
                                     <span class="pull-left mg-t-xs">
                                         <img src="/img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </span>
                                 </div>
                                 <div class="col-xs-6 col-sm-8 col-md-5">
-                                    Taylor King<br>
-                                    <small class="text-muted">Employee since Marh 31, 2010</small>
+<?php
+								$closeParenString='';
+								if(isset($employee['nickname']) && strlen($employee['nickname'])>0){
+									echo $employee['nickname'].' (';
+									$closeParenString=')';
+								}
+								echo $employee['first'].' '.$employee['last'];
+								echo $closeParenString;
+?>
+                                    <br>
+									<small class="text-muted">Employee since <?php echo date($employee['empSince']);?></small>
                                 </div>
-                                <div class="col-xs-3 mg-t-xs">Skill Level: 5</div>
+								<div class="col-xs-3 mg-t-xs">Skill Level: <?php echo $employee['skill'];?></div>
                                 <div class="col-xs-3 text-right">
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
+									<a href="/employee/<?php echo $employee['idemployees'];?>"><button class="btn btn-primary">Edit</button></a>
+									<button onclick="delEmp(<?php echo $employee['idemployees'];?>)" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
+<?php
+							}
+?>
                         </section>
                     </div>
                 </div>
@@ -73,6 +94,20 @@
         </section>
 
     </div>
+	<script>
+		function delEmp(employeeid){
+			alert('Are you sure you want to delete this?\n\nToo bad you only have one answer... blame the front end guy..');
+			$.ajax({
+				type: 'POST',
+				url: '/employeeAjax.php?action=delEmp&employeeid='+employeeid,
+				success:function(result){
+					//alert('success');
+					$('#eachEmployeeRow'+employeeid).remove();
+				}
+			});
+		}
+	</script>
+
 
     <!-- core scripts -->
     <script src="/vendor/jquery-1.11.1.min.js"></script>

@@ -90,13 +90,34 @@
 
 <?php
     // Set vars
+	$nickname='';
     $first='';
     $last='';
-    $rate='';
-    $license='';
+	$email='';
+	$address='';
+
+    $dailyRate='';
+	$cellPhone='';
+	$homePhone='';
     $empSince='';
-    $picture='';
-    $phone='';
+	$CID='';
+
+	$PVO='';
+	$drugScreened='';
+	$screenedDate='';
+	$canDrive='';
+    $license='';
+
+	$licenseState='';
+	$licenseClass='';
+	$bobtailExp='';
+	$bobtailYears='';
+	$bobtailMiles='';
+
+	$tractorExp='';
+	$tractorYears='';
+	$tractorMiles='';
+    $picURI='';
     $skill='5';
     if(isset($_REQUEST['id'])){
     	$employeeid=$_REQUEST['id'];
@@ -107,14 +128,35 @@
     		$empInfo='new';
     		// do not set anything, that id does not exit
     	} else {
+			$nickname=$empInfo['nickname'];
     		$first=$empInfo['first'];
     		$last=$empInfo['last'];
-    		$rate=$empInfo['dailyRate'];
-    		$license=$empInfo['license'];
+    		$email=$empInfo['email'];
+    		$address=$empInfo['address'];
+
+    		$dailyRate=$empInfo['dailyRate'];
+    		$cellPhone=$empInfo['cellPhone'];
+    		$homePhone=$empInfo['homePhone'];
     		$empSince=$empInfo['empSince'];
-    		$picture=$empInfo['picture'];
-    		$phone=$empInfo['phone'];
-    		$skill=$empInfo['skill'];
+    		$CID=$empInfo['CID'];
+
+    		$PVO=$empInfo['PVO'];
+    		$drugScreened=$empInfo['drugScreened'];
+    		$screenedDate=$empInfo['screenedDate'];
+    		$canDrive=$empInfo['canDrive'];
+    		$license=$empInfo['license'];
+
+    		$licenseState=$empInfo['licenseState'];
+    		$licenseClass=$empInfo['licenseClass'];
+    		$bobtailExp=$empInfo['bobtailExp'];
+    		$bobtailYears=$empInfo['bobtailYears'];
+    		$bobtailMiles=$empInfo['bobtailMiles'];
+
+			$tractorExp=$empInfo['tractorExp'];
+			$tractorYears=$empInfo['tractorYears'];
+			$tractorMiles=$empInfo['tractorMiles'];
+			$picURI=$empInfo['picURI'];
+			$skill=$empInfo['skill'];
     	}
     } else {
     	$equipmentid='new';
@@ -140,7 +182,7 @@
                         <label for="nickname">Nickname</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="nickname" class="form-control" placeholder="Nickname" value="<?php //echo $nickname;?>">
+                        <input type="text" id="nickname" class="form-control" placeholder="Nickname" value="<?php echo $nickname;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -161,35 +203,35 @@
                         <label for="email">Email</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="email" class="form-control" placeholder="Email" value="<?php //echo $email;?>">
+                        <input type="text" id="email" class="form-control" placeholder="Email" value="<?php echo $email;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="address">Address</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="address" class="form-control" placeholder="Address" value="<?php //echo $address;?>">
+                        <input type="text" id="address" class="form-control" placeholder="Address" value="<?php echo $address;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="rate">Regular Daily Rate</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="rate" class="form-control" placeholder="Regular Daily Rate" value="<?php echo $rate;?>">
+                        <input type="text" id="rate" class="form-control" placeholder="Regular Daily Rate" value="<?php echo $dailyRate;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="cell">Cell Phone</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="cell" class="form-control" placeholder="###-###-####" value="<?php //echo $cell;?>">
+                        <input type="text" id="cell" class="form-control" placeholder="###-###-####" value="<?php echo $cellPhone;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="phone">Home Phone Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="phone" class="form-control" placeholder="###-###-####" value="<?php echo $phone;?>">
+                        <input type="text" id="phone" class="form-control" placeholder="###-###-####" value="<?php echo $homePhone;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -203,24 +245,34 @@
                         <label for="cid">CID Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="cid" class="form-control" placeholder="###" value="<?php //echo $cid;?>">
+                        <input type="text" id="cid" class="form-control" placeholder="###" value="<?php echo $CID;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="pvo">PVO Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="pvo" class="form-control" placeholder="###" value="<?php //echo $pvo;?>">
+                        <input type="text" id="pvo" class="form-control" placeholder="###" value="<?php echo $PVO;?>">
                     </div>
 
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="rentOwn">Drug screened?</label><br>
                     </div>
+<?php
+					$drugYesCheckedString='';
+					$drugNoCheckedString='';
+					if(isset($drugScreened) && ($drugScreened>0)){
+						$drugYesCheckedString=' checked';
+					} else {
+						$drugNoCheckedString=' checked';
+					}
+?>
+
                     <div class="col-md-8">
-                        <input id="drugScreenedYes" name="drugScreened" type="radio" value="1"> 
+						<input id="drugScreenedYes" name="drugScreened" type="radio" value="1" <?php echo $drugYesCheckedString;?>> 
                         <label for="drugScreenedYes">Yes</label> 
-                        <input id="drugScreenedNo" name="drugScreened" type="radio" value="0">
+                        <input id="drugScreenedNo" name="drugScreened" type="radio" value="0" <?php echo $drugNoCheckedString;?>>
                         <label for="drugScreenedNo">No</label>
                     </div>
 
@@ -237,10 +289,19 @@
                     <div class="col-md-3 label">
                         <label for="rentOwn">Can drive?</label><br>
                     </div>
+<?php
+					$driveYesCheckedString='';
+					$driveNoCheckedString='';
+					if(isset($canDrive) && ($canDrive>0)){
+						$driveYesCheckedString=' checked';
+					} else {
+						$driveNoCheckedString=' checked';
+					}
+?>
                     <div class="col-md-8">
-                        <input id="driverYes" name="driver" type="radio" value="1"> 
+						<input id="driverYes" name="driver" type="radio" value="1" <?php echo $driveYesCheckedString;?>> 
                         <label for="driverYes">Yes</label> 
-                        <input id="driverNo" name="driver" type="radio" value="0">
+                        <input id="driverNo" name="driver" type="radio" value="0" <?php echo $driveNoCheckedString;?>>
                         <label for="driverNo">No</label>
                     </div>
                     <div class="clearfix"></div>
@@ -248,7 +309,7 @@
                         <label for="idNumber">License/ID Number</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="idNumber" class="form-control" placeholder="###" value="<?php //echo $idNumber;?>">
+                        <input type="text" id="idNumber" class="form-control" placeholder="###" value="<?php echo $license;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -316,6 +377,7 @@
                     </div>
                     <div class="col-md-8">
                         <select id="idClass" class="form-control">
+                            <option value="pick">Pick One</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -337,10 +399,19 @@
                     <div class="col-md-3 label">
                         <label for="bobtailExperience">Bobtail Experience?</label><br>
                     </div>
+<?php
+					$bobtailYesCheckedString='';
+					$bobtailNoCheckedString='';
+					if(isset($bobtailExp) && ($bobtailExp>0)){
+						$bobtailYesCheckedString=' checked';
+					} else {
+						$bobtailNoCheckedString=' checked';
+					}
+?>
                     <div class="col-md-8">
-                        <input id="bobtailExperienceYes" name="bobtailExperience" type="radio" value="1"> 
+					<input id="bobtailExperienceYes" name="bobtailExperience" type="radio" value="1" <?php echo $bobtailYesCheckedString;?>> 
                         <label for="bobtailExperienceYes">Yes</label> 
-                        <input id="bobtailExperienceNo" name="bobtailExperience" type="radio" value="0">
+                        <input id="bobtailExperienceNo" name="bobtailExperience" type="radio" value="0" <?php echo $bobtailNoCheckedString;?>>
                         <label for="bobtailExperienceNo">No</label>
                     </div>
                     <div class="clearfix"></div>
@@ -348,24 +419,33 @@
                         <label for="bobtailExperienceYears">Years Driver</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="bobtailExperienceYears" class="form-control" placeholder="Years" value="">
+						<input type="text" id="bobtailExperienceYears" class="form-control" placeholder="Years" value="<?php echo $bobtailYears;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="bobtailExperienceMiles">Estimated Miles Driven</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="bobtailExperienceMiles" class="form-control" placeholder="Miles" value="">
+                        <input type="text" id="bobtailExperienceMiles" class="form-control" placeholder="Miles" value="<?php echo $bobtailMiles;?>">
                     </div>
 
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="tractorExperience">Tractor Experience?</label><br>
                     </div>
+<?php
+					$tractorYesCheckedString='';
+					$tractorNoCheckedString='';
+					if(isset($tractorExp) && ($tractorExp>0)){
+						$tractorYesCheckedString=' checked';
+					} else {
+						$tractorNoCheckedString=' checked';
+					}
+?>
                     <div class="col-md-8">
-                        <input id="tractorExperienceYes" name="tractorExperience" type="radio" value="1"> 
+					<input id="tractorExperienceYes" name="tractorExperience" type="radio" value="1" <?php echo $tractorYesCheckedString;?>> 
                         <label for="tractorExperienceYes">Yes</label> 
-                        <input id="tractorExperienceNo" name="tractorExperience" type="radio" value="0">
+                        <input id="tractorExperienceNo" name="tractorExperience" type="radio" value="0" <?php echo $tractorNoCheckedString;?>>
                         <label for="tractorExperienceNo">No</label>
                     </div>
                     <div class="clearfix"></div>
@@ -373,47 +453,20 @@
                         <label for="tractorExperienceYears">Years Driver</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="tractorExperienceYears" class="form-control" placeholder="Years" value="">
+						<input type="text" id="tractorExperienceYears" class="form-control" placeholder="Years" value="<?php echo $tractorYears;?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="tractorExperienceMiles">Estimated Miles Driven</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="tractorExperienceMiles" class="form-control" placeholder="Miles" value="">
+                        <input type="text" id="tractorExperienceMiles" class="form-control" placeholder="Miles" value="<?php echo $tractorMiles;?>">
                     </div>
 
 
 
 
 
-					<!-- THIS PART ISNT RIGHT ANYMORE BECAUSE CDL AND NORMAL DL IS DEFINED IN THE #idClass DIV
-                    <div class="clearfix"></div>
-                    <div class="col-md-3 label">
-                        <label for="rentOwn">Driver Type?</label><br>
-                    </div>
-                    <div class="col-md-8">
-                        <?php
-                        	$CDLSelected='';
-                        	$dlSelected='';
-                        	$noneSelected=' checked ';
-                        	if(!isset($license) && $license<1){
-                        	} else if ($license >2){
-                        		$CDLSelected=' checked ';
-                        		$noneSelected='';
-                        	} else if ($license ==2){
-                        		$dlSelected=' checked ';
-                        		$noneSelected='';
-                        	}
-                        ?>
-                        <input id="CDL" name="license" type="radio" value="2" <?php echo $CDLSelected;?>> 
-                        <label for="CDL">CDL</label>
-                        <input id="dl" name="license" type="radio" value="1" <?php echo $dlSelected;?>> 
-                        <label for="dl">Drivers License</label> 
-                        <input id="dlNone" name="license" type="radio" value="0" <?php echo $noneSelected;?>>
-                        <label for="dlNone">None</label>
-                    </div>
-                -->
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
                         <label for="ex1">Laborer Skill Level</label>
@@ -429,8 +482,15 @@
                         <input type="file" name="picture" id="file">
                     </div>
                     <div class="clearfix"></div>
+<?php
+					if(isset($employeeid) && $employeeid=='new'){
+						$saveAddText='Add ';
+					} else {
+						$saveAddText='Save ';
+					}
+?>
                     <div class="col-md-8 col-md-offset-3 mg-b-lg">
-                        <button type="submit" class="btn btn-default" id="submit">Add Employee</button> 
+						<button type="submit" class="btn btn-default" id="submit"><?php echo $saveAddText;?>Employee</button> 
                     </div>
                 </div>
                 <!-- /content wrapper -->
@@ -477,33 +537,35 @@
             var formData = new FormData();
 
             formData = {
+				employeeid			:$('#employeeidDiv').html(),
                 nickname               :$('#nickname').val(),
 	 			first				   :$('#firstname').val(),
 	 			last				   :$('#lastname').val(),
                 email                  :$('#email').val(),
                 address                :$('#address').val(),
-	 			rate				   :$('#rate').val(),
-	 			phone			       :$('#phone').val(),
-                cell                   :$('#cell').val(),
+	 			dailyRate				   :$('#rate').val(),
+                cellPhone                   :$('#cell').val(),
+                homePhone                   :$('#phone').val(),
 	 			empSince			   :$('#empSince').val(),
-                cid                    :$('#cid').val(),
-                pvo                    :$('#pvo').val(),
+                CID                    :$('#cid').val(),
+                PVO                    :$('#pvo').val(),
                 drugScreened           :$('input[name=drugScreened]:checked').val(),
-                lastScreened           :$('#drugScreenDate').val(),
+                screenedDate	:$('#drugScreenDate').val(),
                 canDrive               :$('input[name=driver]:checked').val(),
-                idNumber               :$('#idNumber').val(),
-                issueState             :$('#issueState').val(),
+                license					:$('#idNumber').val(),
+                licenseState	:$('#issueState').val(),
                 licenseClass           :$('#idClass').val(),
-                endorsements           :$('#endorsements').val(),
-                bobtailExperience      :$('input[name=bobtailExperience]:checked').val(),
-                bobtailExperienceYears :$('#bobtailExperienceYears').val(),
-                bobtailExperienceMiles :$('#bobtailExperienceMiles').val(),
-                tractorExperience      :$('input[name=tractorExperience]:checked').val(),
-                tractorExperienceYears :$('#tractorExperienceYears').val(),
-                tractorExperienceMiles :$('#tractorExperienceMiles').val(),
+                //endorsements           :$('#endorsements').val(),
+                bobtailExp			:$('input[name=bobtailExperience]:checked').val(),
+                bobtailYears		:$('#bobtailExperienceYears').val(),
+                bobtailMiles		:$('#bobtailExperienceMiles').val(),
+                tractorExp		:$('input[name=tractorExperience]:checked').val(),
+                tractorYears		:$('#tractorExperienceYears').val(),
+                tractorMiles		:$('#tractorExperienceMiles').val(),
                 skill                  :$('input[id=ex1]').data('slider').getValue(),
-	 			picture			       :$('#file').get(0).files[0]
+	 			picURI		:$('#file').get(0).files[0]
 	 		};
+			console.log(formData);
 
 	 		$.ajax({
                 type: 'POST',
@@ -512,8 +574,8 @@
                 encode: true,
                 success: function(result){
                     alert(result);
-                    $('#submit').hide();
-                    window.location.replace("/employees/"+result);
+                    //$('#submit').hide();
+                    //window.location.replace("/employees/"+result);
                 },
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');

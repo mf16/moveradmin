@@ -7,7 +7,7 @@ RewriteRule ^equipment/$ equipmentlist.php
 RewriteRule ^equipment$ equipmentlist.php
 RewriteRule ^equipmentlist/$ equipmentlist.php
 RewriteRule ^equipmentlist$ equipmentlist.php [L]
-RewriteRule ^employees/([0-9,a-z,A-Z]+)$ employees.php?id=$1
-RewriteRule ^employees/([0-9,a-z,A-Z]+)/$ employees.php?id=$1
+RewriteRule ^employee/([0-9,a-z,A-Z]+)$ employees.php?id=$1
+RewriteRule ^employee/([0-9,a-z,A-Z]+)/$ employees.php?id=$1
 RewriteRule ^employees/$ employeelist.php
 RewriteRule ^employees$ employeelist.php [L]
