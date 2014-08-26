@@ -46,10 +46,17 @@
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                    <div class="col-lg-8 col-md-12">
+                    <div class="col-md-12">
                         <section class="panel panel-primary">
-                            <div class="panel-heading"><h4 class="white">Employees</h4>
-								<a href="/employee/new"><button class="btn" style="background-color:orange;">New Employee</button></a>
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="white">Employees</h4>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <a href="/employee/new"><button class="btn btn-white">New Employee</button></a>
+                                    </div>
+                                </div>
                             </div>
 							<?php
 							global $db;

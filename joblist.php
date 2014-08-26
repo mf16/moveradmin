@@ -73,10 +73,17 @@ include_once "global.php";
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                    <div class="col-lg-8 col-md-12">
+                    <div class="col-md-12">
                         <section class="panel panel-primary">
-                            <div class="panel-heading"><h4 class="white">Jobs</h4>
-								<a href="/job/new"><button class="btn" style="background-color:orange;">New Job</button></a>
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="white">Jobs</h4>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <a href="/job/new"><button class="btn btn-white">New Job</button></a>
+                                    </div>
+                                </div>
                             </div>
 <?php
 							global $db;
@@ -107,12 +114,12 @@ include_once "global.php";
 							}
 ?>
                              <div class="row tableRow">
-                                <div class="hidden-xs col-sm-2 col-md-1">
+                                <div class="hidden-xs col-sm-2 col-md-2">
                                     <span class="pull-left mg-t-xs">
                                         <img src="/img/jobs/house2.jpg" class="avatar avatar-sm img-circle" alt="">
                                     </span>
                                 </div>
-                                <div class="col-xs-6 col-sm-8 col-md-5">
+                                <div class="col-xs-6 col-sm-8 col-md-4">
                                     Forest Hill, MD<br>
                                     <small class="text-muted">ID # 45E2SD</small>
                                 </div>
