@@ -256,7 +256,7 @@ Employee</h1>
                         <label for="empSince">Date Started Working</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="empSince" class="form-control" placeholder="5-15-2014" value="<?php print_r($empSince);?>">
+                        <input type="text" id="empSince" class="form-control" placeholder="5-15-2014" value="<?php if($empSince!=''){echo date('m/d/Y',strtotime($empSince));}?>">
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-3 label">
@@ -559,6 +559,9 @@ Employee</h1>
         $(".chosen-select").chosen();
 
         $('#drugScreenDate').datepicker({
+            todayBtn: "linked"
+        });
+        $('#empSince').datepicker({
             todayBtn: "linked"
         });
     	

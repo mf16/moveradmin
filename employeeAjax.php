@@ -25,6 +25,10 @@ class employeeAjax {
 		global $db;
 		//print_r($_REQUEST);
 
+		// Fix empSince date
+		if($_REQUEST['empSince']!=''){
+			$_REQUEST['empSince']=date('Y-m-d',strtotime($_REQUEST['empSince']));
+		}
 		// Fix ScreenedDate
 		if($_REQUEST['screenedDate']!=''){
 			//print_r(date('Y-m-d',strtotime($_REQUEST['screenedDate'])));
