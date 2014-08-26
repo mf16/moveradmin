@@ -78,9 +78,9 @@
 
 <?php
 	//set vars
-	$startDate='';
-	$startTime='';
-	$onsiteTime='';
+	$startDate=date('m/d/Y');
+	$startTime='12:01:00';
+	$onsiteTime='12:01:00';
 	$notes='';
 	$regNum='';
 
@@ -110,9 +110,12 @@
 		global $db;
 		$sql="SELECT * FROM moverAdmin.jobs WHERE idjobs=?";
 		$jobInfo=query($sql,$jobid)[0];
+		$ampm=' AM';
+		$onsiteampm=' AM';
 		if(!isset($jobInfo)){
 			$jobid='new';
 		} else {
+
 			$startDate=$jobInfo['startDate'];
 			$startTime=$jobInfo['startTime'];
 			$onsiteTime=$jobInfo['onsiteTime'];
@@ -139,9 +142,26 @@
 
 			$shuttleTruckNumber=$jobInfo['shuttleTruckNumber'];
 			$insuranceChargesApply=$jobInfo['insuranceChargesApply'];
+
 		}
 	} else {
 		$jobid='new';
+	}
+	if($startTime!=''){
+		$startHour=substr($jobInfo['startTime'],0,strpos($jobInfo['startTime'],':'));
+		$startMinute=substr($jobInfo['startTime'],1+strpos($jobInfo['startTime'],':',strpos($jobInfo['startTime'],':')),2);
+		if(substr($jobInfo['startTime'],0,strpos($jobInfo['startTime'],':'))>12){
+			$startHour=($startHour-12);
+			$ampm=' PM';
+		}
+	}
+	if($onsiteTime!=''){
+		$onsiteHour=substr($jobInfo['onsiteTime'],0,strpos($jobInfo['onsiteTime'],':'));
+		$onsiteMinute=substr($jobInfo['onsiteTime'],1+strpos($jobInfo['onsiteTime'],':',strpos($jobInfo['onsiteTime'],':')),2);
+		if(substr($jobInfo['onsiteTime'],0,strpos($jobInfo['onsiteTime'],':'))>12){
+			$onsiteHour=($onsiteHour-12);
+			$onsiteampm=' PM';
+		}
 	}
 
 ?>
@@ -168,7 +188,7 @@ Job</h1>
                     <label for="startDate">Job Start Date</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="startDate" placeholder="05-15-2014" type="text"> 
+					<input class="form-control" id="startDate" placeholder="05-15-2014" type="text" value="<?php if($startDate!=''){echo date('m/d/Y',strtotime($startDate));}?>"> 
                 </div>
                 
                 <div class="clearfix"></div>
@@ -176,7 +196,7 @@ Job</h1>
                     <label for="startTime">Job Start time</label> 
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="startTime" placeholder="h:mm PM" type="text"> 
+					<input class="form-control" id="startTime" placeholder="h:mm PM" type="text" value="<?php if($startTime!=''){echo $startHour.':'.$startMinute.$ampm;}?>"> 
                 </div>
                 
                 <div class="clearfix"></div>
@@ -184,7 +204,7 @@ Job</h1>
                    <label for="onsiteTime">On-site time</label> 
                 </div>
                 <div class="col-md-8 mg-b-lg">
-                    <input class="form-control" id="onsiteTime" placeholder="h:mm PM" type="text"> 
+                    <input class="form-control" id="onsiteTime" placeholder="h:mm PM" type="text" value="<?php if($onsiteTime!=''){echo $onsiteHour.':'.$onsiteMinute.$onsiteampm;}?>"> 
                 </div>
 
                 <div class="clearfix"></div>
@@ -638,6 +658,12 @@ Job</button> <!-- /content wrapper -->
      <link href="http://jdewit.github.io/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
     <script src="/plugins/timepicker/timepicker.js"></script> <!-- /theme scripts -->
      <script type="text/javascript">
+
+
+		// hack for status
+		$("#status").val("<?php echo $status; ?>");
+
+
     $("#phone").keyup(function(){
             var text = $("#phone").val(); 
             text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
@@ -710,9 +736,9 @@ Job</button> <!-- /content wrapper -->
                 data: formData,
                 encode: true,
                 success: function(result){
-                    //alert(result);
+                    alert(result);
                     //$('#submit').hide();
-                    window.location.replace("/jobs");
+                    //window.location.replace("/jobs");
                 },
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include_once "global.php";
+?>
 <html class="no-js">
 
 <head>
@@ -36,6 +39,9 @@
 
 <!-- body -->
 <style type="text/css">
+.today{
+	border:1px solid orange;
+}
     .searchResults{
         position: absolute;
         background-color: white;
@@ -164,164 +170,51 @@
                         </div>
 
                         <div class="row seven-cols">
-                            <div class="col-md-1 col-sm-12">
-                                <section class="panel no-border overflow-hidden">
-                                    <div class="bg-white pd-md clearfix">
-                                        <div class="h4 mg-t-xs mg-b-xs">
-                                            Yesterday
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                        <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="col-md-1 col-sm-12">
-                                <section class="panel no-border overflow-hidden">
-                                    <div class="bg-danger pd-md clearfix">
-                                        <div class="h4 mg-t-xs mg-b-xs white">
-                                            Today
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="col-md-1 col-sm-12">
-                                <section class="panel no-border overflow-hidden">
-                                    <div class="bg-white pd-md clearfix">
-                                        <div class="h4 mg-t-xs mg-b-xs">
-                                            Friday 6<sup>th</sup>
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="col-md-1 col-sm-12">
-                                <section class="panel no-border overflow-hidden">
-                                    <div class="bg-white pd-md clearfix">
-                                        <div class="h4 mg-t-xs mg-b-xs">
-                                            Saturday 7<sup>th</sup>
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="col-md-1 col-sm-12">
-                                <section class="panel no-border overflow-hidden">
-                                    <div class="bg-white pd-md clearfix">
-                                        <div class="h4 mg-t-xs mg-b-xs">
-                                            Sunday 8<sup>th</sup>
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="col-md-1 col-sm-12">
-                                <section class="panel no-border overflow-hidden">
-                                    <div class="bg-white pd-md clearfix">
-                                        <div class="h4 mg-t-xs mg-b-xs">
-                                            Monday 9<sup>th</sup>
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="col-md-1 col-sm-12">
-                                <section class="panel no-border overflow-hidden">
-                                    <div class="bg-white pd-md clearfix">
-                                        <div class="h4 mg-t-xs mg-b-xs">
-                                            Tuesday 10<sup>th</sup>
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                         <a href="javascript:;" class="list-group-item">
-                                           Silver Springs - APU 4,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                           Bel Air - APU 12,000lbs
-                                        </a>
-                                        <a href="javascript:;" class="list-group-item">
-                                            Pennsylvania - Pack and Load 15,000lbs
-                                        </a>
-                                    </div>
-                                </section>
-                            </div>
+<?php
+							for($i=-1;$i<6;$i++){
+								$day=time()+60*60*24*$i;
+								$todayString='';
+								if($i==0){
+									$todayString=' today';
+								}
+								echo '
+								<div class="col-md-1 col-sm-12">
+									<section class="panel no-border overflow-hidden'.$todayString.'">';
+								if($i==0){
+									$dangerString=' bg-danger';
+									$bg_whiteString='';
+									$dayStringText='Today';
+									$fontColor=' white';
+								} else {
+									$dangerString='';
+									$bg_whiteString='bg-white ';
+									$dayStringText=date('l j',$day).'<sup>'.date('S',$day).'</sup>';
+									$fontColor='';
+								}
+										echo '<div class="'.$bg_whiteString.' pd-md clearfix '.$dangerString.'">
+											<div class="h4 mg-t-xs mg-b-xs '.$fontColor.'">';
+												echo $dayStringText;
+											echo ' </div>
+										</div>
+										<div class="list-group">
+										';
+								$sqlDate=date('Y-m-d',$day);
+								$sql="SELECT * FROM moverAdmin.jobs WHERE startDate = ?;";
+								$result=query($sql,$sqlDate);
+								foreach($result as $keys=>$job){
+									echo '
+											<a href="/job/'.$job['idjobs'].'" class="list-group-item">
+											   '.$job['destinationAddress'].' - '.$job['weight'].'lbs
+											</a>
+									';
+								}
+								echo '
+										</div>
+									</section>
+								</div>
+								';
+							}
+?>
                         </div>
                     </div>
 

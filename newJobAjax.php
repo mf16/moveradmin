@@ -23,6 +23,32 @@ class newJobAjax {
 	
 	function saveJob(){
 		global $db;
+
+		// Fix job start date
+		 print_r($_REQUEST);
+		if($_REQUEST['startDate']!=''){
+			$_REQUEST['startDate']=date('Y-m-d',strtotime($_REQUEST['startDate']));
+		}
+
+		//fix startTime
+		$startHours=substr($_REQUEST['startTime'],0,strpos($_REQUEST['startTime'],':'));
+		$startMinutes=substr($_REQUEST['startTime'],strpos($_REQUEST['startTime'],':')+1,2);
+		if(substr($_REQUEST['startTime'],-2,2)=='PM'){
+			$startHours=($startHours+12);
+		}
+		$_REQUEST['startTime']=$startHours.':'.$startMinutes.':00';
+
+		//fix onsiteTime
+		$onsiteHours=substr($_REQUEST['onsiteTime'],0,strpos($_REQUEST['onsiteTime'],':'));
+		$onsiteMinutes=substr($_REQUEST['onsiteTime'],strpos($_REQUEST['onsiteTime'],':')+1,2);
+		if(substr($_REQUEST['onsiteTime'],-2,2)=='PM'){
+			$onsiteHours=($onsiteHours+12);
+		}
+		$_REQUEST['onsiteTime']=$onsiteHours.':'.$onsiteMinutes.':00';
+
+		echo '.'.$_REQUEST['startTime'].'.';
+		echo '.'.$_REQUEST['onsiteTime'].'.';
+
 		if($_REQUEST['jobid']=='new'){
 			$sql="INSERT INTO moverAdmin.jobs (
 
@@ -56,7 +82,7 @@ class newJobAjax {
 			) VALUES (?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?);";
 			print_r(query($sql
 				,$_REQUEST['startDate']
-				,$_REQUEST['startTIme']
+				,$_REQUEST['startTime']
 				,$_REQUEST['onsiteTime']
 				,$_REQUEST['notes']
 				,$_REQUEST['regNum']
@@ -114,7 +140,7 @@ class newJobAjax {
 			WHERE idjobs=?;";
 			query($sql
 				,$_REQUEST['startDate']
-				,$_REQUEST['startTIme']
+				,$_REQUEST['startTime']
 				,$_REQUEST['onsiteTime']
 				,$_REQUEST['notes']
 				,$_REQUEST['regNum']
