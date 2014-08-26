@@ -24,6 +24,13 @@ class employeeAjax {
 	function saveEmp(){
 		global $db;
 		//print_r($_REQUEST);
+
+		// Fix ScreenedDate
+		if($_REQUEST['screenedDate']!=''){
+			//print_r(date('Y-m-d',strtotime($_REQUEST['screenedDate'])));
+			$_REQUEST['screenedDate']=date('Y-m-d',strtotime($_REQUEST['screenedDate']));
+		}
+
 		if($_REQUEST['employeeid']=='new'){
 			$sql="INSERT INTO moverAdmin.employees (
 
@@ -58,7 +65,7 @@ class employeeAjax {
 				,skill
 
 			) VALUES (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?);";
-			print_r(query($sql
+			$employeeid=(query($sql
 				,$_REQUEST['nickname']
 				,$_REQUEST['first']
 				,$_REQUEST['last']
@@ -150,7 +157,19 @@ class employeeAjax {
 				,$_REQUEST['skill']
 				,$_REQUEST['employeeid']
 			);
-			print_r($_REQUEST['employeeid']);
+			$employeeid=$_REQUEST['employeeid'];
+		}
+		print_r($employeeid);
+		//del all rows for current employee
+		$sql="DELETE FROM moverAdmin.employeeEndorsements WHERE employeeid=?";
+		query($sql,$employeeid);
+			
+		//add rows for current employee
+		foreach($_REQUEST['endorsements'] as $key=>$endorsement){
+			if($endorsement!=''){
+				$sql="INSERT INTO moverAdmin.employeeEndorsements (employeeid,endorsement) VALUES (?,?);";
+				query($sql,$employeeid,$endorsement);
+			}
 		}
 	}
 }

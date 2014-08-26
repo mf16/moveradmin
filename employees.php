@@ -119,13 +119,14 @@
 	$tractorMiles='';
     $picURI='';
     $skill='5';
+	$endorsements=array();
     if(isset($_REQUEST['id'])){
     	$employeeid=$_REQUEST['id'];
     	global $db;
     	$sql="SELECT * from moverAdmin.employees WHERE idemployees=?";
     	$empInfo=query($sql,$employeeid)[0];
     	if(!isset($empInfo)){
-    		$empInfo='new';
+    		$employeeid='new';
     		// do not set anything, that id does not exit
     	} else {
 			$nickname=$empInfo['nickname'];
@@ -157,6 +158,12 @@
 			$tractorMiles=$empInfo['tractorMiles'];
 			$picURI=$empInfo['picURI'];
 			$skill=$empInfo['skill'];
+
+			$sql="SELECT endorsement FROM moverAdmin.employeeEndorsements WHERE employeeid=?;";
+			$results=query($sql,$employeeid);
+			foreach($results as $key=>$result){
+				$endorsements[]=$result['endorsement'];
+			}
     	}
     } else {
     	$employeeid='new';
@@ -292,7 +299,7 @@ Employee</h1>
                         <label for="pvo">Last Screened Date</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" id="drugScreenDate" class="form-control">
+						<input type="text" id="drugScreenDate" class="form-control" value="<?php if($screenedDate!=''){echo date('m/d/Y',strtotime($screenedDate)); }?>">
                     </div>
 
 
@@ -531,6 +538,23 @@ Employee</h1>
     <script src="/js/main.js"></script> <script src="/plugins/datepicker/js/bootstrap-datepicker.js"></script>
     <script src="/js/chosen.jquery.min.js"></script>
 
+					<script>
+					// hack for loading currently saved state option and class 
+					$("#issueState").val("<?php echo $licenseState; ?>");
+					$("#idClass").val("<?php echo $licenseClass; ?>");
+
+					//hack for loading endorsements
+<?php 
+					$endorsementsString='';
+					foreach($endorsements as $key=>$endorsement){
+						$endorsementsString.=','.$endorsement;
+					}
+?>
+						$("#endorsements").val("<?php echo $endorsementsString; ?>".split(","));
+<?php
+?>
+					</script>
+
     <script type="text/javascript">
         $(".chosen-select").chosen();
 
@@ -546,7 +570,6 @@ Employee</h1>
 	 	
 	 	$('#submit').click(function () {
             var formData = new FormData();
-
             formData = {
 				employeeid			:$('#employeeidDiv').html(),
                 nickname               :$('#nickname').val(),
@@ -566,7 +589,7 @@ Employee</h1>
                 license					:$('#idNumber').val(),
                 licenseState	:$('#issueState').val(),
                 licenseClass           :$('#idClass').val(),
-                //endorsements           :$('#endorsements').val(),
+				endorsements           :$('#endorsements').val(),
                 bobtailExp			:$('input[name=bobtailExperience]:checked').val(),
                 bobtailYears		:$('#bobtailExperienceYears').val(),
                 bobtailMiles		:$('#bobtailExperienceMiles').val(),
