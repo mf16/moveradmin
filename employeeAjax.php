@@ -164,6 +164,7 @@ class employeeAjax {
 			$employeeid=$_REQUEST['employeeid'];
 		}
 		print_r($employeeid);
+
 		//del all rows for current employee
 		$sql="DELETE FROM moverAdmin.employeeEndorsements WHERE employeeid=?";
 		query($sql,$employeeid);

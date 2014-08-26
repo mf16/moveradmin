@@ -80,7 +80,7 @@ class newJobAjax {
 				,insuranceChargesApply
 
 			) VALUES (?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?);";
-			print_r(query($sql
+			$jobid=(query($sql
 				,$_REQUEST['startDate']
 				,$_REQUEST['startTime']
 				,$_REQUEST['onsiteTime']
@@ -166,7 +166,20 @@ class newJobAjax {
 				,$_REQUEST['shuttleTruckNumber']
 				,$_REQUEST['insuranceChargesApply']
 				,$_REQUEST['jobid']);
-			print_r($_REQUEST['jobid']);
+			$jobid=$_REQUEST['jobid'];
+		}
+		print_r($jobid);
+
+		//del all move rows for current job
+		$sql="DELETE FROM moverAdmin.moveTypesForJob WHERE jobid=?";
+		query($sql,$jobid);
+			
+		//add rows for current employee
+		foreach($_REQUEST['moveTypes'] as $key=>$moveType){
+			if($moveType!=''){
+				$sql="INSERT INTO moverAdmin.moveTypesForJob (jobid,moveTypeid) VALUES (?,?);";
+				query($sql,$jobid,$moveType);
+			}
 		}
 	}
 

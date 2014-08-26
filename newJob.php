@@ -143,6 +143,12 @@
 			$shuttleTruckNumber=$jobInfo['shuttleTruckNumber'];
 			$insuranceChargesApply=$jobInfo['insuranceChargesApply'];
 
+			$sql="SELECT moveTypeid FROM moverAdmin.moveTypesForJob WHERE jobid=?;";
+			$results=query($sql,$jobid);
+			foreach($results as $key=>$result){
+				$jobMoveTypes[]=$result['moveTypeid'];
+			}
+
 		}
 	} else {
 		$jobid='new';
@@ -213,42 +219,17 @@ Job</h1>
                 </div>
                 <div class="col-md-8">
                     <select class="form-control chosen-select" id="moveType" multiple>
-                        <option>
-                            HHG-Atlas
-                        </option>
-                        <option>
-                            HHG-Intra
-                        </option>
-                        <option>
-                            HHG-Local
-                        </option>
-                        <option>
-                            O&I-Local
-                        </option>
-                        <option>
-                            O&I-Intra
-                        </option>
-                        <option>
-                            O&I-Interstate
-                        </option>
-                        <option>
-                            O&I-Move on Premises
-                        </option>
-                        <option>
-                            SP
-                        </option>
-                        <option>
-                            SmartMove
-                        </option>
-                        <option>
-                            Crate/Frgt
-                        </option>
-                        <option>
-                            INTL
-                        </option>
-                        <option>
-                            Other-See Driver/Crew/Scope Notes
-                        </option>
+<?php
+	$sql="SELECT * FROM moverAdmin.moveTypes;";
+	$results=query($sql);
+	foreach($results as $key => $moveType){
+		echo '<option value="'.$moveType['idmoveTypes'].'">';
+		echo $moveType['typeName'];
+		echo '</option>';
+		echo '<br/>';
+		echo '<br/>';
+	}
+?>
                     </select> 
                 </div>
                 
@@ -663,6 +644,17 @@ Job</button> <!-- /content wrapper -->
 		// hack for status
 		$("#status").val("<?php echo $status; ?>");
 
+		//hack for moveTypes
+<?php
+		$jobMoveTypesString='';
+		foreach($jobMoveTypes as $key=>$jobMoveType){
+			$jobMoveTypesString.=','.$jobMoveType;
+		}
+?>
+	$("#moveType").val("<?php echo $jobMoveTypesString; ?>".split(","));
+		
+		
+
 
     $("#phone").keyup(function(){
             var text = $("#phone").val(); 
@@ -726,6 +718,7 @@ Job</button> <!-- /content wrapper -->
                 vaultPackOrder                    :$('#vault').val(),
                 notes              :$('#driverNotes').val(),
                 shuttleTruckNumber       :$('#shuttleTruckNumber').val(),
+				moveTypes	:$('#moveType').val(),
                 insuranceChargesApply :$('input[name=insurance]:checked').val()
             };
 
