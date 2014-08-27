@@ -373,7 +373,6 @@
 </form>
 
     <!-- core scripts -->
-    <script src="/vendor/jquery-1.11.1.min.js"></script>
     <script src="/bootstrap/js/bootstrap.js"></script>
     <!-- /core scripts -->
 

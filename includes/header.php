@@ -1,4 +1,6 @@
- <div class="searchResults">
+    <script src="/vendor/jquery-1.11.1.min.js"></script>
+
+ <div id="searchResults" class="searchResults">
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
                 <img src="/img/photo.jpg">
@@ -22,6 +24,9 @@
         <header class="header header-fixed navbar">
 
             <div class="brand">
+<script>
+$('#searchResults').show();
+</script>
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
 
                 <a href="/" class="navbar-brand text-white">
