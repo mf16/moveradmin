@@ -113,6 +113,7 @@ include_once "global.php";
 <?php
 							}
 ?>
+<!--
                              <div class="row tableRow">
                                 <div class="hidden-xs col-sm-2 col-md-2">
                                     <span class="pull-left mg-t-xs">
@@ -129,6 +130,7 @@ include_once "global.php";
                                     <button class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
+-->
                         </section>
                     </div>
                 </div>

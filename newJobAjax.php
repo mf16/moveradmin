@@ -170,17 +170,23 @@ class newJobAjax {
 		}
 		print_r($jobid);
 
-		//del all move rows for current job
-		$sql="DELETE FROM moverAdmin.moveTypesForJob WHERE jobid=?";
-		query($sql,$jobid);
-			
-		//add rows for current employee
-		foreach($_REQUEST['moveTypes'] as $key=>$moveType){
-			if($moveType!=''){
-				$sql="INSERT INTO moverAdmin.moveTypesForJob (jobid,moveTypeid) VALUES (?,?);";
-				query($sql,$jobid,$moveType);
+		//
+		// All the multiselects
+		$multiselects=array('moveTypes','serviceTypes','drivers','laborers','equipment');
+		foreach($multiselects as $multiselect){
+			//del all rows
+			$sql="DELETE FROM moverAdmin.".$multiselect."ForJob WHERE jobid=?;";
+			query($sql,$jobid);
+
+			//add each row
+			foreach($_REQUEST[$multiselect] as $key=>${$multiselect}){
+				if(${$multiselect}!=''){
+					$sql="INSERT INTO moverAdmin.".$multiselect."ForJob (jobid,".$multiselect."id) VALUES (?,?);";
+					query($sql,$jobid,${$multiselect});
+				}
 			}
 		}
+
 	}
 
 	function checkData($data){

@@ -340,10 +340,10 @@
                             </div>
 
                             <div class="clearfix"></div>
-                            <div class="col-md-3 label">
+                            <div class="col-md-3 label" style="display:none;">
                                 <label>Photo Upload</label>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8" style="display:none;">
                                 <input type="file" name="picture" id="file">
                             </div>
         

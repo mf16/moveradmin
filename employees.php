@@ -493,11 +493,11 @@ Employee</h1>
                         <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="<?php echo $skill;?>"/>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="col-md-3 label">
+                    <div class="col-md-3 label" style="display:none;">
                         <label>Photo Upload</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="file" name="picture" id="file">
+                        <input type="file" name="picture" id="file" style="display:none;">
                     </div>
                     <div class="clearfix"></div>
 <?php

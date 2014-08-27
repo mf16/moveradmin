@@ -143,12 +143,15 @@
 			$shuttleTruckNumber=$jobInfo['shuttleTruckNumber'];
 			$insuranceChargesApply=$jobInfo['insuranceChargesApply'];
 
-			$sql="SELECT moveTypeid FROM moverAdmin.moveTypesForJob WHERE jobid=?;";
-			$results=query($sql,$jobid);
-			foreach($results as $key=>$result){
-				$jobMoveTypes[]=$result['moveTypeid'];
+			$multiselects = array('moveTypes','serviceTypes','drivers','laborers','equipment');
+			foreach($multiselects as $key=>$multiselect){
+				$sql="SELECT ".$multiselect."id FROM moverAdmin.".$multiselect."ForJob WHERE jobid=?;";
+				$results=query($sql,$jobid);
+				foreach($results as $key=>$result){
+					//jobmoveTypes
+					${"job".$multiselect}[]=$result[$multiselect.'id'];
+				}
 			}
-
 		}
 	} else {
 		$jobid='new';
@@ -215,10 +218,10 @@ Job</h1>
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
-                    <label for="moveType">Move Type</label> 
+                    <label for="moveTypes">Move Type</label> 
                 </div>
                 <div class="col-md-8">
-                    <select class="form-control chosen-select" id="moveType" multiple>
+                    <select class="form-control chosen-select" id="moveTypes" multiple>
 <?php
 	$sql="SELECT * FROM moverAdmin.moveTypes;";
 	$results=query($sql);
@@ -226,8 +229,6 @@ Job</h1>
 		echo '<option value="'.$moveType['idmoveTypes'].'">';
 		echo $moveType['typeName'];
 		echo '</option>';
-		echo '<br/>';
-		echo '<br/>';
 	}
 ?>
                     </select> 
@@ -235,127 +236,19 @@ Job</h1>
                 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
-                    <label for="serviceType">Service Type</label> 
+                    <label for="serviceTypes">Service Type</label> 
                 </div>
                 <div class="col-md-8">
-                    <select class="form-control chosen-select" id="serviceType" multiple>
-                        <option>
-                            Pack
-                        </option>
-                        <option>
-                            Crate/Freight
-                        </option>
-                        <option>
-                            Export Wrap
-                        </option>
-                        <option>
-                            Unpack
-                        </option>
-                        <option>
-                            Load
-                        </option>
-                        <option>
-                            Deliver
-                        </option>
-                        <option>
-                            Early Out
-                        </option>
-                        <option>
-                            Release
-                        </option>
-                        <option>
-                            Shuttle
-                        </option>
-                        <option>
-                            DOS
-                        </option>
-                        <option>
-                            SIT
-                        </option>
-                        <option>
-                            APU
-                        </option>
-                        <option>
-                            DPU
-                        </option>
-                        <option>
-                            Mat'l Del
-                        </option>
-                        <option>
-                            Mat'l P/U
-                        </option>
-                        <option>
-                            Spot Trailer
-                        </option>
-                        <option>
-                            Orig Svs
-                        </option>
-                        <option>
-                            Dest Svs
-                        </option>
-                        <option>
-                            Smart Move
-                        </option>
-                        <option>
-                            Air
-                        </option>
-                        <option>
-                            Surface
-                        </option>
-                        <option>
-                            Military/GSA
-                        </option>
-                        <option>
-                            Install (AMS)
-                        </option>
-                        <option>
-                            Install (3P)
-                        </option>
-                        <option>
-                            Rigging (3P)
-                        </option>
-                        <option>
-                            PC Dis/Rec (3P)
-                        </option>
-                        <option>
-                            Storage In
-                        </option>
-                        <option>
-                            Storage Perm
-                        </option>
-                        <option>
-                            Stage & Store
-                        </option>
-                        <option>
-                            Day 1 of 2
-                        </option>
-                        <option>
-                            Day 2 of 2
-                        </option>
-                        <option>
-                            Day 1 of 3
-                        </option>
-                        <option>
-                            Day 2 of 3
-                        </option>
-                        <option>
-                            Day 3 of 3
-                        </option>
-                        <option>
-                            Day 1 of 4
-                        </option>
-                        <option>
-                            Day 2 of 4
-                        </option>
-                        <option>
-                            Day 3 of 4
-                        </option>
-                        <option>
-                            Day 4 of 4
-                        </option>
-                        <option>
-                            Other-See Driver/Crew/Scope Notes
-                        </option>
+                    <select class="form-control chosen-select" id="serviceTypes" multiple>
+<?php
+	$sql="SELECT * FROM moverAdmin.serviceTypes;";
+	$results=query($sql);
+	foreach($results as $key => $serviceType){
+		echo '<option value="'.$serviceType['idserviceTypes'].'">';
+		echo $serviceType['serviceName'];
+		echo '</option>';
+	}
+?>
                     </select>
                 </div>
 
@@ -535,7 +428,7 @@ Job</h1>
                             $query="SELECT * FROM moverAdmin.employees WHERE canDrive>0;";
                             $drivers=query($query);
                             foreach($drivers as $key=>$driver){
-                                echo '<option>'.$driver['first'].' '.$driver['last'].'</option>';
+                                echo '<option value="'.$driver['idemployees'].'">'.$driver['first'].' '.$driver['last'].'</option>';
                             }
                         ?>
                     </select> 
@@ -551,7 +444,7 @@ Job</h1>
                         $query="SELECT * FROM moverAdmin.employees;";
                         $laborers=query($query);
                         foreach($laborers as $key=>$laborer){
-                            echo '<option>'.$laborer['first'].' '.$laborer['last'].'</option>';
+                            echo '<option value="'.$laborer['idemployees'].'">'.$laborer['first'].' '.$laborer['last'].'</option>';
                         }
                     ?>
                     </select> 
@@ -579,7 +472,7 @@ Job</h1>
                         $query="SELECT * FROM moverAdmin.equipment;";
                         $equipments=query($query);
                         foreach($equipments as $key=>$equipment){
-                            echo '<option>'.$equipment['name'].'</option>';
+                            echo '<option value="'.$equipment['idequipment'].'">'.$equipment['name'].'</option>';
                         }
                     ?>
                     </select> 
@@ -644,14 +537,19 @@ Job</button> <!-- /content wrapper -->
 		// hack for status
 		$("#status").val("<?php echo $status; ?>");
 
-		//hack for moveTypes
+		//hack for multiselects
 <?php
-		$jobMoveTypesString='';
-		foreach($jobMoveTypes as $key=>$jobMoveType){
-			$jobMoveTypesString.=','.$jobMoveType;
+		foreach($multiselects as $multiselect){
+			${"job".$multiselect."String"}='';
+			foreach(${"job".$multiselect} as $key=>${"job".$multiselect}){
+				${"job".$multiselect."String"}.=','.${"job".$multiselect};
+			}
+?>
+			$("#<?php echo $multiselect;?>").val("<?php echo ${"job".$multiselect."String"}; ?>".split(","));
+			//$("#equipment").val("<?php echo ',1,3'; ?>".split(","));
+<?php
 		}
 ?>
-	$("#moveType").val("<?php echo $jobMoveTypesString; ?>".split(","));
 		
 		
 
@@ -718,7 +616,11 @@ Job</button> <!-- /content wrapper -->
                 vaultPackOrder                    :$('#vault').val(),
                 notes              :$('#driverNotes').val(),
                 shuttleTruckNumber       :$('#shuttleTruckNumber').val(),
-				moveTypes	:$('#moveType').val(),
+				moveTypes	:$('#moveTypes').val(),
+				serviceTypes:$('#serviceTypes').val(),
+				drivers:$('#drivers').val(),
+				laborers:$('#laborers').val(),
+				equipment:$('#equipment').val(),
                 insuranceChargesApply :$('input[name=insurance]:checked').val()
             };
 
@@ -729,9 +631,9 @@ Job</button> <!-- /content wrapper -->
                 data: formData,
                 encode: true,
                 success: function(result){
-                    alert(result);
+                    //alert(result);
                     //$('#submit').hide();
-                    //window.location.replace("/jobs");
+                    window.location.replace("/jobs");
                 },
                 fail: function(result){
                     alert('Request failed. Please reload the page and try again.');
