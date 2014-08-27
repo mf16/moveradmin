@@ -25,7 +25,7 @@
 
             <div class="brand">
 <script>
-$('#searchResults').show();
+//$('#searchResults').show();
 </script>
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
 
