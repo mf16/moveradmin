@@ -3,7 +3,7 @@
  <div id="searchResults" class="searchResults">
         <div class="col-xs-12 searchResult">
             <div class="col-xs-12 col-md-1">
-                <img src="/img/photo.jpg">
+                <img src="img/photo.jpg">
             </div>
             <div class="col-xs-12 col-md-3 title">Tyler Slater</div>
             <div class="col-xs-12 col-md-8">Employee</div>

@@ -199,7 +199,7 @@ include_once "global.php";
 										<div class="list-group">
 										';
 								$sqlDate=date('Y-m-d',$day);
-								$sql="SELECT * FROM moverAdmin.jobs WHERE startDate = ?;";
+								$sql="SELECT * FROM moverAdmin.jobs WHERE `date` = ?;";
 								$result=query($sql,$sqlDate);
 								foreach($result as $keys=>$job){
 									echo '
