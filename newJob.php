@@ -105,6 +105,16 @@
 	$shuttleTruckNumber='';
 	$insuranceChargesApply=0;
 
+	$originAptNum='';
+	$originCity='';
+	$originState='';
+	$originZip='';
+
+	$destinationAptNum='';
+	$destinationCity='';
+	$destinationState='';
+	$destinationZip='';
+
 	if(isset($_REQUEST['id'])){
 		$jobid=$_REQUEST['id'];
 		global $db;
@@ -142,6 +152,16 @@
 
 			$shuttleTruckNumber=$jobInfo['shuttleTruckNumber'];
 			$insuranceChargesApply=$jobInfo['insuranceChargesApply'];
+
+			$originAptNum=$jobInfo['originAptNum'];
+			$originCity=$jobInfo['originCity'];
+			$originState=$jobInfo['originState'];
+			$originZip=$jobInfo['originZip'];
+
+			$destinationAptNum=$jobInfo['destinationAptNum'];
+			$destinationCity=$jobInfo['destinationCity'];
+			$destinationState=$jobInfo['destinationState'];
+			$destinationZip=$jobInfo['destinationZip'];
 
 			$multiselects = array('moveTypes','serviceTypes','drivers','laborers','equipment');
 			foreach($multiselects as $key=>$multiselect){
@@ -296,11 +316,88 @@ Job</h1>
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
-                    <label for="originAddr">Origin</label> 
+                    <label for="originAddr">Origin Address</label> 
                 </div>
                 <div class="col-md-8">
 					<input class="form-control" id="originAddr" placeholder="Address" type="text" value="<?php echo $originAddress;?>"> 
                 </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="originAptNum">Origin Apartment Number</label> 
+                </div>
+                <div class="col-md-8">
+					<input class="form-control" id="originAptNum" placeholder="Apt Number" type="text" value="<?php echo $originAptNum;?>"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="originCity">Origin City</label> 
+                </div>
+                <div class="col-md-8">
+					<input class="form-control" id="originCity" placeholder="City" type="text" value="<?php echo $originCity;?>"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="originState">Origin State</label> 
+                </div>
+                    <div class="col-md-8">
+                        <select class="form-control" id="originState">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+
 
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
@@ -339,6 +436,81 @@ Job</h1>
 					<input class="form-control" id="destination" placeholder="Address" type="text" value="<?php echo $destinationAddress;?>"> 
                 </div>
 
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="destinationAptNum">Destination Apartment Number</label> 
+                </div>
+                <div class="col-md-8">
+					<input class="form-control" id="destinationAptNum" placeholder="Apt Number" type="text" value="<?php echo $destinationAptNum;?>"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="originCity">Destination City</label> 
+                </div>
+                <div class="col-md-8">
+					<input class="form-control" id="destinationCity" placeholder="City" type="text" value="<?php echo $destinationCity;?>"> 
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-3 label">
+                    <label for="destinationState">DestinationState</label> 
+                </div>
+                    <div class="col-md-8">
+                        <select class="form-control" id="destinationState">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
                 <div class="clearfix"></div>
                 <div class="col-md-3 label">
                     <label for="destinationShuttle">Destination Shuttle?</label><br>
@@ -533,6 +705,11 @@ Job</button> <!-- /content wrapper -->
      <script type="text/javascript">
 
 
+		// hack for origin/destination states
+		$("#originState").val("<?php echo $originState; ?>");
+		$("#destinationState").val("<?php echo $destinationState; ?>");
+
+
 		// hack for status
 		$("#status").val("<?php echo $status; ?>");
 
@@ -603,9 +780,17 @@ Job</button> <!-- /content wrapper -->
                 altShipperName           :$('#altShipperName').val(),
                 altPhone          :$('#altPhone').val(),
                 originAddress            :$('#originAddr').val(),
+                originAptNum            :$('#originAptNum').val(),
+                originCity			:$('#originCity').val(),
+                originState            :$('#originState').val(),
+                originZip			:$('#originZip').val(),
                 originShuttle            :$('input[name=originShuttle]:checked').val(),
                 originInstructions       :$('#originSpecial').val(),
                 destinationAddress       :$('#destination').val(),
+                destinationAptNum            :$('#destinationAptNum').val(),
+                destinationCity			:$('#destinationCity').val(),
+                destinationState		:$('#destinationState').val(),
+                destinationZip			:$('#destinationZip').val(),
                 destinationShuttle       :$('input[name=destinationShuttle]:checked').val(),
                 destinationInstructions  :$('#destinationSpecial').val(),
                 status                   :$('#status').val(),

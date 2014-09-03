@@ -99,9 +99,9 @@ include_once "global.php";
                                     </span>
                                 </div>
                                 <div class="col-xs-6 col-sm-8 col-md-5">
-									<?php echo $job['destinationAddress'];?>
+									<?php echo $job['destinationCity'];?>
 									<br>
-                                    <small class="text-muted">ID # 45E2SD</small>
+                                    <!--<small class="text-muted">ID # 45E2SD</small>-->
                                 </div>
                                 <div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-danger btn-outline">Issue</button></div>
                                 

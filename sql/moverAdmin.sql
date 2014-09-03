@@ -28,7 +28,7 @@ CREATE TABLE `driversForJob` (
   `driversid` int(11) DEFAULT '0',
   PRIMARY KEY (`iddriversForJob`),
   KEY `index2` (`jobid`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `driversForJob` (
 
 LOCK TABLES `driversForJob` WRITE;
 /*!40000 ALTER TABLE `driversForJob` DISABLE KEYS */;
-INSERT INTO `driversForJob` VALUES (13,10,1),(14,1,1),(15,1,2);
+INSERT INTO `driversForJob` VALUES (13,10,1),(22,1,1),(23,1,2);
 /*!40000 ALTER TABLE `driversForJob` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `equipmentForJob` (
   `equipmentid` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`idequipmentForJob`),
   KEY `index2` (`jobid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `equipmentForJob` (
 
 LOCK TABLES `equipmentForJob` WRITE;
 /*!40000 ALTER TABLE `equipmentForJob` DISABLE KEYS */;
-INSERT INTO `equipmentForJob` VALUES (8,10,48),(9,10,49),(10,1,47);
+INSERT INTO `equipmentForJob` VALUES (8,10,48),(9,10,49),(14,1,47);
 /*!40000 ALTER TABLE `equipmentForJob` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,7 +232,7 @@ CREATE TABLE `jobs` (
 
 LOCK TABLES `jobs` WRITE;
 /*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
-INSERT INTO `jobs` VALUES (1,'2014-09-02','12:00:00','16:45:00','driver ntoes hereasdf','regNum1245','shipperName Here','1234567890','alt shipper name','0987654321','1asdf23 provo street','Apt 2','Provo','UT','84604',0,'don\'t mess it up','233 East South Temple','22','Salt Lake City','UT','84111',1,'no, really.','Confirmed by CSR','confirmed by this dude','624','weight type.. wat?','valt pack order#135t','shuttletrucknumber?asdf',1,'house1.jpg'),(10,'2014-09-04','15:45:00','04:30:00','','','','','','','',NULL,NULL,NULL,NULL,0,'','Scotch Plains, NJ',NULL,NULL,NULL,NULL,0,'','Not confirmed','','6123','','','',0,'house3.jpg');
+INSERT INTO `jobs` VALUES (1,'2014-09-02','12:00:00','16:45:00','driver ntoes hereasdf','regNum1245','shipperName Here','1234567890','alt shipper name','0987654321','1asdf23 provo street','Apt 2','Provo','MT',NULL,0,'don\'t mess it up','233 East South Temple','22','Salt Lake City','UT',NULL,1,'no, really.','Confirmed by CSR','confirmed by this dude','624','weight type.. wat?','valt pack order#135t','shuttletrucknumber?asdf',1,'house1.jpg'),(10,'2014-09-04','15:45:00','04:30:00','','','','','','','',NULL,NULL,NULL,NULL,0,'','Scotch Plains, NJ',NULL,'Salt Lake City',NULL,NULL,0,'','Not confirmed','','6123','','','',0,'house3.jpg');
 /*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,7 +249,7 @@ CREATE TABLE `laborersForJob` (
   `laborersid` int(11) DEFAULT NULL,
   PRIMARY KEY (`idlaborersForJob`),
   KEY `index2` (`jobid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +258,7 @@ CREATE TABLE `laborersForJob` (
 
 LOCK TABLES `laborersForJob` WRITE;
 /*!40000 ALTER TABLE `laborersForJob` DISABLE KEYS */;
-INSERT INTO `laborersForJob` VALUES (14,10,2),(15,10,3),(16,1,2),(17,1,3);
+INSERT INTO `laborersForJob` VALUES (14,10,2),(15,10,3),(24,1,2),(25,1,3);
 /*!40000 ALTER TABLE `laborersForJob` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +299,7 @@ CREATE TABLE `moveTypesForJob` (
   `moveTypesid` int(11) DEFAULT NULL,
   PRIMARY KEY (`idmoveTypesForJob`),
   KEY `index2` (`jobid`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -308,7 +308,7 @@ CREATE TABLE `moveTypesForJob` (
 
 LOCK TABLES `moveTypesForJob` WRITE;
 /*!40000 ALTER TABLE `moveTypesForJob` DISABLE KEYS */;
-INSERT INTO `moveTypesForJob` VALUES (81,10,5),(82,10,7),(83,1,3),(84,1,5),(85,1,9);
+INSERT INTO `moveTypesForJob` VALUES (81,10,5),(82,10,7),(95,1,3),(96,1,5),(97,1,9);
 /*!40000 ALTER TABLE `moveTypesForJob` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -349,7 +349,7 @@ CREATE TABLE `serviceTypesForJob` (
   `serviceTypesid` int(11) DEFAULT NULL,
   PRIMARY KEY (`idservicesForJob`),
   KEY `index2` (`jobid`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -358,7 +358,7 @@ CREATE TABLE `serviceTypesForJob` (
 
 LOCK TABLES `serviceTypesForJob` WRITE;
 /*!40000 ALTER TABLE `serviceTypesForJob` DISABLE KEYS */;
-INSERT INTO `serviceTypesForJob` VALUES (9,10,5),(10,10,6),(11,1,6),(12,1,8);
+INSERT INTO `serviceTypesForJob` VALUES (9,10,5),(10,10,6),(19,1,6),(20,1,8);
 /*!40000 ALTER TABLE `serviceTypesForJob` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

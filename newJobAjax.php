@@ -78,6 +78,15 @@ class newJobAjax {
 
 				,shuttleTruckNumber
 				,insuranceChargesApply
+				,originAptNum
+				,originCity
+				,originState
+
+				,originZip
+				,destinationAptNum
+				,destinationCity
+				,destinationState
+				,destinationZip
 
 			) VALUES (?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?);";
 			$jobid=(query($sql
@@ -107,6 +116,15 @@ class newJobAjax {
 
 				,$_REQUEST['shuttleTruckNumber']
 				,$_REQUEST['insuranceChargesApply']
+				,$_REQUEST['originAptNum']
+				,$_REQUEST['originCity']
+				,$_REQUEST['originState']
+
+				,$_REQUEST['originZip']
+				,$_REQUEST['destinationAptNum']
+				,$_REQUEST['destinationCity']
+				,$_REQUEST['destinationState']
+				,$_REQUEST['destinationZip']
 			));
 		} else {
 			// save
@@ -137,6 +155,16 @@ class newJobAjax {
 
 				,shuttleTruckNumber=?
 				,insuranceChargesApply=?
+				,originAptNum=?
+				,originCity=?
+				,originState=?
+
+				,originZip=?
+				,destinationAptNum=?
+				,destinationCity=?
+				,destinationState=?
+				,destinationZip=?
+
 			WHERE idjobs=?;";
 			query($sql
 				,$_REQUEST['startDate']
@@ -165,6 +193,16 @@ class newJobAjax {
 
 				,$_REQUEST['shuttleTruckNumber']
 				,$_REQUEST['insuranceChargesApply']
+				,$_REQUEST['originAptNum']
+				,$_REQUEST['originCity']
+				,$_REQUEST['originState']
+
+				,$_REQUEST['originZip']
+				,$_REQUEST['destinationAptNum']
+				,$_REQUEST['destinationCity']
+				,$_REQUEST['destinationState']
+				,$_REQUEST['destinationZip']
+
 				,$_REQUEST['jobid']);
 			$jobid=$_REQUEST['jobid'];
 		}

@@ -30,9 +30,11 @@ class searchAjax {
 			,'%'.$_REQUEST['searchTerm'].'%'
 			,'%'.$_REQUEST['searchTerm'].'%');
 
+
 		// Search employee names
 		$sql="SELECT idemployees,nickname,first,last,cellPhone,picURI FROM moverAdmin.employees WHERE (nickname LIKE ? OR first LIKE ? OR last LIKE ? OR concat(first,' ',last) LIKE ? OR concat(nickname,' ',last) LIKE ?);";
 		$results[]=query($sql,'%'.$_REQUEST['searchTerm'].'%','%'.$_REQUEST['searchTerm'].'%','%'.$_REQUEST['searchTerm'].'%','%'.$_REQUEST['searchTerm'].'%','%'.$_REQUEST['searchTerm'].'%');
+
 
 		// Search equipment names
 		$sql="SELECT idequipment,name,type,year,isAvailable,picURI FROM moverAdmin.equipment WHERE name LIKE ?;";
@@ -40,6 +42,23 @@ class searchAjax {
 
 
 		//search through jobs
+
+		// exclude previously found jobs
+		$excludeString='';
+		$ids=array();
+		foreach($results as $key=>$result2){
+			foreach($result2 as $key=>$result){
+				if(array_key_exists('idjobs',$result)){
+					$ids[]=$result['idjobs'];
+				}
+			}
+		}
+		if($ids){
+			foreach($ids as $key=>$id){
+				$excludeString.=' AND idjobs != '.$id;
+			}
+		}
+
 		$sql="SELECT idjobs,startDate,destinationAddress,destinationCity,weight,startDate,status,picURI FROM moverAdmin.jobs WHERE (
 
 			notes LIKE ? 
@@ -65,7 +84,7 @@ class searchAjax {
 			OR weightType LIKE ? 
 			OR vaultPackOrder LIKE ? 
 			OR shuttleTruckNumber LIKE ?
-		);";
+		)".$excludeString;
 
 		$results[]=query($sql
 
@@ -95,6 +114,23 @@ class searchAjax {
 		);
 
 		//search through employees
+
+		// exclude previously found employees
+		$excludeString='';
+		$ids=array();
+		foreach($results as $key=>$result2){
+			foreach($result2 as $key=>$result){
+				if(array_key_exists('idemployees',$result)){
+					$ids[]=$result['idemployees'];
+				}
+			}
+		}
+		if($ids){
+			foreach($ids as $key=>$id){
+				$excludeString.=' AND idemployees != '.$id;
+			}
+		}
+
 		$sql="SELECT idemployees,nickname,first,last,cellPhone,picURI FROM moverAdmin.employees WHERE (
 
 			email LIKE ? 
@@ -106,7 +142,7 @@ class searchAjax {
 			OR license LIKE ?
 			OR licenseState LIKE ?
 
-		);";
+		)".$excludeString;
 		$results[]=query($sql
 
 			,'%'.$_REQUEST['searchTerm'].'%'
@@ -121,6 +157,23 @@ class searchAjax {
 		);
 
 		//search through equipment
+
+		// exclude previously found employees
+		$excludeString='';
+		$ids=array();
+		foreach($results as $key=>$result2){
+			foreach($result2 as $key=>$result){
+				if(array_key_exists('idequipment',$result)){
+					$ids[]=$result['idequipment'];
+				}
+			}
+		}
+		if($ids){
+			foreach($ids as $key=>$id){
+				$excludeString.=' AND idequipment != '.$id;
+			}
+		}
+
 		$sql="SELECT idequipment,name,type,year,isAvailable,picURI FROM moverAdmin.equipment WHERE (
 
 			manufacid LIKE ?
@@ -137,7 +190,7 @@ class searchAjax {
 
 			OR notes LIKE ?
 
-		);";
+		)".$excludeString;
 		$results[]=query($sql
 
 			,'%'.$_REQUEST['searchTerm'].'%'
