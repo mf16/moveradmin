@@ -26,6 +26,8 @@
             <div class="brand">
 <script>
 //$('#searchResults').show();
+
+}
 </script>
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
 
@@ -42,7 +44,7 @@
                     <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
-                    <input type="text" class="form-control no-border no-padding search" placeholder="Search Workspace" onkeyup="searchSite()">
+                    <input id="searchInput" type="text" class="form-control no-border no-padding search" placeholder="Search Workspace" onkeyup="searchSite()">
                 </div>
             </form>
 

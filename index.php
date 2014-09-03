@@ -229,20 +229,20 @@ include_once "global.php";
     </div>
 
     <!-- core scripts -->
-    <script src="vendor/jquery-1.11.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="/vendor/jquery-1.11.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
     <!-- /core scripts -->
 
     <!-- page level scripts -->
     <!-- /page level scripts -->
 
     <!-- theme scripts -->
-    <script src="js/global.js"></script>
-    <script src="js/off-canvas.js"></script>
-    <script src="vendor/jquery.placeholder.js"></script>
-    <script src="vendor/offline/offline.min.js"></script>
-    <script src="vendor/pace/pace.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/off-canvas.js"></script>
+    <script src="/vendor/jquery.placeholder.js"></script>
+    <script src="/vendor/offline/offline.min.js"></script>
+    <script src="/vendor/pace/pace.min.js"></script>
+    <script src="/js/main.js"></script>
     <!-- /theme scripts -->
 
 </body>

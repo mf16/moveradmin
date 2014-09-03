@@ -7,7 +7,13 @@ function searchSite(){
 		$('.searchResults').css('display', 'none');
 	}
 	else{
-		$.ajax({url:"siteSearch.php",success:function(result){
+		var ajaxData={
+			searchTerm:$('#searchInput').val()
+		};
+		$.ajax({url:"/includes/searchAjax.php?action=search"
+			,data:ajaxData
+			,success:function(result){
+			console.log(result);
 			//POPULATE AND PARSE RESULTS HERE
 			$('.searchResults').css('display', 'inline');
 			$('.searchResults').css('left', navWidth);
