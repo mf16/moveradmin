@@ -16,7 +16,7 @@ class searchAjax {
 
 		$results=array();
 		// Search job destinations
-		$sql="SELECT idjobs,startDate,destinationAddress,status,picURI FROM moverAdmin.jobs WHERE (
+		$sql="SELECT idjobs,startDate,destinationAddress,destinationCity,weight,startDate,status,picURI FROM moverAdmin.jobs WHERE (
 			destinationAddress LIKE ?
 			OR destinationAptNum LIKE ?
 			OR destinationCity LIKE ?
@@ -40,7 +40,7 @@ class searchAjax {
 
 
 		//search through jobs
-		$sql="SELECT idjobs,startDate,destinationAddress,status,picURI FROM moverAdmin.jobs WHERE (
+		$sql="SELECT idjobs,startDate,destinationAddress,destinationCity,weight,startDate,status,picURI FROM moverAdmin.jobs WHERE (
 
 			notes LIKE ? 
 			OR regNum LIKE ? 
