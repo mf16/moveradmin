@@ -1,7 +1,7 @@
 function searchSite(){
 	var query = $('.search').val();
 	var navWidth = $('.main-navigation').css('width');	
-	console.log(query);
+	//console.log(query);
 	if(query === ''){
 		//empty query, clear results
 		$('.searchResults').css('display', 'none');
