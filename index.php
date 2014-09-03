@@ -76,8 +76,9 @@ include_once "global.php";
 
                 <!-- content wrapper -->
                 <div class="content-wrap">
-                    <h1 class="mg-b-lg">Daily Report</h1>
+                    <!--
                     <div class="col-md-3 col-xs-12">
+                        <h1 class="mg-b-lg">Daily Report</h1>
                         <div class="col-xs-12">
                             <section class="panel position-relative">
 <a href="/job/1">
@@ -157,14 +158,14 @@ include_once "global.php";
                                 </div>
                             </section>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <div class="col-sm-9 col-xs-12">
+                    <div class="col-xs-12">
                         <div class="row">
                             <section class="col-md-6 mg-b-lg">
-                                <h1 class="no-mg-t">Weekly Overview</h1>
+                                <h1 class="mg-b-lg">Weekly Overview</h1>
                             </section>
-                            <section class="col-md-6 text-right mg-b-lg">
+                            <section class="col-md-6 text-right mg-t-lg mg-b-lg">
                                 <a href="/job/new"><button type="button" class="btn btn-primary">New Job</button></a>
                             </section>
                         </div>
