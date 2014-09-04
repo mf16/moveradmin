@@ -88,7 +88,9 @@ class newJobAjax {
 				,destinationState
 				,destinationZip
 
-			) VALUES (?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?);";
+				,adminid
+
+			) VALUES (?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?,?,?,?,? ,?);";
 			$jobid=(query($sql
 				,$_REQUEST['startDate']
 				,$_REQUEST['startTime']
@@ -125,6 +127,8 @@ class newJobAjax {
 				,$_REQUEST['destinationCity']
 				,$_REQUEST['destinationState']
 				,$_REQUEST['destinationZip']
+
+				,$_SESSION['userid']
 			));
 		} else {
 			// save

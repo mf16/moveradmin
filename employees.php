@@ -89,6 +89,8 @@
 </style>
 
 <?php
+include 'includes/header.php';
+
     // Set vars
 	$nickname='';
     $first='';
@@ -129,40 +131,50 @@
     		$employeeid='new';
     		// do not set anything, that id does not exit
     	} else {
-			$nickname=$empInfo['nickname'];
-    		$first=$empInfo['first'];
-    		$last=$empInfo['last'];
-    		$email=$empInfo['email'];
-    		$address=$empInfo['address'];
 
-    		$dailyRate=$empInfo['dailyRate'];
-    		$cellPhone=$empInfo['cellPhone'];
-    		$homePhone=$empInfo['homePhone'];
-    		$empSince=$empInfo['empSince'];
-    		$CID=$empInfo['CID'];
-
-    		$PVO=$empInfo['PVO'];
-    		$drugScreened=$empInfo['drugScreened'];
-    		$screenedDate=$empInfo['screenedDate'];
-    		$canDrive=$empInfo['canDrive'];
-    		$license=$empInfo['license'];
-
-    		$licenseState=$empInfo['licenseState'];
-    		$licenseClass=$empInfo['licenseClass'];
-    		$bobtailExp=$empInfo['bobtailExp'];
-    		$bobtailYears=$empInfo['bobtailYears'];
-    		$bobtailMiles=$empInfo['bobtailMiles'];
-
-			$tractorExp=$empInfo['tractorExp'];
-			$tractorYears=$empInfo['tractorYears'];
-			$tractorMiles=$empInfo['tractorMiles'];
-			$picURI=$empInfo['picURI'];
-			$skill=$empInfo['skill'];
-
-			$sql="SELECT endorsement FROM moverAdmin.employeeEndorsements WHERE employeeid=?;";
+			// check if we have access
+			$sql="SELECT adminid FROM moverAdmin.employees WHERE idemployees=?;";
 			$results=query($sql,$employeeid);
-			foreach($results as $key=>$result){
-				$endorsements[]=$result['endorsement'];
+			$results=$results[0];
+			if($results['adminid']!=$_SESSION['userid']){
+				$employeeid='new';
+			} else {
+
+				$nickname=$empInfo['nickname'];
+				$first=$empInfo['first'];
+				$last=$empInfo['last'];
+				$email=$empInfo['email'];
+				$address=$empInfo['address'];
+
+				$dailyRate=$empInfo['dailyRate'];
+				$cellPhone=$empInfo['cellPhone'];
+				$homePhone=$empInfo['homePhone'];
+				$empSince=$empInfo['empSince'];
+				$CID=$empInfo['CID'];
+
+				$PVO=$empInfo['PVO'];
+				$drugScreened=$empInfo['drugScreened'];
+				$screenedDate=$empInfo['screenedDate'];
+				$canDrive=$empInfo['canDrive'];
+				$license=$empInfo['license'];
+
+				$licenseState=$empInfo['licenseState'];
+				$licenseClass=$empInfo['licenseClass'];
+				$bobtailExp=$empInfo['bobtailExp'];
+				$bobtailYears=$empInfo['bobtailYears'];
+				$bobtailMiles=$empInfo['bobtailMiles'];
+
+				$tractorExp=$empInfo['tractorExp'];
+				$tractorYears=$empInfo['tractorYears'];
+				$tractorMiles=$empInfo['tractorMiles'];
+				$picURI=$empInfo['picURI'];
+				$skill=$empInfo['skill'];
+
+				$sql="SELECT endorsement FROM moverAdmin.employeeEndorsements WHERE employeeid=?;";
+				$results=query($sql,$employeeid);
+				foreach($results as $key=>$result){
+					$endorsements[]=$result['endorsement'];
+				}
 			}
     	}
     } else {
@@ -175,7 +187,7 @@
    <?php 
 	
 	error_reporting(-1);
-include 'includes/header.php';?>
+?>
 
             <!-- main content -->
             <section class="main-content">

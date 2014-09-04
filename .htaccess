@@ -1,4 +1,6 @@
 RewriteEngine On
+RewriteRule ^welcome$ welcome.php [L]
+RewriteRule ^welcome/$ welcome.php [L]
 RewriteRule ^job/new newJob.php
 RewriteRule ^job/([0-9,a-z,A-Z]+)$ newJob.php?id=$1 [L]
 RewriteRule ^jobs/$ joblist.php

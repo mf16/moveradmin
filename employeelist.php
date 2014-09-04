@@ -60,8 +60,8 @@
                             </div>
 							<?php
 							global $db;
-							$sql="SELECT * FROM moverAdmin.employees;";
-							$employees=query($sql);
+							$sql="SELECT * FROM moverAdmin.employees WHERE adminid=?;";
+							$employees=query($sql,$_SESSION['userid']);
 							foreach($employees as $key=>$employee){
 								//print_r($employee);
 ?>

@@ -87,8 +87,8 @@ include_once "global.php";
                             </div>
 <?php
 							global $db;
-							$sql="SELECT * FROM moverAdmin.jobs;";
-							$jobs=query($sql);
+							$sql="SELECT * FROM moverAdmin.jobs WHERE adminid=?;";
+							$jobs=query($sql,$_SESSION['userid']);
 							foreach($jobs as $key=>$job){
 ?>
 

@@ -76,7 +76,9 @@
     </style>
 </head><!-- body -->
 
-<?php
+<?php include 'includes/header.php'; 
+
+
 	//set vars
 	$startDate=date('m/d/Y');
 	$startTime='12:01:00';
@@ -126,50 +128,60 @@
 			$jobid='new';
 		} else {
 
-			$startDate=$jobInfo['startDate'];
-			$startTime=$jobInfo['startTime'];
-			$onsiteTime=$jobInfo['onsiteTime'];
-			$notes=$jobInfo['notes'];
-			$regNum=$jobInfo['regNum'];
+			// check if we have access
+			$sql="SELECT adminid FROM moverAdmin.jobs WHERE idjobs=?;";
+			$results=query($sql,$jobid);
+			$results=$results[0];
+			if($results['adminid']!=$_SESSION['userid']){
+				$jobid='new';
+			} else {
 
-			$shipperName=$jobInfo['shipperName'];
-			$shipperPhone=$jobInfo['shipperPhone'];
-			$altShipperName=$jobInfo['altShipperName'];
-			$altPhone=$jobInfo['altPhone'];
-			$originAddress=$jobInfo['originAddress'];
 
-			$originShuttle=$jobInfo['originShuttle'];
-			$originInstructions=$jobInfo['originInstructions'];
-			$destinationAddress=$jobInfo['destinationAddress'];
-			$destinationShuttle=$jobInfo['destinationShuttle'];
-			$destinationInstructions=$jobInfo['destinationInstructions'];
+				$startDate=$jobInfo['startDate'];
+				$startTime=$jobInfo['startTime'];
+				$onsiteTime=$jobInfo['onsiteTime'];
+				$notes=$jobInfo['notes'];
+				$regNum=$jobInfo['regNum'];
 
-			$status=$jobInfo['status'];
-			$confirmedBy=$jobInfo['confirmedBy'];
-			$weight=$jobInfo['weight'];
-			$weightType=$jobInfo['weightType'];
-			$vaultPackOrder=$jobInfo['vaultPackOrder'];
+				$shipperName=$jobInfo['shipperName'];
+				$shipperPhone=$jobInfo['shipperPhone'];
+				$altShipperName=$jobInfo['altShipperName'];
+				$altPhone=$jobInfo['altPhone'];
+				$originAddress=$jobInfo['originAddress'];
 
-			$shuttleTruckNumber=$jobInfo['shuttleTruckNumber'];
-			$insuranceChargesApply=$jobInfo['insuranceChargesApply'];
+				$originShuttle=$jobInfo['originShuttle'];
+				$originInstructions=$jobInfo['originInstructions'];
+				$destinationAddress=$jobInfo['destinationAddress'];
+				$destinationShuttle=$jobInfo['destinationShuttle'];
+				$destinationInstructions=$jobInfo['destinationInstructions'];
 
-			$originAptNum=$jobInfo['originAptNum'];
-			$originCity=$jobInfo['originCity'];
-			$originState=$jobInfo['originState'];
-			$originZip=$jobInfo['originZip'];
+				$status=$jobInfo['status'];
+				$confirmedBy=$jobInfo['confirmedBy'];
+				$weight=$jobInfo['weight'];
+				$weightType=$jobInfo['weightType'];
+				$vaultPackOrder=$jobInfo['vaultPackOrder'];
 
-			$destinationAptNum=$jobInfo['destinationAptNum'];
-			$destinationCity=$jobInfo['destinationCity'];
-			$destinationState=$jobInfo['destinationState'];
-			$destinationZip=$jobInfo['destinationZip'];
+				$shuttleTruckNumber=$jobInfo['shuttleTruckNumber'];
+				$insuranceChargesApply=$jobInfo['insuranceChargesApply'];
 
-			$multiselects = array('moveTypes','serviceTypes','drivers','laborers','equipment');
-			foreach($multiselects as $key=>$multiselect){
-				$sql="SELECT ".$multiselect."id FROM moverAdmin.".$multiselect."ForJob WHERE jobid=?;";
-				$results=query($sql,$jobid);
-				foreach($results as $key=>$result){
-					//jobmoveTypes
-					${"job".$multiselect}[]=$result[$multiselect.'id'];
+				$originAptNum=$jobInfo['originAptNum'];
+				$originCity=$jobInfo['originCity'];
+				$originState=$jobInfo['originState'];
+				$originZip=$jobInfo['originZip'];
+
+				$destinationAptNum=$jobInfo['destinationAptNum'];
+				$destinationCity=$jobInfo['destinationCity'];
+				$destinationState=$jobInfo['destinationState'];
+				$destinationZip=$jobInfo['destinationZip'];
+
+				$multiselects = array('moveTypes','serviceTypes','drivers','laborers','equipment');
+				foreach($multiselects as $key=>$multiselect){
+					$sql="SELECT ".$multiselect."id FROM moverAdmin.".$multiselect."ForJob WHERE jobid=?;";
+					$results=query($sql,$jobid);
+					foreach($results as $key=>$result){
+						//jobmoveTypes
+						${"job".$multiselect}[]=$result[$multiselect.'id'];
+					}
 				}
 			}
 		}
@@ -195,7 +207,6 @@
 
 ?>
 <body>
-    <?php include 'includes/header.php'; ?><!-- main content -->
 
     <section class="main-content">
         <!-- content wrapper -->

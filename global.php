@@ -9,6 +9,10 @@
 //
 //////////////////////////////////////////
 session_start();
+if(!isset($_SESSION['userid']) && !strpos($_SERVER['REQUEST_URI'],'welcome')){
+	header('Location:/welcome');
+	die;
+}
 error_reporting(0);
 
 include_once "plugins/krumo/class.krumo.php";

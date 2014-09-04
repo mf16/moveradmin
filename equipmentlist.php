@@ -60,8 +60,8 @@
                             </div>
 							<?php
 							global $db;
-							$sql="SELECT * FROM moverAdmin.equipment ORDER BY isAvailable DESC;";
-							$equipments=query($sql);
+							$sql="SELECT * FROM moverAdmin.equipment WHERE adminid=? ORDER BY isAvailable DESC;";
+							$equipments=query($sql,$_SESSION['userid']);
 							foreach($equipments as $key=>$equipment){
 								if(isset($equipment['isAvailable']) && $equipment['isAvailable']>0){
 									$isAvailableString='<div class="col-xs-3 mg-t-xs text-center"><button class="btn btn-success btn-outline">Available</button></div>';

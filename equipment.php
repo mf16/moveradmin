@@ -102,29 +102,38 @@
             $equipmentid='new';
             // do not set anything, that id does not exit
         } else {
-            $name=$equipInfo['name'];
-            $manufacid=$equipInfo['manufacid'];
-            $make=$equipInfo['make'];
-            $model=$equipInfo['model'];
-            $year=$equipInfo['year'];
-            $mileage=$equipInfo['mileage'];
-			$length=$equipInfo['length'];
-			$heightFt=$equipInfo['heightFt'];
-			$heightIn=$equipInfo['heightIn'];
-			$GVW=$equipInfo['GVW'];
-            $rentOwn=$equipInfo['rentOwn'];
-			$billable=$equipInfo['billable'];
-			$equipped=$equipInfo['equipped'];
-            $isAvailable=$equipInfo['isAvailable'];
-			$damages=$equipInfo['damages'];
-			$notes=$equipInfo['notes'];
-            $type=$equipInfo['type'];
-            if($rentOwn=='rent'){
-                $rentChecked=' checked';
-            } else if ($rentOwn=='own'){
-                $ownChecked=' checked';
-            }
-            $picture=$equipInfo['picture'];
+			// check if we have access
+			$sql="SELECT adminid FROM moverAdmin.equipment WHERE idequipment=?;";
+			$results=query($sql,$equipmentid);
+			$results=$results[0];
+			if($results['adminid']!=$_SESSION['userid']){
+				$equipmentid='new';
+			} else {
+				
+				$name=$equipInfo['name'];
+				$manufacid=$equipInfo['manufacid'];
+				$make=$equipInfo['make'];
+				$model=$equipInfo['model'];
+				$year=$equipInfo['year'];
+				$mileage=$equipInfo['mileage'];
+				$length=$equipInfo['length'];
+				$heightFt=$equipInfo['heightFt'];
+				$heightIn=$equipInfo['heightIn'];
+				$GVW=$equipInfo['GVW'];
+				$rentOwn=$equipInfo['rentOwn'];
+				$billable=$equipInfo['billable'];
+				$equipped=$equipInfo['equipped'];
+				$isAvailable=$equipInfo['isAvailable'];
+				$damages=$equipInfo['damages'];
+				$notes=$equipInfo['notes'];
+				$type=$equipInfo['type'];
+				if($rentOwn=='rent'){
+					$rentChecked=' checked';
+				} else if ($rentOwn=='own'){
+					$ownChecked=' checked';
+				}
+				$picture=$equipInfo['picture'];
+			}
         }
     } else {
         $equipmentid='new';

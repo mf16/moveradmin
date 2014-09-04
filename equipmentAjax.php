@@ -49,7 +49,9 @@ class equipmentAjax {
 				,picURI
 				,damages
 				,notes
-				) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
+				,adminid
+				) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? ,?);";
 			print_r(query($sql
 				,$_REQUEST['name']
 				,$_REQUEST['manufacid']
@@ -69,6 +71,8 @@ class equipmentAjax {
 				,$_REQUEST['picture']
 				,$_REQUEST['damages']
 				,$_REQUEST['notes']
+
+				,$_SESSION['userid']
 			));
 		} else {
 			//save

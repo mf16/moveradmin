@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admins` (
+  `idadmins` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `pin` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idadmins`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admins`
+--
+
+LOCK TABLES `admins` WRITE;
+/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+INSERT INTO `admins` VALUES (1,'mitch','123');
+/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `driversForJob`
 --
 
@@ -101,8 +126,9 @@ CREATE TABLE `employees` (
   `tractorMiles` decimal(8,2) DEFAULT NULL,
   `picURI` varchar(100) DEFAULT NULL,
   `skill` int(11) DEFAULT NULL,
+  `adminid` int(11) DEFAULT NULL,
   PRIMARY KEY (`idemployees`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +137,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Mitch','Mitchell','Facer','email@email.com','123 address',52,'1234567890','0987654321','2014-03-05','6','3',1,'2014-08-24',1,'51236','FL','B',1,232,1.00,1,1,3.00,'mitch.jpg',10),(2,NULL,'Tyler','Slater',NULL,NULL,52,'5555555555',NULL,'0000-00-00',NULL,NULL,NULL,NULL,1,'0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'tyler.jpg',7),(3,'Superman','Clark','Kent','savindawurld@gmail.com','555 Some Street, Earth',1000,'1234567890','','0000-00-00','','',0,'0000-00-00',0,'','AL','pick',1,233,11362.00,0,0,0.00,'superman.jpg',10);
+INSERT INTO `employees` VALUES (1,'Mitch','Mitchell','Facer','email@email.com','123 address',52,'1234567890','0987654321','2014-03-05','6','3',1,'2014-08-24',1,'51236','FL','B',1,232,1.00,1,1,3.00,'mitch.jpg',10,1),(2,'','Tyler','Slater','','',52,'5555555555','','2014-09-03','','',0,'1969-12-31',1,'0','','',0,0,0.00,0,0,0.00,'tyler.jpg',7,1),(3,'Superman','Clark','Kent','savindawurld@gmail.com','555 Some Street, Earth',1000,'1234567890','','2014-09-01','','',0,'1969-12-31',0,'','AL','pick',1,233,11362.00,0,0,0.00,'superman.jpg',10,1);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,8 +168,9 @@ CREATE TABLE `equipment` (
   `picURI` varchar(100) DEFAULT NULL,
   `damages` blob,
   `notes` blob,
+  `adminid` int(11) DEFAULT NULL,
   PRIMARY KEY (`idequipment`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +179,7 @@ CREATE TABLE `equipment` (
 
 LOCK TABLES `equipment` WRITE;
 /*!40000 ALTER TABLE `equipment` DISABLE KEYS */;
-INSERT INTO `equipment` VALUES (47,'White Pickup Truck','3FM 48Q','Pickup Truck','GMC','K1500',1985,3256.23,8,6,7,3262.30,'own',1,1,1,'truck.jpg','Some rust','Diesel, make sure to warm up glow plugs first!'),(48,'Red Moving Lift','32sM9','other','RedMachine','Lift-o-Matic',1998,0.00,3,8,2,262.00,'own',0,0,0,'lift.jpg','no damages.','Be careful!'),(49,'Hippiemobile','PEA CE','van','VW','Type 2',1973,78000.00,14,8,3,2323.00,'own',0,0,1,'hippiemobile.jpg','','One love, man.');
+INSERT INTO `equipment` VALUES (47,'White Pickup Truck','3FM 48Q','Pickup Truck','GMC','K1500',1985,3256.23,8,6,7,3262.30,'own',1,1,1,'truck.jpg','Some rust','Diesel, make sure to warm up glow plugs first!',1),(48,'Red Moving Lift','32sM9','other','RedMachine','Lift-o-Matic',1998,0.00,3,8,2,262.00,'own',0,0,0,'lift.jpg','no damages.','Be careful!',1),(49,'Hippiemobile','PEA CE','van','VW','Type 2',1973,78000.00,14,8,3,2323.00,'own',0,0,1,'hippiemobile.jpg','','One love, man.',1);
 /*!40000 ALTER TABLE `equipment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,8 +249,9 @@ CREATE TABLE `jobs` (
   `shuttleTruckNumber` varchar(45) DEFAULT NULL,
   `insuranceChargesApply` tinyint(4) DEFAULT '0',
   `picURI` varchar(255) DEFAULT NULL,
+  `adminid` int(11) DEFAULT NULL,
   PRIMARY KEY (`idjobs`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,7 +260,7 @@ CREATE TABLE `jobs` (
 
 LOCK TABLES `jobs` WRITE;
 /*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
-INSERT INTO `jobs` VALUES (1,'2014-09-02','12:00:00','16:45:00','driver ntoes hereasdf','regNum1245','shipperName Here','1234567890','alt shipper name','0987654321','1asdf23 provo street','Apt 2','Provo','MT',NULL,0,'don\'t mess it up','233 East South Temple','22','Salt Lake City','UT',NULL,1,'no, really.','Confirmed by CSR','confirmed by this dude','624','weight type.. wat?','valt pack order#135t','shuttletrucknumber?asdf',1,'house1.jpg'),(10,'2014-09-04','15:45:00','04:30:00','','','','','','','',NULL,NULL,NULL,NULL,0,'','Scotch Plains, NJ',NULL,'Salt Lake City',NULL,NULL,0,'','Not confirmed','','6123','','','',0,'house3.jpg');
+INSERT INTO `jobs` VALUES (1,'2014-09-02','12:00:00','16:45:00','driver ntoes hereasdf','regNum1245','shipperName Here','1234567890','alt shipper name','0987654321','1asdf23 provo street','Apt 2','Provo','MT',NULL,0,'don\'t mess it up','233 East South Temple','22','Salt Lake City','UT',NULL,1,'no, really.','Confirmed by CSR','confirmed by this dude','624','weight type.. wat?','valt pack order#135t','shuttletrucknumber?asdf',1,'house1.jpg',1),(10,'2014-09-04','15:45:00','04:30:00','','','','','','','',NULL,NULL,NULL,NULL,0,'','Scotch Plains, NJ',NULL,'Salt Lake City',NULL,NULL,0,'','Not confirmed','','6123','','','',0,'house3.jpg',2),(11,'2014-09-03','01:00:00','01:00:00','','','asdf','','','','','','','',NULL,0,'','','','asdf','',NULL,0,'','','','','','','',0,NULL,1);
 /*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,3 +398,5 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-09-03 18:50:15
