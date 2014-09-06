@@ -1,6 +1,7 @@
 <?php
 include_once "global.php";
 ?>
+<!DOCTYPE html>
 <html class="no-js">
 
 <head>
