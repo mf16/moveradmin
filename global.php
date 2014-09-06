@@ -9,12 +9,14 @@
 //
 //////////////////////////////////////////
 session_start();
+error_reporting(E_ALL | E_WARNING | E_NOTICE);
+ini_set('display_errors', TRUE);
+flush();
 if(!isset($_SESSION['userid']) && !strpos($_SERVER['REQUEST_URI'],'welcome')){
 	header('Location:/welcome');
 	die;
 }
 error_reporting(0);
-
 include_once "plugins/krumo/class.krumo.php";
 
 // DB settings
@@ -35,3 +37,4 @@ if($db->connect_errno > 0){
 }
 
 include_once "functions.php";
+echo '<!DOCTYPE html>';

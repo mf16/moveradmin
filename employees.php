@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php include_once "global.php";
 ?>
 <html class="no-js">
