@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","goaptitude","Chicheme2013");
+$con=mysqli_connect("localhost","root","#Mountain72");
 
 // Check connection
 if (mysqli_connect_errno()) {
